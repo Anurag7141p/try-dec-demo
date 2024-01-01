@@ -6,7 +6,7 @@ import { signupValidation } from '../../validation/yup';
 import { useFormik, Formik, Form } from 'formik';
 import Regbtn from './googlebtn/googlebtn';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-
+import FacebookBtn from './facebookbtn/facebookbtn';
 const initialValues = {
     name: '',
     phone: '',
@@ -87,6 +87,7 @@ const Component = () => {
                 <GoogleOAuthProvider clientId={import.meta.env?.VITE_GOOGLE_CLIENT}>
                     <Regbtn />
                 </GoogleOAuthProvider>
+                <FacebookBtn />
                 <Link to="/">
                     <button
                         type='button'

@@ -164,7 +164,7 @@ const AddProducts = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                    </Form></Formik>
+                                </Form></Formik>
                             </div>
                         </div>
 
@@ -316,21 +316,21 @@ const AddProducts = () => {
                                 <div className='text-blue-400 lg:mb-10 text-sm '>
                                     <p>Adding document enable us to verify and keep fraudu;ent activites out of reach.</p>
                                 </div>
-                                <div class="flex  space-x-3 lg:mt-20 mb-8">
+                                <div className="flex  space-x-3 lg:mt-20 mb-8">
                                     <Link to={'/createstore'}
                                     >
-                                        <button class='bg-blue-500 rounded px-4 py-2 lg:py-1 mb-2 lg:mt-2  '>Back</button>
+                                        <button className='bg-blue-500 rounded px-4 py-2 lg:py-1 mb-2 lg:mt-2  '>Back</button>
                                     </Link>
                                     <Link to={'/update-product'}>
-                                        <button class='bg-blue-500 rounded px-4 py-2 lg:py-1 mb-2 lg:mt-2 '>Save</button>
+                                        <button className='bg-blue-500 rounded px-4 py-2 lg:py-1 mb-2 lg:mt-2 '>Save</button>
                                     </Link>
                                 </div>
-                                <div class="flex i">
-                                    <div class='outer-circle mr-8 mt-40'>
-                                        <div class='inner-dot'></div>
+                                <div className="flex i">
+                                    <div className='outer-circle mr-8 mt-40'>
+                                        <div className='inner-dot'></div>
                                     </div>
-                                    <div class='outer-circle mr-8 indot '></div>
-                                    <div class='outer-circle mr-8  indot '></div>
+                                    <div className='outer-circle mr-8 indot '></div>
+                                    <div className='outer-circle mr-8  indot '></div>
                                 </div>
 
                             </div>
