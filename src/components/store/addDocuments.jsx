@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import Layout from '../layout/homelayout';
 import { HomeValidation } from '../../validation/yup';
+import axios from 'axios';
+
 HomeValidation
 const initialValues = {
     pancard: ""
@@ -22,7 +24,19 @@ const AddDocument = () => {
             console.log(values);
         }
     });
-
+    const uploadImage = (files) => {
+        const formData = new FormData();
+        formData.append("file", files[0]);
+        formData.append("upload_preset", import.meta.env.VITE_CLOUDINARY_API_KEY); 
+    
+        axios.post(`https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUD_NAME}/image/upload`, formData)
+            .then((res) => {
+                console.log("imgurl:", res.data.url);
+            })
+            .catch((error) => {
+                console.error('Error uploading image:', error);
+            });
+    };
     return (
         <div >
             <Layout>
@@ -94,7 +108,7 @@ const AddDocument = () => {
                             <h1>Upload images</h1>
                             <p className='text-gray-500 text-sm '>Front and back of your Aadhar</p>
                             <label htmlFor='imageUpload' className='block w-40 h-10 border-2 border-dashed border-blue-300  mt-2 cursor-pointer flex items-center justify-center  bg-blue-50 text-blue-500 text-center'>
-                                <input type='file' id='imageUpload' className='hidden' />
+                                <input type='file' id='imageUpload' className='hidden'onChange={(event) => { uploadImage(event.target.files) }}  />
                                 +Add image
                             </label>
                             <div className='mt-10'>
@@ -112,7 +126,7 @@ const AddDocument = () => {
                             </div>
                             <div >
                                 <label htmlFor='imageUpload' className='block w-80 h-10 border-2 border-dashed border-blue-300  mt-2 cursor-pointer flex items-center justify-center  bg-blue-50 text-blue-500 text-center'>
-                                    <input type='file' id='imageUpload' className='hidden' />
+                                    <input type='file' id='imageUpload' className='hidden' onChange={(event) => { uploadImage(event.target.files) }} />
                                     +Add image
                                 </label>
 

@@ -23,7 +23,6 @@ const Component = () => {
             console.log(values);
         }
     })
-
     return (
         <Formik
             initialValues={initialValues}
@@ -87,6 +86,7 @@ const Component = () => {
                 <GoogleOAuthProvider clientId={import.meta.env?.VITE_GOOGLE_CLIENT}>
                     <Regbtn />
                 </GoogleOAuthProvider>
+
                 <FacebookBtn />
                 <Link to="/">
                     <button

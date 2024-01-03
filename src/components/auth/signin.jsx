@@ -4,9 +4,9 @@ import Input from '../reusable/input';
 import { Link } from 'react-router-dom';
 import { useFormik, Formik, Form } from 'formik';
 import Regbtn from '../../components/auth/googlebtn/googlebtn';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import { signinValidation } from '../../validation/yup';
 import FacebookBtn from './facebookbtn/facebookbtn';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 const SignIn = () => {
     const initialValues = {
         loginep: '',
@@ -19,10 +19,8 @@ const SignIn = () => {
             console.log(values);
         },
     });
-
     return (
         <div>
-
             <h1 className='text-lg font-medium ...'>Log In </h1>
             <h4 className='text-xlg mb-8'>Welcome back to your rental world</h4>
 
@@ -31,7 +29,6 @@ const SignIn = () => {
                 validationSchema={signinValidation}
             >
                 <Form onSubmit={handleSubmit}>
-
                     <Input
                         type='text'
                         placeholder='Enter Username, Phone Number, Email'
@@ -49,7 +46,6 @@ const SignIn = () => {
                     />
                     {errors.Newpassword && <small className='text-red-500'>{errors.Newpassword}</small>}
                 </Form>
-
             </Formik>
             <Link to={'/signup'}>
                 <button
@@ -63,19 +59,15 @@ const SignIn = () => {
                     type='submit'
                     className='bg-blue-500 text-white px-4 py-2 rounded-md w-full mb-3'
                 >Log in
-
-
                 </button></Link>
-            <GoogleOAuthProvider clientId={import.meta.env?.VITE_GOOGLE_CLIENT}>
+                <GoogleOAuthProvider clientId={import.meta.env?.VITE_GOOGLE_CLIENT}>
                 <Regbtn />
-            </GoogleOAuthProvider>
+                </GoogleOAuthProvider>
+
             <FacebookBtn />
-
-
             <p className='text-center py-2'>
                 Dont have an account?  <Link to="/signup" className='text-blue-500'>join here</Link>
             </p>
-
         </div>
 
     );

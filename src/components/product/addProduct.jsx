@@ -171,7 +171,7 @@ const AddProducts = () => {
                     ),
                     midContent: (
                         <div className='lg:mt-20  '>
-                            <div class="flex flex-row ...">
+                            <div className="flex flex-row ...">
                                 <div>
                                     <div className='flex items-center mb-4 md:mb-0'>
                                         <label htmlFor="state" className='lg:mr-2'>Currency </label>:
@@ -194,7 +194,7 @@ const AddProducts = () => {
                                 </div>
 
                             </div>
-                            <div class="flex flex-row ...">
+                            <div className="flex flex-row ...">
                                 <div>
                                     <div className='flex items-center mb-4 md:mb-0 lg:mt-5 lg:ms-1'>
                                         <label htmlFor="state" className='mr-2'>Amount </label>  :
@@ -230,7 +230,7 @@ const AddProducts = () => {
                                 </div>
 
                             </div>
-                            <div class="flex flex-row ...">
+                            <div className="flex flex-row ...">
                                 <div>
                                     <div className='flex items-center mb-4 md:mb-0 lg:mt-5 '>
                                         <label htmlFor="state" className='mr-2'>Discount</label>:

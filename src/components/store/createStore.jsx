@@ -4,6 +4,8 @@ import Input from '../reusable/input';
 import { Link } from 'react-router-dom';
 import { useFormik, Form, Formik } from 'formik';
 import { HomeValidation } from '../../validation/yup';
+import axios from 'axios';
+
 const initialValues = {
     storename: '',
     address: '',
@@ -63,21 +65,21 @@ const CreateStore = () => {
     const toggleToAmPm = () => {
         setToAmPm((prevAmPm) => (prevAmPm === 'am' ? 'pm' : 'am'));
     };
-    // imgUpload
-    const handleImageUpload = (event) => {
-        const file = event.target.files[0];
-        const reader = new FileReader();
 
-        reader.onload = (e) => {
-            const imageDataURL = e.target.result;
-            // Save the image data URL to local storage
-            localStorage.setItem('imghome', imageDataURL);
-        };
-
-        reader.readAsDataURL(file);
+    const uploadImage = (files) => {
+        const formData = new FormData();
+        formData.append("file", files[0]);
+        formData.append("upload_preset", import.meta.env.VITE_CLOUDINARY_API_KEY); 
+    
+        axios.post(`https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUD_NAME}/image/upload`, formData)
+            .then((res) => {
+                console.log("imgurl:", res.data.url);
+            })
+            .catch((error) => {
+                console.error('Error uploading image:', error);
+            });
     };
-
-    return (
+            return (
         <div>
             <Layout>
                 {{
@@ -90,7 +92,7 @@ const CreateStore = () => {
                                     <Formik
                                         initialValues={initialValues}
                                         validationSchema={HomeValidation} onSubmit={handleSubmit}>
-                                        <Form className="flex flex-col justify-end w-full p-4 mt-10">
+                                        <Form className="flex flex-col justify-end w-full p-4 mt-10 " style={{ width: '414px' }}>
                                             <label className='w-60' htmlFor="storeName ">Choose a name for your store</label>
                                             <Input
                                                 type="text"
@@ -137,7 +139,7 @@ const CreateStore = () => {
                                             <div className='w-full md:w-96 mt-5'>
                                                 <label htmlFor="storeType" className="mb-2">Select your store Location</label>
 
-                                                <div className="relative">
+                                                <div className="relative ">
                                                     <select
                                                         id="storeType"
                                                         name="storeType"
@@ -272,7 +274,7 @@ const CreateStore = () => {
                             <div className='mt-8 md:mt-12 lg:mt-16 lg:mr-10'>
                                 <p className="text-center lg:mr-20">Attach store image</p>
                                 <label htmlFor='imageUpload' className='block w-full md:w-72 h-20 border-2 border-dashed border-blue-300 rounded-lg mt-2 cursor-pointer flex items-center justify-center bg-blue-50 text-blue-500'>
-                                    <input type='file' id='imageUpload' className='hidden' onChange={handleImageUpload} />
+                                    <input type='file' id='imageUpload' className='hidden' accept="image/*" onChange={(event) => { uploadImage(event.target.files) }} />
                                     <span>Click here to <br />attach your files</span>
                                 </label>
                                 <p className='text-gray-400 text-sm text-center md:text-left mt-2'>Attach pdfs, docx, with a size less than 25mb.</p>
