@@ -317,7 +317,7 @@ const AddProducts = () => {
                                     <p>Adding document enable us to verify and keep fraudu;ent activites out of reach.</p>
                                 </div>
                                 <div className="flex  space-x-3 lg:mt-20 mb-8">
-                                    <Link to={'/createstore'}
+                                    <Link to={'/create-store'}
                                     >
                                         <button className='bg-blue-500 rounded px-4 py-2 lg:py-1 mb-2 lg:mt-2  '>Back</button>
                                     </Link>

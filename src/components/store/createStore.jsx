@@ -23,7 +23,10 @@ const CreateStore = () => {
         { value: 'option2', label: 'Option 2' },
         { value: 'option3', label: 'Option 3' },
     ];
-
+    const selectstoretype = [
+        { value: 'option1', label: 'Registered rental store' },
+        { value: 'option2', label: 'My home is my store' },
+    ];
     const { values, handleBlur, handleChange, handleSubmit, errors } = useFormik({
         initialValues: initialValues,
         validationSchema: HomeValidation,
@@ -69,8 +72,8 @@ const CreateStore = () => {
     const uploadImage = (files) => {
         const formData = new FormData();
         formData.append("file", files[0]);
-        formData.append("upload_preset", import.meta.env.VITE_CLOUDINARY_API_KEY); 
-    
+        formData.append("upload_preset", import.meta.env.VITE_CLOUDINARY_API_KEY);
+
         axios.post(`https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUD_NAME}/image/upload`, formData)
             .then((res) => {
                 console.log("imgurl:", res.data.url);
@@ -79,7 +82,7 @@ const CreateStore = () => {
                 console.error('Error uploading image:', error);
             });
     };
-            return (
+    return (
         <div>
             <Layout>
                 {{
@@ -253,8 +256,39 @@ const CreateStore = () => {
                             </div> </div>
                     ),
                     midContent: (
-                        <div className='lg:ms-10'>
-                            <h4 className="text-lg md:text-xl lg:text-2xl text-center lg:mt-40 lg:mr-40">Working hours</h4>
+                        <div className='lg:ms-12 mt-20'>
+                            <div className='w-full md:w-96 mt-5'>
+                                <div className="relative ">
+                                    <select
+                                        id="storeType"
+                                        name="storeType"
+                                        className="block appearance-none w-full bg-white border-b border-gray-400 outline-none focus:border-blue-300  text-gray-700 py-2 mb-4 pr-8 rounded leading-tight focus:outline-none "
+                                    >
+                                         <option value="" disabled selected hidden>Select your store type</option>
+                                        {selectstoretype.map((option) => (
+                                            <option key={option.value} value={option.value}>
+                                                {option.label}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                        <svg
+                                            className="fill-current h-4 w-4"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20"
+                                        >
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clipRule="evenodd"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <h4 className="text-lg md:text-xl lg:text-2xl text-center lg:mt-20 lg:mr-40">Working hours</h4>
 
                             <div className="flex flex-row items-center justify-center md:flex-row md:items-start md:justify-start md:space-x-3 lg:space-x-0.5 mt-4 md:mt-6 lg:mt-4">
                                 <div>
@@ -291,7 +325,7 @@ const CreateStore = () => {
                                     <p>Adding document enable us to verify and keep fraudu;ent activites out of reach.</p>
                                 </div>
                                 <div className="flex  space-x-4 mb-8 mt-20">
-                                    <Link to={'/'}
+                                    <Link to={'/select-type'}
                                     >
                                         <button className='bg-blue-500 rounded px-4 py-2 lg:py-1 mb-2 lg:mt-2 '>Back</button>
                                     </Link>

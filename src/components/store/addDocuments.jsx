@@ -27,8 +27,8 @@ const AddDocument = () => {
     const uploadImage = (files) => {
         const formData = new FormData();
         formData.append("file", files[0]);
-        formData.append("upload_preset", import.meta.env.VITE_CLOUDINARY_API_KEY); 
-    
+        formData.append("upload_preset", import.meta.env.VITE_CLOUDINARY_API_KEY);
+
         axios.post(`https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUD_NAME}/image/upload`, formData)
             .then((res) => {
                 console.log("imgurl:", res.data.url);
@@ -42,7 +42,6 @@ const AddDocument = () => {
             <Layout>
                 {{
                     leftContent: (
-
                         <div className="flex lg:h-screen lg:flex-row lg:ms-10 ">
                             <div>
                                 <div className='md:ms-4 md:mt-40 ms-2 '>
@@ -105,12 +104,19 @@ const AddDocument = () => {
                     ),
                     midContent: (
                         <div className='mt-40 m-3 lg:w-1/2 '>
-                            <h1>Upload images</h1>
-                            <p className='text-gray-500 text-sm '>Front and back of your Aadhar</p>
-                            <label htmlFor='imageUpload' className='block w-40 h-10 border-2 border-dashed border-blue-300  mt-2 cursor-pointer flex items-center justify-center  bg-blue-50 text-blue-500 text-center'>
-                                <input type='file' id='imageUpload' className='hidden'onChange={(event) => { uploadImage(event.target.files) }}  />
-                                +Add image
-                            </label>
+                            
+                                <h1>Upload images</h1>
+                                <p className='text-gray-500 text-sm '>Front and back of your Aadhar</p>
+                                <div className='flex'>
+                                <label htmlFor='imageUpload' className='block w-40 h-10 border-2 border-dashed border-blue-300  mt-2 cursor-pointer flex items-center justify-center  bg-blue-50 text-blue-500 text-center me-2'>
+                                    <input type='file' id='imageUpload' className='hidden' onChange={(event) => { uploadImage(event.target.files) }} />
+                                    +Front image
+                                </label>
+                                    <label htmlFor='imageUpload' className='block w-40 h-10 border-2 border-dashed border-blue-300  mt-2 cursor-pointer flex items-center justify-center  bg-blue-50 text-blue-500 text-center'>
+                                        <input type='file' id='imageUpload' className='hidden' onChange={(event) => { uploadImage(event.target.files) }} />
+                                        +Back image
+                                    </label>
+                            </div>
                             <div className='mt-10'>
                                 <h1 className='mb-2'>Store rule</h1>
                                 <div className='border border-black w-80 px-7 py-1 mb-2'>
@@ -157,7 +163,6 @@ const AddDocument = () => {
                                 <div className='outer-circle mr-8 indot '></div>
                                 <div className='outer-circle mr-8  indot '></div>
                             </div>
-
                         </div>
                     )
                 }}
