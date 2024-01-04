@@ -33,7 +33,7 @@ export default function Regbtn() {
             <img
                 src={googleLogo}
                 alt="Google Logo"
-                className='w-6 h-7 mr-1'
+                className='w-6 h-6 mr-4'
             />
             Sign in with Google
         </button>
