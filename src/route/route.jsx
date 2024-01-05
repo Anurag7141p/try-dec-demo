@@ -9,6 +9,7 @@ import AddProducts from "../components/product/addProduct";
 import UpdateProduct from "../components/product/updateProduct";
 import SelectStoretype from "../components/store/selectStoretype";
 import HomeLocation from "../components/location/location";
+import LocationSearch from "../components/location/locationsearch";
 const UserLayout = () => {
   return <Outlet />;
 };
@@ -54,7 +55,10 @@ const UserRoute = {
       path: "location",
       element: <HomeLocation />
     },
-
+    {
+      path: "location-search",
+      element: <LocationSearch/>
+    },
 
   ],
 };
