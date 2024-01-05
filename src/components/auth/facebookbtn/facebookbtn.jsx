@@ -14,7 +14,7 @@ const FacebookBtn = () => {
             }}>
             <button
                 type='submit'
-                className='border border-black px-4 py-2 rounded-md w-full flex items-center justify-center mb-3'
+                className='border border-black px-4 py-1 rounded-md w-full flex items-center justify-center mb-3'
             > <img
                 src={FaceBook}
                 alt="Facebook Logo"

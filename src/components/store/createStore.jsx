@@ -1,10 +1,11 @@
 import { React, useState } from 'react';
 import Layout from '../layout/homelayout';
 import Input from '../reusable/input';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useFormik, Form, Formik } from 'formik';
 import { HomeValidation } from '../../validation/yup';
 import axios from 'axios';
+
 
 const initialValues = {
     storename: '',
@@ -18,11 +19,16 @@ const initialValues = {
 };
 
 const CreateStore = () => {
+    const navigate = useNavigate();
     const options = [
-        { value: 'option1', label: 'Option 1' },
-        { value: 'option2', label: 'Option 2' },
-        { value: 'option3', label: 'Option 3' },
+        { value: 'option1', label: 'choose your location' },
     ];
+    const handleLocationChange = (event) => {
+        const selectedLocation = event.target.value;
+        if (selectedLocation) {
+          navigate(`/location`);
+        }
+      };
     const selectstoretype = [
         { value: 'option1', label: 'Registered rental store' },
         { value: 'option2', label: 'My home is my store' },
@@ -141,14 +147,16 @@ const CreateStore = () => {
                                             </div>
                                             <div className='w-full md:w-96 mt-5'>
                                                 <label htmlFor="storeType" className="mb-2">Select your store Location</label>
-
                                                 <div className="relative ">
                                                     <select
                                                         id="storeType"
                                                         name="storeType"
-                                                        className="block appearance-none w-full bg-white border-b border-gray-400 outline-none focus:border-blue-500  text-gray-700 py-2 mb-4 pr-8 rounded leading-tight focus:outline-none focus:border-blue-500 "
+                                                        className="block appearance-none w-full bg-white border-b border-gray-400 outline-none focus:border-blue-500  text-gray-700 py-2 mb-4 pr-8 rounded leading-tight focus:outline-none focus:border-blue-500 relative"
+                                                        onChange={handleLocationChange}
                                                     >
-                                                        <option value="">Select location</option>
+                                                        <option value="" disabled selected hidden>
+                                                            Select location
+                                                        </option>
                                                         {options.map((option) => (
                                                             <option key={option.value} value={option.value}>
                                                                 {option.label}
@@ -264,7 +272,7 @@ const CreateStore = () => {
                                         name="storeType"
                                         className="block appearance-none w-full bg-white border-b border-gray-400 outline-none focus:border-blue-300  text-gray-700 py-2 mb-4 pr-8 rounded leading-tight focus:outline-none "
                                     >
-                                         <option value="" disabled selected hidden>Select your store type</option>
+                                        <option value="" disabled selected hidden>Select your store type</option>
                                         {selectstoretype.map((option) => (
                                             <option key={option.value} value={option.value}>
                                                 {option.label}

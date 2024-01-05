@@ -76,5 +76,4 @@ const LogIn = () => {
     const AuthLayout = Layout(SignIn)
     return <AuthLayout />
 }
-export default LogIn
-
+export default LogIn

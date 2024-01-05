@@ -9,7 +9,7 @@ const SelectStoretype = () => {
                 {{
                     leftContent: (
                         <div className='lg:h-screen text-white'>
-                            <div className='flex ms-4 lg:ms-80 lg:mt-60'>
+                            <div className='flex ms-4 lg:ms-80 lg:mt-20'>
                                 <button className='bg-blue-400 rounded h-16 me-10' style={{ width: '150px' }}>
                                     Product Rental
                                 </button>
@@ -19,15 +19,9 @@ const SelectStoretype = () => {
                             </div>
                         </div>
                     ),
-                    midContent:(
-                        <div className="h-80">
-
-                        </div>
-
-                    ),
-
+                   
                     rightContent: (
-                        <div className='text-white md:mt-40 md:px-0 lg:ms-5 max-w-md md:max-w-full h-full '>
+                        <div className='text-white md:mt-40 md:px-0 lg:ms-5 max-w-md md:max-w-full h-screen '>
                         <div className='lg:mb-10 text-xl'>
                             <h1>Select your Rental store type</h1>
                         </div>

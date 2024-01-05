@@ -8,6 +8,7 @@ import AddDocument from "../components/store/addDocuments";
 import AddProducts from "../components/product/addProduct";
 import UpdateProduct from "../components/product/updateProduct";
 import SelectStoretype from "../components/store/selectStoretype";
+import HomeLocation from "../components/location/location";
 const UserLayout = () => {
   return <Outlet />;
 };
@@ -49,6 +50,11 @@ const UserRoute = {
       path: "Update-product",
       element: <UpdateProduct />
     },
+    {
+      path: "location",
+      element: <HomeLocation />
+    },
+
 
   ],
 };
