@@ -10,7 +10,11 @@ import UpdateProduct from "../components/product/updateProduct";
 import SelectStoretype from "../components/store/selectStoretype";
 import HomeLocation from "../components/location/location";
 import LocationSearch from "../components/location/locationsearch";
+import HomeView from "../pages/homePage/homeView";
+import SeeAll from "../components/seeAllPage/seeAll1";
+import SeeAll2 from "../components/seeAllPage/seeAll2";
 const UserLayout = () => {
+
   return <Outlet />;
 };
 
@@ -19,6 +23,10 @@ const UserRoute = {
   errorElement: <ErrorPage path={'/'} />,
   element: <UserLayout />,
   children: [
+    {
+      path: "home",
+      element: <HomeView />
+    },
     {
       path: "",
       element: <LogIn />
@@ -57,7 +65,15 @@ const UserRoute = {
     },
     {
       path: "location-search",
-      element: <LocationSearch/>
+      element: <LocationSearch />
+    },
+    {
+      path: "all-rentals",
+      element: <SeeAll />
+    },
+    {
+      path: "cameraeqip",
+      element: <SeeAll2 />
     },
 
   ],
