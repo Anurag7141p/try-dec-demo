@@ -65,3 +65,42 @@
 .card-sort{
   position: relative;
 }
+.custom-time-picker {
+  border: none !important;
+}
+
+.react-time-picker__clock-icon,
+.react-time-picker__clear-icon {
+  display: none !important;
+}
+@keyframes moveUp {
+  0% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0); 
+  }
+}
+
+.move-up-animation {
+  animation: moveUp 0.3s ease-out;
+}
+@keyframes slideDownSlow {
+  0% {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.slide-down-animation-slow {
+  animation: slideDownSlow 3s ease-out;
+}
+.active {
+  background-color:rgb(38, 85, 204);
+  color: #ffffff;
+  transform: translateY(-1px);
+}

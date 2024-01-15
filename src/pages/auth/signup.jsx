@@ -1,8 +1,8 @@
 import SignUp from "../../components/auth/signup";
+import Layout from "../../components/layout/authlayout";
 
-SignUp
-const Register = ()=>{
-    return <SignUp/>
-}
+const Register = () => {
+  return <Layout Form={SignUp} />;
+};
 
 export default Register;

@@ -1,18 +1,16 @@
 import { Outlet } from "react-router-dom";
 import ErrorPage from "../components/error/error";
-import SignUp from "../components/auth/signup";
 import LogIn from "../pages/auth/login";
 import Otp from '../pages/auth/otp'
-import CreateStore from "../pages/store/createstore";
-import AddDocument from "../components/store/addDocuments";
-import AddProducts from "../components/product/addProduct";
-import UpdateProduct from "../components/product/updateProduct";
-import SelectStoretype from "../components/store/selectStoretype";
-import HomeLocation from "../components/location/location";
 import LocationSearch from "../components/location/locationsearch";
 import HomeView from "../pages/homePage/homeView";
 import SeeAll from "../components/seeAllPage/seeAll1";
 import SeeAll2 from "../components/seeAllPage/seeAll2";
+import Register from "../pages/auth/signup";
+import HandleAddProducts from "../components/product/addProductdetails/handleAddProduct";
+import CreateStore from "../pages/store/createstore";
+import UserProfile from "../pages/user/userProfile";
+import Userprofile from "../components/user/userprofile";
 const UserLayout = () => {
 
   return <Outlet />;
@@ -28,44 +26,38 @@ const UserRoute = {
       element: <HomeView />
     },
     {
-      path: "",
+      path: "login",
       element: <LogIn />
     },
     {
       path: "signup",
-      element: <SignUp />
+      element: <Register />
     },
     {
       path: "otp-auth",
       element: <Otp />
     },
     {
-      path: "select-type",
-      element: <SelectStoretype />
-    },
-    {
-      path: "create-store",
+      path: "store",
       element: <CreateStore />
     },
-    {
-      path: "add-document",
-      element: <AddDocument />
-    },
+    
     {
       path: "add-product",
-      element: <AddProducts />
+      element: <HandleAddProducts />
     },
-    {
-      path: "Update-product",
-      element: <UpdateProduct />
-    },
-    {
-      path: "location",
-      element: <HomeLocation />
-    },
+    
     {
       path: "location-search",
       element: <LocationSearch />
+    },
+    {
+      path: "inventory",
+      element: < UserProfile/>
+    },
+    {
+      path: "profile",
+      element: <Userprofile />
     },
     {
       path: "all-rentals",

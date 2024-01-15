@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import HomeIcon from '../../../assets/footerImages/Homeicon.jpg'
-import message from '../../../assets/footerImages/message.png'
+import { RiHomeLine } from "react-icons/ri";
+import { FaRegMessage } from "react-icons/fa6";
+import { IoSearchOutline } from "react-icons/io5";
+import { TbMobiledata } from "react-icons/tb";
+import { LiaCircleNotchSolid } from "react-icons/lia";
 const Footer = () => {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 640);
 
@@ -16,7 +19,7 @@ const Footer = () => {
         };
     }, []);
     return !isMobile ? (
-        <footer className=" bg-gray-800 text-white p-4 mt-4 ">
+        <footer className=" bg-gray-800 text-white p-4">
             <div className="ms-8 mx-auto grid  md:grid-cols-2 lg:grid-cols-5 gap-8 ms-20">
                 <div className="mb-8">
                     <h2 className="font-bold mb-4">Categories</h2>
@@ -90,19 +93,19 @@ const Footer = () => {
                 </div>
             </div>
         </footer>
-    ) : 
-    (
-        <footer className="bg-white text-blue-500 p-4 fixed bottom-0 left-0 right-0 flex justify-center items-center ">
-        <div className="flex space-x-12 ">
-          <i className="fa-solid fa-house hover:text-gray-500"></i>
-          <i className="fa-regular fa-message hover:text-green-500"></i>
-          <i className="fa-solid fa-magnifying-glass hover:text-red-500"></i>
-          <i className="fa-solid fa-up-down hover:text-purple-500"></i>
-          <i className="fa-solid fa-circle-notch hover:text-yellow-500"></i>
-        </div>
-      </footer>
-      
-    )
+    ) :
+        (
+            <footer className="bg-white text-blue-500 p-4 fixed bottom-0 left-0 right-0 flex justify-center items-center ">
+                <div className="flex space-x-8 ">
+                    <p className='hover:bg-blue-600 hover:text-white w-10 h-10 py-2 px-1.5 rounded'><RiHomeLine size={28} /></p>
+                    <p className='hover:bg-blue-600 hover:text-white w-10 h-10 py-2 px-2 rounded mt-1'><FaRegMessage size={24} /></p>
+                    <p className='hover:bg-blue-600 hover:text-white w-10 h-10 py-2 px-2 rounded'><IoSearchOutline size={24} /></p>
+                    <p className='hover:bg-blue-600 hover:text-white w-10 h-10 py-2 px-2 rounded'><TbMobiledata size={24} /></p>
+                    <p className='hover:bg-blue-600 hover:text-white w-10 h-10 py-2 px-2 rounded'><LiaCircleNotchSolid size={24} /></p>
+                </div>
+            </footer>
+
+        )
 };
 
 export default Footer;

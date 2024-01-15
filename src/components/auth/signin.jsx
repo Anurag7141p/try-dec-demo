@@ -1,79 +1,98 @@
-import { React } from 'react'
-import Layout from '../layout/authlayout';
-import Input from '../reusable/input';
-import { Link } from 'react-router-dom';
-import { useFormik, Formik, Form } from 'formik';
-import Regbtn from '../../components/auth/googlebtn/googlebtn';
-import { signinValidation } from '../../validation/yup';
-import FacebookBtn from './facebookbtn/facebookbtn';
-import { GoogleOAuthProvider } from '@react-oauth/google';
+import { React } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import Regbtn from "../../components/auth/googlebtn/googlebtn";
+import { loginSchema } from "../../validation/yup";
+import FacebookBtn from "./facebookbtn/facebookbtn";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { loginApi } from "../../api/authApi";
+import { userLoggedIn } from "../../redux/user/authSlice";
+import { inputStyle, successMessage } from "../../utils/utils";
+import { useDispatch } from "react-redux";
+
 const SignIn = () => {
-    const initialValues = {
-        loginep: '',
-        Newpassword: '',
-    };
-    const { values, handleBlur, handleChange, handleSubmit, errors } = useFormik({
-        initialValues: initialValues,
-        validationSchema: signinValidation,
-        onSubmit: (values) => {
-            console.log(values);
-        },
-    });
-    return (
-        <div>
-            <h1 className='text-lg font-medium ...'>Log In </h1>
-            <h4 className='text-xlg mb-8'>Welcome back to your rental world</h4>
+  const initialValues = {
+    email: "",
+    password: "",
+  };
 
-            <Formik
-                initialValues={initialValues}
-                validationSchema={signinValidation}
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleSubmit = async (values) => {
+    const response = await loginApi(values);
+    if (response) {
+      dispatch(userLoggedIn(response?.data));
+      successMessage(response?.message);
+      navigate("/");
+    }
+  };
+
+  return (
+    <div>
+      <h1 className="text-lg font-medium ...">Log In </h1>
+      <h4 className="text-xlg mb-8">Welcome back to your rental world</h4>
+
+      <Formik
+        initialValues={initialValues}
+        validationSchema={loginSchema}
+        onSubmit={handleSubmit}
+      >
+        {({ isValid }) => (
+          <Form>
+            <Field
+              type="text"
+              name="email"
+              placeholder="Enter Email"
+              className={inputStyle}
+            ></Field>
+            <ErrorMessage
+              name="email"
+              component="div"
+              className="text-red-600"
+            />
+            <Field
+              type="password"
+              name="password"
+              placeholder="password"
+              className={inputStyle}
+            ></Field>
+            <ErrorMessage
+              name="password"
+              component="div"
+              className="text-red-600"
+            />
+            <button
+              type="submit"
+              className="bg-blue-500 text-white px-4 py-2 rounded-md w-full mb-3"
+              disabled={!isValid}
             >
-                <Form onSubmit={handleSubmit}>
-                    <Input
-                        type='text'
-                        placeholder='Enter Username, Phone Number, Email'
-                        name='loginep'
-                        value={values.loginep}
-                        onChange={handleChange}
-                    />
-                    {errors.loginep && <small className='text-red-500'>{errors.loginep}</small>}
-                    <Input
-                        type='password'
-                        placeholder='password'
-                        name='Newpassword'
-                        value={values.Newpassword}
-                        onChange={handleChange}
-                    />
-                    {errors.Newpassword && <small className='text-red-500'>{errors.Newpassword}</small>}
-                </Form>
-            </Formik>
-            <Link to={'/signup'}>
-                <button
-                    type='button'
-                    className='bg-blue-500 text-white px-4 py-2 rounded-md absolute top-0 right-0 mt-4 mr-4'
-                >
-                    Signup
-                </button></Link>
-            <Link to={'otp-auth'}>
-                <button
-                    type='submit'
-                    className='bg-blue-500 text-white px-4 py-2 rounded-md w-full mb-3'
-                >Log in
-                </button></Link>
-                <GoogleOAuthProvider clientId={import.meta.env?.VITE_GOOGLE_CLIENT}>
-                <Regbtn />
-                </GoogleOAuthProvider>
+              Log in
+            </button>
+          </Form>
+        )}
+      </Formik>
+      <Link to={"/signup"}>
+        <button
+          type="button"
+          className="bg-blue-500 text-white px-4 py-2 rounded-md absolute top-0 right-0 mt-4 mr-4"
+        >
+          Signup
+        </button>
+      </Link>
+      <GoogleOAuthProvider clientId={import.meta.env?.VITE_GOOGLE_CLIENT}>
+        <Regbtn />
+      </GoogleOAuthProvider>
 
-            <FacebookBtn />
-            <p className='text-center py-2'>
-                Dont have an account?  <Link to="/signup" className='text-blue-500'>join here</Link>
-            </p>
-        </div>
+      <FacebookBtn />
+      <p className="text-center py-2">
+        Dont have an account?{" "}
+        <Link to="/signup" className="text-blue-500">
+          join here
+        </Link>
+      </p>
+    </div>
+  );
+};
 
-    );
-}
-const LogIn = () => {
-    const AuthLayout = Layout(SignIn)
-    return <AuthLayout />
-}
-export default LogIn
+export default SignIn;

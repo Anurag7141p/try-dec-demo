@@ -19,9 +19,6 @@ const AddProducts = () => {
         { value: 'option3', label: 'Both' },
     ];
 
-
-
-
     const { values, handleBlur, handleChange, handleSubmit, errors } = useFormik({
         initialValues: initialValues,
         validationSchema: HomeValidation,

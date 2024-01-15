@@ -1,13 +1,11 @@
-import CreateStore from '../../components/store/createStore'
-import Navbar from '../../utils/navbar/navbar';
-const HomeView = ()=>{
+import { useMediaQuery } from '@react-hook/media-query';
+import HandleCreateStore from '../../components/store/handleCreateStore';
+import HandleMobile from '../../components/store/mobileView/handleMobile';
+const CreateStore = ()=>{
 
-    return (
-        <div>
-            <Navbar/>
-            <CreateStore/>
-        </div>
-      )
+    const isMobile = useMediaQuery('(max-width: 768px)')
+  return isMobile ? <HandleMobile/>:<HandleCreateStore />;
+
+      
 }
-export default HomeView ;
-
+export default CreateStore ;

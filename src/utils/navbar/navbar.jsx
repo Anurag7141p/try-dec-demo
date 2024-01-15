@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="lg:fixed lg:w-full top-0 z-50 bg-white lg:bg-transparent px-4 flex justify-between items-center lg:bg-white ">
+      <nav className="lg:fixed lg:w-full top-0 z-50 bg-white lg:bg-transparent px-4 flex justify-between items-center lg:bg-white shadow">
         {/* Hamburger Icon for mobile */}
         <div className="lg:hidden">
           <button onClick={toggleMobileMenu}>

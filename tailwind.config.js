@@ -6,12 +6,15 @@ export default {
   ],
   theme: {
     screens: {
-      'sm': '300px', // Example mobile size
-      'md': '640px', // Example medium size
-      'lg': '1024px', // Example large size
-      // Add more breakpoints as needed
+      'sm': '300px', 
+      'md': '640px', 
+      'lg': '1024px', 
     },
-    extend: {},
+    extend: {
+      colors: {
+        'custom-blue': '#2D70B6',
+      },
+    },
   },
   plugins: [],
 };

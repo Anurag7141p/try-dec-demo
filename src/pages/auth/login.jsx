@@ -1,7 +1,10 @@
-import Signin from "../../components/auth/signin";
+import SignIn from "../../components/auth/signin";
+import Layout from "../../components/layout/authlayout";
+import useIsLogout from "../../middleware/isLogout";
 
-const Login = ()=>{
-    return <Signin/>
-}
+const Login = () => {
+  useIsLogout();
+  return <Layout Form={SignIn} />;
+};
 
-export default Login;
+export default Login;
