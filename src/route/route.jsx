@@ -2,7 +2,6 @@ import { Outlet } from "react-router-dom";
 import ErrorPage from "../components/error/error";
 import LogIn from "../pages/auth/login";
 import Otp from '../pages/auth/otp'
-import LocationSearch from "../components/location/locationsearch";
 import HomeView from "../pages/homePage/homeView";
 import SeeAll from "../components/seeAllPage/seeAll1";
 import SeeAll2 from "../components/seeAllPage/seeAll2";
@@ -11,6 +10,11 @@ import HandleAddProducts from "../components/product/addProductdetails/handleAdd
 import CreateStore from "../pages/store/createstore";
 import UserProfile from "../pages/user/userProfile";
 import Userprofile from "../components/user/userprofile";
+import Earnings from "../components/user/mobileview/earnings";
+import Analytics2 from "../components/user/mobileview/analytics2";
+import Analytics from "../components/user/mobileview/analytics";
+import Subscription from "../components/user/mobileview/subscription";
+import Preferences from "../components/user/mobileview/preference";
 const UserLayout = () => {
 
   return <Outlet />;
@@ -41,15 +45,9 @@ const UserRoute = {
       path: "store",
       element: <CreateStore />
     },
-    
     {
       path: "add-product",
       element: <HandleAddProducts />
-    },
-    
-    {
-      path: "location-search",
-      element: <LocationSearch />
     },
     {
       path: "inventory",
@@ -67,7 +65,26 @@ const UserRoute = {
       path: "cameraeqip",
       element: <SeeAll2 />
     },
-
+    {
+      path: "analytics",
+      element: <Analytics />
+    },
+    {
+      path: "analytics2",
+      element: <Analytics2 />
+    },
+    {
+      path: "earnings",
+      element: <Earnings />
+    },
+    {
+      path: "subscription",
+      element: <Subscription />
+    },
+    {
+      path: "preferences",
+      element: <Preferences />
+    },
   ],
 };
 

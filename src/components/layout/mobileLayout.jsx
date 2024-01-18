@@ -1,5 +1,6 @@
-import { Formik,Form } from "formik";
 
+import { Formik, Form } from "formik";
+import MobileBtn from "../store/mobileView/mobileBtn";
 const MobileView = ({
   TopBlueBox,
   CenterForm,
@@ -13,8 +14,12 @@ const MobileView = ({
   Tittle,
   boxDiscription,
   buttonText,
-  MobileBtn,
-  subTittle
+  subTittle,
+  showSingleButton,
+  centertittle,
+  showBottomBar,
+  backarrow,
+
 }) => {
   return (
     <Formik
@@ -27,11 +32,14 @@ const MobileView = ({
           <div>
             <div className='bg-custom-blue text-gray-50 rounded-b-xl relative '>
               <TopBlueBox
-              Tittle={Tittle}
-              boxDiscription={boxDiscription}
-              subTittle={subTittle}
-              currentPage={currentPage}
-              pages={pages}
+                Tittle={Tittle}
+                boxDiscription={boxDiscription}
+                subTittle={subTittle}
+                currentPage={currentPage}
+                pages={pages}
+                centertittle={centertittle}
+                showBottomBar={showBottomBar}
+                backarrow={backarrow}
               />
             </div>
             <div className="font-medium">
@@ -41,9 +49,11 @@ const MobileView = ({
               <MobileBtn
                 isValid={isValid}
                 pages={pages}
+                currentPage={currentPage}
                 handlePrevPage={handlePrevPage}
                 handleNextPage={handleNextPage}
                 buttonText={buttonText}
+                showSingleButton={showSingleButton} 
               />
             </div>
           </div>
@@ -54,4 +64,3 @@ const MobileView = ({
 };
 
 export default MobileView;
-

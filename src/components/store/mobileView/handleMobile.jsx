@@ -1,11 +1,11 @@
 import MobileView from "../../layout/mobileLayout";
 import CenterForm from "./centerForm";
-import MobileBtn from "./mobileBtn";
 import TopBlueBox from "./topBlueBox";
 import { useState } from "react";
 import { storeShema } from "../../../validation/yup";
 import StoreFirst from "./storeFirst";
 import StoreSecond from "./storeSecond";
+import { FaArrowLeft } from "react-icons/fa";
 const HandleMobile=()=>{
     const [currentPage, setCurrentPage] = useState(1);
   const [pages] = useState(3);
@@ -34,25 +34,30 @@ const HandleMobile=()=>{
     serviceType:"",
   };
   if (currentPage == 1) {
-    const Tittle = "Store";
+    const centertittle = "Store";
     const subTittle="";
     const boxDiscription =""
+
     return (
       <MobileView
-      Tittle={Tittle}
-      subTittle={subTittle}
-      boxDiscription={boxDiscription}
-      validationSchema={storeShema}
-      initialValues={initialValues}
-      handleSubmit={handleSubmit}
-      CenterForm={StoreFirst}
-      TopBlueBox={TopBlueBox}
-      pages={pages}
-      currentPage={currentPage}
-      handleNextPage={handleNextPage}
-      handlePrevPage={handlePrevPage}
-      MobileBtn={MobileBtn}
-    />
+        subTittle={subTittle}
+        boxDiscription={boxDiscription}
+        validationSchema={storeShema}
+        initialValues={initialValues}
+        handleSubmit={handleSubmit}
+        CenterForm={StoreFirst}
+        TopBlueBox={TopBlueBox}
+        pages={pages}
+        currentPage={currentPage}
+        handleNextPage={handleNextPage}
+        handlePrevPage={handlePrevPage}
+        buttonText={"Create Store"}
+        showSingleButton={true} 
+        centertittle={centertittle}
+        showBottomBar={false}
+        backarrow={<FaArrowLeft size={20}/>}
+        
+      />
     );
   }
   if (currentPage == 2) {
@@ -73,7 +78,7 @@ const HandleMobile=()=>{
         currentPage={currentPage}
         handleNextPage={handleNextPage}
         handlePrevPage={handlePrevPage}
-        MobileBtn={MobileBtn}
+        buttonText={"Next"}
       />
     );
   }
@@ -95,7 +100,8 @@ const HandleMobile=()=>{
         currentPage={currentPage}
         handleNextPage={handleNextPage}
         handlePrevPage={handlePrevPage}
-        MobileBtn={MobileBtn}
+        buttonText={"Create Store"}
+
       />
     );
   }

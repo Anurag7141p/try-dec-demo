@@ -8,9 +8,12 @@ import ServiceType from "./serviceType";
 import DocumnetFirstForm from "./documnetFirstForm";
 import DocumnetSecondForm from "./documnetSecondForm";
 import CalenderSetup from "../product/addProductdetails/discount/calenderSetup";
+import Notification from "./notification";
 const HandleCreateStore = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pages] = useState(3);
+  const [showNotification, setShowNotification] = useState(false);
+  const [notificationMessage, setNotificationMessage] = useState("");
 
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1);
@@ -21,20 +24,32 @@ const HandleCreateStore = () => {
       setCurrentPage(currentPage - 1);
     }
   };
-
+  const handleCloseNotification = () => {
+    setShowNotification(false);
+  };
   const handleSubmit = async (values) => {
     console.log(values);
   };
-
-  const initialValues = {
+  const handleCreateStore = async (values) => {
+    console.log(values);
+  
+    // Perform logic related to store creation
+    // For demo purposes, I'll simulate a successful creation after a delay
+    setTimeout(() => {
+      // Set the notification message
+      setNotificationMessage("Store created successfully!");
+        setShowNotification(true);
+    }, 1000);
+  };
+      const initialValues = {
     storeName: "",
     address: "",
     district: "",
     country: "",
     state: "",
     pincode: "",
-    serviceType:"",
-    pancard:""
+    serviceType: "",
+    pancard: ""
   };
   if (currentPage == 1) {
     const boxTittle = "Select your Rental store type";
@@ -53,6 +68,7 @@ const HandleCreateStore = () => {
         currentPage={currentPage}
         handleNextPage={handleNextPage}
         handlePrevPage={handlePrevPage}
+
       />
     );
   }
@@ -85,22 +101,32 @@ const HandleCreateStore = () => {
       "Adding documents enables us to verify and keep fraudulent activitiesout of reach.";
 
     return (
-      <StoreLayout
-      
-        validationSchema={storeShema}
-        initialValues={initialValues}
-        handleSubmit={handleSubmit}
-        FirstForm={DocumnetFirstForm}
-        SecondForm={DocumnetSecondForm}
-        BlueBox={BlueBox}
-        boxTittle={boxTittle}
-        boxDiscription={boxDiscription}
-        pages={pages}
-        currentPage={currentPage}
-        handleNextPage={handleNextPage}
-        handlePrevPage={handlePrevPage}
-        buttonText={"Create Store"}
-      />
+      <div>
+        {/* StoreLayout with BlueBox */}
+        <StoreLayout
+          validationSchema={storeShema}
+          initialValues={initialValues}
+          handleSubmit={handleCreateStore}
+          FirstForm={DocumnetFirstForm}
+          SecondForm={DocumnetSecondForm}
+          BlueBox={BlueBox}
+          boxTittle={boxTittle}
+          boxDiscription={boxDiscription}
+          pages={pages}
+          currentPage={currentPage}
+          handleNextPage={handleNextPage}
+          handlePrevPage={handlePrevPage}
+          buttonText={"Create Store"}
+        />
+
+
+<Notification
+  showNotification={showNotification}
+  onClose={handleCloseNotification}
+/>
+
+
+      </div>
     );
   }
 };

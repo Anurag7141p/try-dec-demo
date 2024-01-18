@@ -83,7 +83,7 @@
 }
 
 .move-up-animation {
-  animation: moveUp 0.3s ease-out;
+  animation: moveUp 0.4s ease-out;
 }
 @keyframes slideDownSlow {
   0% {
@@ -95,7 +95,6 @@
       transform: translateY(0);
   }
 }
-
 .slide-down-animation-slow {
   animation: slideDownSlow 3s ease-out;
 }

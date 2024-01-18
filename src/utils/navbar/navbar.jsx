@@ -4,6 +4,7 @@ import Brandlogo from '../../assets/navabrImages/img_logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import New from '../../assets/images/new-icon.png'
+import Location from '../../components/location/location';
 const Navbar = () => {
   const [selectedLocation, setSelectedLocation] = useState('');
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -56,22 +57,7 @@ const Navbar = () => {
 
         {/* Location Selector */}
         <div className="hidden lg:flex ml-10">
-          <div className="relative">
-            <select
-              value={selectedLocation}
-              onChange={handleLocationChange}
-              className="p-2"
-            >
-              <option value="" disabled>
-                Location
-              </option>
-              {locations.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </div>
+            <Location/>
         </div>
         <div className="flex justify-end items-center lg:hidden">
           {/* Icon 1 */}
@@ -87,7 +73,7 @@ const Navbar = () => {
         {/* Navigation Links */}
         <div className="hidden lg:flex items-center space-x-[50px]">
           <div className="flex items-center border border-green rounded-md">
-            <Link to="/" className="text-black px-4 py-2">
+            <Link to="/login" className="text-black px-4 py-2">
               Log in
             </Link>
           </div>
