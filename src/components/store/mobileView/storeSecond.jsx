@@ -4,6 +4,7 @@ import TimePicker from 'react-time-picker';
 import 'react-time-picker/dist/TimePicker.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
+import { Field,ErrorMessage } from "formik";
 
 const StoreSecond = () => {
     const [startTime, setStartTime] = useState('00:00');
@@ -49,21 +50,46 @@ const StoreSecond = () => {
                 <h1 className="text-gray-800 mt-3">Permanent address</h1>
                 <div className="border border-gray-300 rounded h-10 mt-2 px-2 py-1">
                     <input type="text" placeholder="Permanent address" className="text-gray-400" />
+                    <ErrorMessage
+                        name="address"
+                        component="div"
+                        className="text-red-600 text-sm mt-1 mb-1"
+                    />
                 </div>
                 <div className="flex ">
                     <div className="border border-gray-300 rounded h-10 mt-2 px-2 py-1 mr-5">
                         <input type="text" placeholder="District" className="text-gray-400 w-36" />
+                        <ErrorMessage
+                            name="district"
+                            component="div"
+                            className="text-red-600 text-sm mt-1"
+                        />
                     </div>
                     <div className="border border-gray-300 rounded h-10 mt-2 px-2 py-1">
                         <input type="text" placeholder="State" className="text-gray-400 w-36" />
+                        <ErrorMessage
+                            name="state"
+                            component="div"
+                            className="text-red-600 text-sm mt-1 "
+                        />
                     </div>
                 </div>
                 <div className="flex">
                     <div className="border border-gray-300 rounded h-10 mt-2 px-2 py-1 mr-5">
                         <input type="text" placeholder="Country" className="text-gray-400 w-36" />
+                        <ErrorMessage
+                            name="country"
+                            component="div"
+                            className="text-red-600 text-sm mt-2 mb-1"
+                        />
                     </div>
                     <div className="border border-gray-300 rounded h-10 mt-2 px-2 py-1">
                         <input type="text" placeholder="Pincode" className="text-gray-400 w-36" />
+                        <ErrorMessage
+                            name="pincode"
+                            component="div"
+                            className="text-red-600 text-sm mt-2"
+                        />
                     </div>
                 </div>
             </div>
@@ -88,23 +114,23 @@ const StoreSecond = () => {
                     />
                 </div>
             </div>
-                <div className='mt-3'>
+            <div className='mt-3'>
                 <h1>Set store image</h1>
-                    <label htmlFor='imageUpload' className='flex items-center cursor-pointer'>
-                        <div className=' px-3 h-10 py-2 w-34 mt-2 rounded'>
-                            <FontAwesomeIcon icon={faCamera} className='mr-2' />
-                            Add image
-                        </div>
-                        <input
-                            type='file'
-                            id='imageUpload'
-                            accept='image/*'
-                            className='hidden'
-                        />
-                    </label>
-                    <p className="text-gray-500 text-sm mt-3">Attach.png,.jpeg,.jpg with sizeless than 5mb.</p>
-                </div>
+                <label htmlFor='imageUpload' className='flex items-center cursor-pointer'>
+                    <div className=' px-3 h-10 py-2 w-34 mt-2 rounded'>
+                        <FontAwesomeIcon icon={faCamera} className='mr-2' />
+                        Add image
+                    </div>
+                    <input
+                        type='file'
+                        id='imageUpload'
+                        accept='image/*'
+                        className='hidden'
+                    />
+                </label>
+                <p className="text-gray-500 text-sm mt-3">Attach.png,.jpeg,.jpg with sizeless than 5mb.</p>
             </div>
+        </div>
     );
 };
 

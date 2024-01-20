@@ -32,6 +32,7 @@ const HandleMobile=()=>{
     state: "",
     pincode: "",
     serviceType:"",
+    storeRules:"",
   };
   if (currentPage == 1) {
     const centertittle = "Store";

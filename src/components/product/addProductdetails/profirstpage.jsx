@@ -3,7 +3,7 @@ import { inputStyle } from '../../../utils/utils';
 
 const Profirstpage = () => {
   return (
-    <div className="flex lg:h-screen lg:flex-row lg:ms-10">
+    <div className="flex  h-screen sm:mt-20 lg:flex-row lg:ms-10">
       <div className="md:ms-4 md:mt-40 ms-2 ">
       <h1 className="mt-0 mb-6">Product Details</h1>
       <div className="mb-4">

@@ -41,7 +41,6 @@ const CenterForm = ({ setFieldValue }) => {
     return (
         <>
             <h1 className='ms-3 mt-4  text-gray-500'>Documents</h1>            <p className='text-sm ms-3 text-gray-600'>Please take a moment to verify your account. You will unlock benefits after verification.</p>
-
             <div className='mt-4 h-[700px] flex flex-col items-center'>
                 <div className="text-gray-800 mt-2">
                     <h1>Select ID proof</h1>
@@ -68,10 +67,16 @@ const CenterForm = ({ setFieldValue }) => {
                                 value={panCardNumber}
                                 onChange={handleInputChange}
                             />
+
                             {isValidPan && (
                                 <img src={Check} alt="checkmark" className="absolute right-2 w-4" />
                             )}
                         </div>
+                        <ErrorMessage
+                            name="pancard"
+                            component="div"
+                            className="text-red-600"
+                        />
                     </div>
                     <div className='mt-2'>
                         <h1>Upload images</h1>

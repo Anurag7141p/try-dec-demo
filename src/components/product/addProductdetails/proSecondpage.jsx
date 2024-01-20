@@ -59,8 +59,8 @@ const ProSecondpage = () => {
                                 </option>
                             ))}
                         </select>
-                    </div>     
-                      <div className="mb-4">
+                    </div>
+                    <div className="mb-4">
                         <label htmlFor="product">Product Name</label>
                         <Field
                             type="text"
@@ -73,16 +73,21 @@ const ProSecondpage = () => {
                             className="text-red-600"
                         />
                     </div>
-                    <div className='mt-4'>
-                        <h1 className='mb-2'>Including accessories</h1>
-                        <div className='border border-black lg:w-80 lg:h-20 px-3 py-1 mb-2' style={{ cursor: 'text' }}>
+                    <div className="mt-4">
+                        <h1 className="mb-2">Including accessories</h1>
+                        <span className="text-gray-400">*optional</span>
+                        <div
+                            className="border border-black lg:w-80 lg:h-20 px-3 py-1 mb-2"
+                            style={{ cursor: "text" }}
+                        >
                             <Field
                                 as="textarea"
-                                className='w-full h-full mb-5 outline-none resize-none'
-                                name="accessoriesDescription"
+                                className="w-full h-full mb-5 outline-none resize-none"
+                                name="accessories"
                             />
+
                             <ErrorMessage
-                                name="accessoriesDescription"
+                                name="accessories"
                                 component="div"
                                 className="text-red-600"
                             />
@@ -105,7 +110,7 @@ const ProSecondpage = () => {
                         />
                     </div>
                 </div>
-                <button className="bg-blue-500 rounded px-4 py-2 lg:py-1 mb-2 lg:mt-2 w-20 text-white">Next</button>
+                <button className="bg-blue-500 rounded px-4 py-2 lg:py-1  lg:mt-2 w-20 text-white">Next</button>
             </div>
         </div>
     );

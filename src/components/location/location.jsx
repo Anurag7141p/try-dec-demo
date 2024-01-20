@@ -66,7 +66,7 @@ const Location = () => {
   }
 
   return (
-    <div className='p-2 text-xs '>
+    <div className='p-2 text-sm '>
       <div className='flex justify-center'>
         <div className='relative'>
           <div className='relative'>
@@ -74,8 +74,8 @@ const Location = () => {
               <div className='relative'>
                 <input
                   type='text'
-                  placeholder='Search Area, city, or neighborhood'
-                  className='p-1 rounded-lg border-2 relative absolute '
+                  placeholder='Search area, city'
+                  className='p-1 rounded-lg  relative absolute outline-none'
                   onFocus={() => setAutocompleteFocused(true)}
                   onBlur={() => setAutocompleteFocused(false)}
                 />
@@ -88,13 +88,13 @@ const Location = () => {
               </div>
             </Autocomplete>
             {isAutocompleteFocused && (
-              <div className={`absolute  top-full left-0 bg-white border border-gray-300 mt-1 p-2 z-20 ${isDropdownOpen ? 'block' : 'hidden'}`}>
+              <div className={`absolute  top-full left-0 bg-white border border-gray-300 mt-1 p-2 z-20  ${isDropdownOpen ? 'block' : 'hidden'}`}>
                 {/* Render autocomplete items here */}
               </div>
             )}
           </div>
           {isDropdownOpen && (
-            <div className='div-dropdown shadow-2xl fixed  bg-white rounded mt-1 w-[150px] move-up-animation'>
+            <div className='div-dropdown shadow-2xl fixed  bg-white rounded mt-1 w-[200px] move-up-animation'>
               <div className='flex p-1'>
                 <MdMyLocation color='blue' size={15} />
                 <div className='flex flex-col'>

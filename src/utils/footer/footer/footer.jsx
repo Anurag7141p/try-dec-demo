@@ -19,7 +19,7 @@ const Footer = () => {
         };
     }, []);
     return !isMobile ? (
-        <footer className=" bg-gray-800 text-white p-4">
+        <footer className=" bg-gray-800 text-white p-4 ">
             <div className="ms-8 mx-auto grid  md:grid-cols-2 lg:grid-cols-5 gap-8 ms-20">
                 <div className="mb-8">
                     <h2 className="font-bold mb-4">Categories</h2>

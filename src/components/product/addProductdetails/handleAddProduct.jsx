@@ -7,6 +7,7 @@ import { useState } from "react";
 import UpdateProducts from "./updateProducts";
 import ProductPricing from "./discount/productPricing";
 import CalenderSetup from "./discount/calenderSetup";
+import CenterImageAttach from "./centerImageAttach";
 const HandleAddProducts = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pages] = useState(4);
@@ -62,6 +63,7 @@ const HandleAddProducts = () => {
         initialValues={initialValues}
         handleSubmit={handleSubmit}
         FirstForm={ProSecondpage}
+        SecondForm={CenterImageAttach}
         BlueBox={BlueBox}
         boxTittle={boxTittle}
         boxDiscription={boxDiscription}

@@ -41,7 +41,7 @@ const BlueBox = ({
       <div className="text-blue-400 lg:mb-10 text-sm">
         <p>{boxDiscription}</p>
       </div>
-      {CalenderBox && <div><CalenderBox/></div>}
+      {CalenderBox && <div><CalenderSetup/></div>}
       <div className="flex  space-x-4 mb-8 mt-20">
         <button
           type="button"

@@ -15,6 +15,7 @@ import Analytics2 from "../components/user/mobileview/analytics2";
 import Analytics from "../components/user/mobileview/analytics";
 import Subscription from "../components/user/mobileview/subscription";
 import Preferences from "../components/user/mobileview/preference";
+import HandleProductMobile from "../components/product/productMobile/handleproductmobile";
 const UserLayout = () => {
 
   return <Outlet />;
@@ -85,6 +86,11 @@ const UserRoute = {
       path: "preferences",
       element: <Preferences />
     },
+    {
+      path: "product-mobile",
+      element: <HandleProductMobile />
+    },
+
   ],
 };
 

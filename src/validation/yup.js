@@ -71,9 +71,12 @@ export const storeShema = Yup.object({
       "Please enter a valid closing time in 12-hour format (e.g., 5:00 PM)"
     )
     .required("Please select a closing time"),
-  storeRules: Yup.array()
+    storeRules: Yup.array()
     .of(Yup.string().required("Please enter store rule"))
     .min(1, "Please add at least one store rule"),
+  image: Yup.mixed().required("Please upload an image file"),
+  userId: Yup.string().required(""),
+
     pancard: Yup.string()
     .trim()
     .min(7, "Pancard must be at least 7 characters")
@@ -87,35 +90,6 @@ export const storeShema = Yup.object({
 
 });
 
-// export const HomeValidation = Yup.object({
-//   storename: Yup.string()
-//     .min(5, "Storename must be at least 5 characters")
-//     .trim()
-//     .required("Please enter Storename"),
-//   address: Yup.string().required("Please enter address"),
-//   district: Yup.string()
-//     .min(3, "District must be at least 3 characters")
-//     .required("Please enter District"),
-//   country: Yup.string()
-//     .min(3, "country must be at least 3 characters")
-//     .required("Please enter Country"),
-//   state: Yup.string()
-//     .min(3, "state must be at least 3 characters")
-//     .required("Please enter state"),
-//   pincode: Yup.string()
-//     .min(6, "Pincode must be at least 6 characters")
-//     .required("Please enter pincode"),
-//   pancard: Yup.string()
-//     .trim()
-//     .min(7, "Pancard must be at least 7 characters")
-//     .required("Please enter Pancard Number")
-//     .test("uppercase", "Pancard must be in uppercase", (value) => {
-//       if (value !== undefined && value !== null) {
-//         return value === value.toUpperCase();
-//       }
-//       return true;
-//     }),
-// })
 export const ProductValidation = Yup.object({
     productBrand: Yup.string()
     .min(2, "Brand Name must be at least 3 characters")

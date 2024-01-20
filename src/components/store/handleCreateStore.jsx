@@ -49,7 +49,8 @@ const HandleCreateStore = () => {
     state: "",
     pincode: "",
     serviceType: "",
-    pancard: ""
+    pancard: "",
+    storeRules:""
   };
   if (currentPage == 1) {
     const boxTittle = "Select your Rental store type";
