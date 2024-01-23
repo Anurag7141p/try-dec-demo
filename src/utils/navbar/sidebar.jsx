@@ -3,7 +3,7 @@ import NavOptions from './navoptions'
 export default function Sidebar() {
     return (
         <div className=''>
-            <div className=" left-0  lg:w-60 md:w-[250px] h-screen mt-3  font-medium shadow-lg ">
+            <div className=" left-0  lg:w-60 md:w-[250px] h-screen mt-3  font-medium  ">
                 <div className='side-content bg-blue-700 text-white text-xs rounded-lg px-2 py-2 w-[220px] h-28 ms-2 '>
                     <p className='mb-1 w-40 ms-6'>Wallet Balance</p>
                     <div className='flex ms-2'>

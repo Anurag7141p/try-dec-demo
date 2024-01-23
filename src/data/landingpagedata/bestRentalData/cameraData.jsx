@@ -69,13 +69,15 @@ const cameraData = [
     name: "camera nikon",
     money: 'Rs.3862',
     place: 'kochi'
-  },{
+  },
+  {
     id: 5,
     imageUrl: cameraImage,
     name: "camera nikon",
     money: 'Rs.3862',
     place: 'kochi'
   },
+
 ];
 
 export default cameraData;
