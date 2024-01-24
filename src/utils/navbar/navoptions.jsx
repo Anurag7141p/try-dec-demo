@@ -20,7 +20,7 @@ const NavOptions = () => {
     setShowDashboardOptions(option === 'dashboard' ? !showDashboardOptions : false);
     setShowStoreOptions(option === 'store' ? !showStoreOptions : false);
     setShowProfileOptions(option === 'profile' ? !showProfileOptions : false);
-    setShowPaymentOptions(option === 'Payment' ? !showPaymentOptions : false);
+    // setShowPaymentOptions(option === 'Payment' ? !showPaymentOptions : false);
     setShowHelpOptions(option === 'Help' ? !showHelpOptions : false);
     setShowPrivacyOptions(option === 'Privacy&Policy' ? !showPrivacyOptions : false);
 
@@ -82,43 +82,23 @@ const NavOptions = () => {
             </div>
           </Link>
 
-          <div
+<Link to={'/payment'}>   
+       <div
             onClick={() => toggleOptions('Payment')}
             className={`cursor-pointer flex items-center rounded h-8 py-1 p-1 mb-3 transition duration-300 transform hover:-translate-y-0.5 ${activeOption === 'Payment' ? 'active' : ''}`}>
             <FaRegUser size={24} className='mr-8' />
             Payment
             <IoIosArrowDown size={24} className='ml-[49px]' />
           </div>
-
-          {showPaymentOptions && (
-            <div className='dropdown-content'>
-              <div className='bg-white text-gray-600 rounded-lg  right-0 move-up-animation ms-8'>
-                <p className='ms-1 hover:bg-gray-300 transition-all duration-300'>
-                  Store Inventory
-                </p>
-                <p className='ms-5 hover:bg-gray-300 transition-all duration-300'>
-                  Products
-                </p>
-                <p className='ms-6 hover:bg-gray-300 transition-all duration-300'>
-                  Order request
-                </p>
-                <p className='ms-5 hover:bg-gray-300 transition-all duration-300'>
-                  Upcoming
-                </p>
-                <p className='ms-1 hover:bg-gray-300 transition-all duration-300'>
-                  Upcoming
-                </p>
-              </div>
-            </div>
-          )}
+</Link>
 
           <div
             onClick={() => toggleOptions('Help')}
-            className={`cursor-pointer flex items-center rounded h-8 py-1 p-1 mb-3 transition duration-300 transform hover:-translate-y-0.5 ${activeOption === 'Help' ? 'active' : ''}`}>
-            <FaRegUser size={24} className='mr-8' />
+            className={`cursor-pointer flex items-center rounded h-8 py-1 p-1 mb-3 transition duration-300 transform ${activeOption === 'Help' ? 'active' : 'hover:-translate-y-0.5'
+              }`}
+          >   <FaRegUser size={24} className='mr-8' />
             Help
-            <IoIosArrowDown size={24} className='ml-[77px]' />
-          </div>
+            <IoIosArrowDown size={24} className='ml-[77px]' /> </div>
 
           {showHelpOptions && (
             <div className='dropdown-content'>

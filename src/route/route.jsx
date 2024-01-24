@@ -15,6 +15,8 @@ import Preferences from "../components/user/mobileview/preference";
 import HandleProductMobile from "../components/product/productMobile/handleproductmobile";
 import UserDetails from "../components/user/userDetails";
 import Security from "../components/user/security";
+import Payment from "../components/user/payment";
+import Profilebox from "../utils/navbar/profilebox";
 const UserLayout = () => {
 
   return <Outlet />;
@@ -60,6 +62,10 @@ const UserRoute = {
     {
       path: "security",
       element: <Security />
+    },
+    {
+      path: "payment",
+      element: <Payment />
     },
 
     {

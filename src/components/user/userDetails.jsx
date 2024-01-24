@@ -9,7 +9,7 @@ import profile from "../../assets/images/profilepng.png";
 import { Link } from 'react-router-dom';
 const UserDetails = () => {
     return (
-        <div>
+        <div className='lg:w-[1536px] items-center justify-center mx-auto'>
             <UserNav />
             <div className="flex">
                 <Sidebar />
@@ -21,7 +21,7 @@ const UserDetails = () => {
                         <p className='font-semibold'>My Profile</p>
                         <div className='flex flex-col-2'>
                             <div className='w-40 mr-4'>
-                                <button className='px-4 py-3 rounded text-gray-600 hover:bg-indigo-300 hover:text-blue-600 w-40 h-12 text-left md:text-sm'>Name & Address</button>
+                                <button className='px-4 py-3 rounded text-gray-600 hover:bg-indigo-300 hover:text-blue-600 w-40 h-12 text-left md:text-sm mb-2'>Name & Address</button>
                                 <button className='px-4 py-3 rounded text-gray-600 hover:bg-indigo-300 hover:text-blue-600 w-full h-12 text-left md:text-sm'>Verification</button>
                                <Link to={'/security'}>  <button className='px-4 py-2 rounded text-gray-600 hover:bg-indigo-300 hover:text-blue-600 w-full h-12 text-left md:text-sm'>Security</button></Link>
                             </div>

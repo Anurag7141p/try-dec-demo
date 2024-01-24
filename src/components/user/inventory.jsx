@@ -17,7 +17,7 @@ const Inventory = () => {
     const [notificationCount, setNotificationCount] = useState(12);
 
     return (
-        <div>
+        <div className='lg:w-[1536px] items-center justify-center mx-auto'>
             <UserNav />
             <div className="flex ">
                 <Sidebar />
