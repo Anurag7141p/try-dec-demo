@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Brandlogo from '../../assets/navabrImages/img_logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import New from '../../assets/images/new-icon.png';
 import Location from '../../components/location/location';
 import { CiHeart } from "react-icons/ci";
 import { IoIosNotificationsOutline } from "react-icons/io";
@@ -36,8 +35,8 @@ const Navbar = () => {
   };
 
   return (
-    <>
-      <nav className="lg:fixed lg:w-full top-0 z-50 bg-white lg:bg-transparent px-4 flex justify-between items-center lg:bg-white shadow">
+    < >
+      <nav className="lg:fixed lg:w-[1535px] top-0 z-50 bg-white lg:bg-transparent px-4 flex justify-between items-center lg:bg-white shadow ">
         {/* Hamburger Icon for mobile */}
         <div className="lg:hidden">
           <button onClick={toggleMobileMenu}>
@@ -145,7 +144,7 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile Menu */}
-      <div className={`lg:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} w-[100%] mb-2 bg-black me-[500px] nav`}>
+      {/* <div className={`lg:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} w-[100%] mb-2 bg-black me-[500px] nav`}>
         <div className="flex flex-col p-5 text-white">
           <ul>
             <li className=' flex hover:text-gray-800'>
@@ -155,10 +154,9 @@ const Navbar = () => {
             <li className="flex items-center">
               <img src={New} className='bg-white w-6 mr-2' alt="" /> Post Rental
             </li>
-            {/* ... (Other menu items) */}
           </ul>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

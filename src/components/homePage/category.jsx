@@ -4,13 +4,12 @@ import HeroData from '../../data/landingpagedata/categoryData/categoryData';
 
 const Category = () => {
   return (
-    <div className="flex overflow-x-auto justify-start items-center lg:justify-center ms-4 text-center ">
+    <div className="flex overflow-x-auto p-4 lg:justify-center lg:space-x-20">
       {HeroData.map((item, index) => (
         <Link
           to={item.linkTo}
           key={index}
-          className="mr-8 ml-4 p-4 flex flex-col items-center  "  
-          style={{ flex: '0 0 auto', width: 'calc(100vw / 14)' }}
+          className="mx-2 p-2 flex flex-col items-center"  
         >
           <div className="w-16 h-16 rounded-full overflow-hidden">
             <img
@@ -20,7 +19,7 @@ const Category = () => {
             />
           </div>
           <div className="mt-2 text-center">
-            <p className="text-xs w-60">{item.title}</p>
+            <p className="text-xs">{item.title}</p>
           </div>
         </Link>
       ))}

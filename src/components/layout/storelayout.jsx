@@ -25,8 +25,10 @@ const StoreLayout = ({
     >
       {({ isValid, setFieldValue }) => (
         <Form>
+          <div className="lg:w-[1536px] justify-center mx-auto">
           <Navbar/>
-          <div className="flex flex-col md:flex-row">
+
+          <div className="flex flex-col md:flex-row ">
             {SecondForm ? (
               <>
                 <div className="w-full md:w-1/3 md:ms-0 md:flex md:flex-col md:justify-end">
@@ -70,6 +72,7 @@ const StoreLayout = ({
             )}
           </div>
           <Footer/>
+          </div>
         </Form>
       )}
     </Formik>

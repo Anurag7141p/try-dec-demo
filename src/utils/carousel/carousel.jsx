@@ -43,10 +43,10 @@ const Carousel=() =>{
   };
 
   return (
-    <div className="relative car  ">
+    <div className="relative car   overflow-x:hidden justify-center items-center mx-auto">
       <Slider {...carouselSettings}>
         {imageData.map((item) => (
-          <div key={item.id} className="relative sm:h-60 lg:h-[600px] w-full ">
+          <div key={item.id} className="relative sm:h-60 lg:h-[600px] w-full justify-center  ">
             <img src={item.imageUrl} alt={item.heading} className="w-full h-full object-cover" />
             <div className="absolute top-1/2  transform px-10 -translate-y-1/2 text-start text-white">
               <h1 className="text-4xl font-extrabold w-[300px] ">{item.heading}</h1>

@@ -11,7 +11,7 @@ import Footer from '../../utils/footer/footer/footer';
 
 export default function HomeView() {
   return (
-    <>
+    <div className='mx-auto justify-center  items-center lg:w-[1536px] '>
       <Navbar />
       <Carousel />
       <Category />
@@ -21,6 +21,6 @@ export default function HomeView() {
       <RentalVehicle />
       <Helpline />
       <Footer />
-      </>
+      </div>
   );
 }
