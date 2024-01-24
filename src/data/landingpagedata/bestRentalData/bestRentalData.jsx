@@ -9,7 +9,7 @@ const rentalsData = [
       id: 1,
       imageUrl: oldmodel,
       smallImageUrl: smallimg1,
-      title:"charsherly",
+      title:"charsherld",
       paraText: 'I will provide variety of vintage cars for rent',
       money: 'Rs.3862',
     },

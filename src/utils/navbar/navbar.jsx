@@ -3,16 +3,24 @@ import { Link } from 'react-router-dom';
 import Brandlogo from '../../assets/navabrImages/img_logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import New from '../../assets/images/new-icon.png'
+import New from '../../assets/images/new-icon.png';
 import Location from '../../components/location/location';
+import { CiHeart } from "react-icons/ci";
+import { IoIosNotificationsOutline } from "react-icons/io";
 const Navbar = () => {
   const [selectedLocation, setSelectedLocation] = useState('');
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isLoggedIn, setLoggedIn] = useState(true); // Set to true if the user is logged in
 
   const locations = [
     { value: 'option1', label: 'location a' },
     { value: 'option2', label: 'location b' },
   ];
+  const [isAccountDropdownOpen, setAccountDropdownOpen] = useState(false);
+
+  const handleAccountClick = () => {
+    setAccountDropdownOpen(!isAccountDropdownOpen);
+  };
 
   const handleLocationChange = (e) => {
     setSelectedLocation(e.target.value);
@@ -20,6 +28,11 @@ const Navbar = () => {
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleLogout = () => {
+    // Implement your logout logic here
+    setLoggedIn(false);
   };
 
   return (
@@ -36,9 +49,8 @@ const Navbar = () => {
           </button>
         </div>
 
-
         <Link to="/home" className="pl-4">
-          <img src={Brandlogo} alt="Logo" className=" w-22 h-12 " />
+          <img src={Brandlogo} alt="Logo" className="w-22 h-12" />
         </Link>
 
         {/* Search Bar */}
@@ -57,11 +69,11 @@ const Navbar = () => {
 
         {/* Location Selector */}
         <div className="hidden lg:flex ml-10">
-            <Location/>
+          <Location />
         </div>
         <div className="flex justify-end items-center lg:hidden">
           {/* Icon 1 */}
-          <div className=" ml-40 mr-4">
+          <div className="ml-40 mr-4">
             <i className="fa-solid fa-location-dot text-xl"></i>
           </div>
           {/* Icon 2 */}
@@ -71,22 +83,64 @@ const Navbar = () => {
         </div>
 
         {/* Navigation Links */}
-        <div className="hidden lg:flex items-center space-x-[50px]">
-          <div className="flex items-center border border-green rounded-md">
-            <Link to="/login" className="text-black px-4 py-2">
-              Log in
-            </Link>
-          </div>
-          <div className="flex items-center border border-green rounded-md">
-            <Link to="/signup" className="text-black px-4 py-2">
-              Sign up
-            </Link>
-          </div>
-          <div className="flex items-center">
-            <Link to="/select-type" className="bg-green-500 text-white p-2 rounded-md">
-              Create Store
-            </Link>
-          </div>
+        <div className="hidden lg:flex items-center ">
+          {isLoggedIn ? (
+            <>
+              <div className="flex items-center  ">
+                <Link to="/wishlist" className="text-gray-700 px-4 py-2">
+                  <CiHeart size={24} />
+                </Link>
+              </div>
+              <div className="flex items-center  ">
+                <Link to="/wishlist" className="text-gray-700 px-4 py-2">
+                  <IoIosNotificationsOutline size={24} />
+                </Link>
+              </div>
+              <div className="relative mr-4">
+                <div className="flex items-center cursor-pointer" onClick={handleAccountClick}>
+                  <span className="text-black px-2 py-2">Account</span>
+                  <div className='text-white bg-orange-400 rounded-full px-2'>
+                    <span className='relative '>S</span>
+                  </div>
+                  <div className='absolute h-2 w-2 bg-green-500 rounded-full ml-24 mt-3 '></div>
+                </div>
+
+                {/* Account Dropdown */}
+                {isAccountDropdownOpen && (
+                  <div className="absolute top-10 right-0 bg-white border border-gray-400 rounded-md p-2 w-36 move-up-animation ">
+                    <Link to="/account/settings" className="block px-2 py-1 text-black hover:bg-gray-200">
+                      Settings
+                    </Link>
+                    <Link to="/logout" className="block px-2 py-1 text-black hover:bg-gray-200">
+                      Logout
+                    </Link>
+                    <Link to="/select-type" className="block px-2 py-1 text-green-500 hover:bg-gray-200">
+                      Create Store
+                    </Link>
+                  </div>
+                )}
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="flex items-center border border-green rounded-md">
+                <Link to="/login" className="text-black px-4 py-2">
+                  Log in
+                </Link>
+              </div>
+              <div className="flex items-center border border-green rounded-md">
+                <Link to="/signup" className="text-black px-4 py-2">
+                  Sign up
+                </Link>
+              </div>
+              <div className="flex items-center">
+                <Link to="/select-type" className="bg-green-500 text-white p-2 rounded-md">
+                  Create Store
+                </Link>
+              </div>
+            </>
+          )}
+
         </div>
       </nav>
 
@@ -101,46 +155,12 @@ const Navbar = () => {
             <li className="flex items-center">
               <img src={New} className='bg-white w-6 mr-2' alt="" /> Post Rental
             </li>
-            <hr className="border-t border-gray-100 my-2" />
-            <li >
-              <i className="fa-solid fa-indian-rupee-sign mr-4"></i> Wallet
-            </li>
-            <hr className="border-t border-gray-100 my-2" />
-            <li>
-              <i className="fa-solid fa-cart-shopping mr-2"></i> My Order
-            </li>
-            <hr className="border-t border-gray-100 my-2" /> <li>
-              <i className="fa-solid fa-cart-shopping mr-2"></i> My Store
-            </li>
-            <hr className="border-t border-gray-100 my-2" /> <li>
-              <i className="fa-regular fa-heart mr-3"></i> wishlist
-            </li>
-            <hr className="border-t border-gray-100 my-2" />
-            <li>
-              <i className="fa-solid fa-qrcode mr-3"></i> Scan
-            </li>
-            <hr className="border-t border-gray-100 my-2" />
-            <li>
-              <i className="fa-solid fa-exclamation mr-5"></i> About us
-            </li>
-            <hr className="border-t border-gray-100 my-2" />
-            <li>
-              <i className="fa-solid fa-book mr-3"></i>Terms of Use
-            </li>
-            <hr className="border-t border-gray-100 my-2" />
-            <li>
-              <i className="fa-solid fa-question mr-4"></i>Support
-            </li>
-            <hr className="border-t border-gray-100 my-2" />
-            <li>
-              <i className="fa-solid fa-file-invoice mr-4"></i>History
-            </li>
-            <hr className="border-t border-gray-100 my-2" />
+            {/* ... (Other menu items) */}
           </ul>
         </div>
       </div>
     </>
   );
-}
+};
 
 export default Navbar;

@@ -4,7 +4,7 @@ import FooterImage1 from '../../../assets/footerImages/FooterImage1.jpg';
 
 export default function Helpline() {
   return (
-    <div>
+    <div >
          <div className="lg:flex items-center  lg:mx-6  bg-gray-200 pl-4 lg:w-[97%] rounded-lg space-x-4 ">
         <div>
           <h3 className="text-3xl lg:ms-20 text-white font-bold">Olapool helpline</h3>

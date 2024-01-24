@@ -43,7 +43,7 @@ const Carousel=() =>{
   };
 
   return (
-    <div className="relative car ">
+    <div className="relative car  ">
       <Slider {...carouselSettings}>
         {imageData.map((item) => (
           <div key={item.id} className="relative sm:h-60 lg:h-[600px] w-full ">

@@ -14,13 +14,13 @@ const UserDropdown = () => {
     };
 
     return (
-        <div className="flex flex-wrap items-center sm:ms-6 md:ms-0 mt-10 ">
+        <div className="flex flex-wrap  items-center sm:ms-6 md:ms-0 mt-10 ">
                 <div className="relative mb-2 md:mb-0 md:mr-3 border border-black w-[250px] rounded-md px-2">
                     {/* Dropdown for categories */}
                     <select
                         value={selectedCategory}
                         onChange={handleCategoryChange}
-                        className="appearance-none outline-none lg:w-full py-0.5 pl-3 pr-8 border-none"
+                        className="appearance-none outline-none lg:w-full py-0.5 pl-3 pr-8 border-none bg-blue-50"
                     >
                         <option value="" className='hide' disabled>Select Category</option>
                         <option value="camera">Camera</option>
@@ -45,12 +45,12 @@ const UserDropdown = () => {
                         </svg>
                     </div>
                 </div>
-                <div className="relative mb-2 md:mb-0 md:mr-3 border border-black w-[250px] rounded-md px-2">
+                <div className="relative mb-2 md:mb-0 md:mr-3 border border-black w-[250px] rounded-md px-2 ">
                     {/* Dropdown for subcategories */}
                     <select
                         value={selectedSubCategory}
                         onChange={handleSubCategoryChange}
-                        className="appearance-none outline-none w-full py-0.5 pl-3 pr-8 border-none"
+                        className="appearance-none outline-none w-full py-0.5 pl-3 pr-8 border-none bg-blue-50"
                         disabled={!selectedCategory}
                     >
                         <option value="" className='hide' disabled>Select Sub Category</option>
@@ -73,7 +73,7 @@ const UserDropdown = () => {
                             </>
                         )}
                     </select>
-                    <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                    <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none ">
                         {/* Dropdown icon */}
                         <svg
                             className="w-5 h-5 text-gray-400"

@@ -3,19 +3,18 @@ import ErrorPage from "../components/error/error";
 import LogIn from "../pages/auth/login";
 import Otp from '../pages/auth/otp'
 import HomeView from "../pages/homePage/homeView";
-import SeeAll from "../components/seeAllPage/seeAll1";
-import SeeAll2 from "../components/seeAllPage/seeAll2";
 import Register from "../pages/auth/signup";
 import HandleAddProducts from "../components/product/addProductdetails/handleAddProduct";
 import CreateStore from "../pages/store/createstore";
 import UserProfile from "../pages/user/userProfile";
-import Userprofile from "../components/user/userprofile";
 import Earnings from "../components/user/mobileview/earnings";
 import Analytics2 from "../components/user/mobileview/analytics2";
 import Analytics from "../components/user/mobileview/analytics";
 import Subscription from "../components/user/mobileview/subscription";
 import Preferences from "../components/user/mobileview/preference";
 import HandleProductMobile from "../components/product/productMobile/handleproductmobile";
+import UserDetails from "../components/user/userDetails";
+import Security from "../components/user/security";
 const UserLayout = () => {
 
   return <Outlet />;
@@ -56,16 +55,13 @@ const UserRoute = {
     },
     {
       path: "profile",
-      element: <Userprofile />
+      element: <UserDetails />
     },
     {
-      path: "all-rentals",
-      element: <SeeAll />
+      path: "security",
+      element: <Security />
     },
-    {
-      path: "cameraeqip",
-      element: <SeeAll2 />
-    },
+
     {
       path: "analytics",
       element: <Analytics />

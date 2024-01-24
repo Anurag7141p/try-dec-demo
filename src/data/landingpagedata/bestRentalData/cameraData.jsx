@@ -36,42 +36,42 @@ const cameraData = [
     place: 'kochi'
   },
   {
-    id: 5,
+    id: 6,
     imageUrl: cameraImage,
     name: "camera nikon",
     money: 'Rs.3862',
     place: 'kochi'
   },
   {
-    id: 5,
+    id: 7,
     imageUrl: cameraImage,
     name: "camera nikon",
     money: 'Rs.3862',
     place: 'kochi'
   },
   {
-    id: 5,
+    id: 8,
     imageUrl: cameraImage,
     name: "camera nikon",
     money: 'Rs.3862',
     place: 'kochi'
   },
   {
-    id: 5,
+    id: 9,
     imageUrl: cameraImage,
     name: "camera nikon",
     money: 'Rs.3862',
     place: 'kochi'
   },
   {
-    id: 5,
+    id: 10,
     imageUrl: cameraImage,
     name: "camera nikon",
     money: 'Rs.3862',
     place: 'kochi'
   },
   {
-    id: 5,
+    id: 11,
     imageUrl: cameraImage,
     name: "camera nikon",
     money: 'Rs.3862',

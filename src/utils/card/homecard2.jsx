@@ -1,26 +1,29 @@
 import React, { useState } from 'react';
 
-const ImageCard = ({ id, imageUrl, name, money, place }) => {
+const ImageCard = ({ rental }) => {
   const [isFavorite, setIsFavorite] = useState(false);
-  const isMobile = window.innerWidth <= 640;
+
   const toggleFavorite = () => {
     setIsFavorite((prevIsFavorite) => !prevIsFavorite);
   };
 
   return (
-    <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/6 xl:w-1/5 lg:ms-10 p-2 relative">
-      <img src={imageUrl} alt={name} className="w-full h-auto rounded-lg" style={{ minHeight: '100px', minWidth: '150px' }} />      <div className="absolute bottom-0 right-2">
-        <button
-          className={`text-white ${isFavorite ? 'fill-current' : 'fill-none'}`}
-          onClick={toggleFavorite}
-        >
-          &#9829;
-        </button>
+    <div className="justify-center item-center lg:ms-10 p-2 relative">
+      <div className="relative lg:w-[230px] lg:h-[230px] sm:w-40 sm:h-40">
+        <img src={rental.imageUrl} alt={rental.name} className='absolute inset-0 w-full h-full rounded object-cover' />
+        <div className="absolute bottom-0 right-0 p-2">
+          <button
+            className={`text-white ${isFavorite ? 'fill-current' : 'fill-none'}`}
+            onClick={toggleFavorite}
+          >
+            <i className="fas fa-heart"></i>
+          </button>
+        </div>
       </div>
       <div className="mt-2">
-        <p className="font-semibold ">{name}</p>
-        <p className="text-black font-bold">{money}</p>
-        <p className="text-gray-500">{place}</p>
+        <p className="font-semibold ">{rental.name}</p>
+        <p className="text-black font-bold">{rental.money}</p>
+        <p className="text-gray-500">{rental.place}</p>
       </div>
     </div>
   );
