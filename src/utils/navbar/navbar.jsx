@@ -1,29 +1,29 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Brandlogo from '../../assets/navabrImages/img_logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Location from '../../components/location/location';
 import { CiHeart } from "react-icons/ci";
 import { IoIosNotificationsOutline } from "react-icons/io";
+import Brandlogo from '../../assets/navabrImages/img_logo.png';
 const Navbar = () => {
   const [selectedLocation, setSelectedLocation] = useState('');
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLoggedIn, setLoggedIn] = useState(true); // Set to true if the user is logged in
+  const [isAccountDropdownOpen, setAccountDropdownOpen] = useState(false);
+
+  const handleAccountHover = () => {
+    setAccountDropdownOpen(true);
+  };
+
+  const handleAccountLeave = () => {
+    setAccountDropdownOpen(false);
+  };
 
   const locations = [
     { value: 'option1', label: 'location a' },
     { value: 'option2', label: 'location b' },
   ];
-  const [isAccountDropdownOpen, setAccountDropdownOpen] = useState(false);
-
-  const handleAccountClick = () => {
-    setAccountDropdownOpen(!isAccountDropdownOpen);
-  };
-
-  const handleLocationChange = (e) => {
-    setSelectedLocation(e.target.value);
-  };
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -35,9 +35,8 @@ const Navbar = () => {
   };
 
   return (
-    < >
-      <nav className="lg:fixed lg:w-[1535px] top-0 z-50 bg-white lg:bg-transparent px-4 flex justify-between items-center lg:bg-white shadow ">
-        {/* Hamburger Icon for mobile */}
+    <>
+      <nav className="lg:fixed lg:w-[1535px] top-0 z-50 bg-white lg:bg-transparent px-4 flex justify-between items-center lg:bg-white shadow">
         <div className="lg:hidden">
           <button onClick={toggleMobileMenu}>
             {isMobileMenuOpen ? (
@@ -52,7 +51,6 @@ const Navbar = () => {
           <img src={Brandlogo} alt="Logo" className="w-22 h-12" />
         </Link>
 
-        {/* Search Bar */}
         <div className="lg:flex items-center hidden space-x">
           <div className="relative">
             <input
@@ -66,56 +64,66 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Location Selector */}
         <div className="hidden lg:flex ml-10">
           <Location />
         </div>
+
         <div className="flex justify-end items-center lg:hidden">
-          {/* Icon 1 */}
           <div className="ml-40 mr-4">
             <i className="fa-solid fa-location-dot text-xl"></i>
           </div>
-          {/* Icon 2 */}
           <div>
             <i className="fa-regular fa-bell text-xl"></i>
           </div>
         </div>
 
-        {/* Navigation Links */}
-        <div className="hidden lg:flex items-center ">
+        <div className="hidden lg:flex items-center">
           {isLoggedIn ? (
             <>
-              <div className="flex items-center  ">
+              <div className="flex items-center">
                 <Link to="/wishlist" className="text-gray-700 px-4 py-2">
                   <CiHeart size={24} />
                 </Link>
               </div>
-              <div className="flex items-center  ">
+              <div className="flex items-center">
                 <Link to="/wishlist" className="text-gray-700 px-4 py-2">
                   <IoIosNotificationsOutline size={24} />
                 </Link>
               </div>
               <div className="relative mr-4">
-                <div className="flex items-center cursor-pointer" onClick={handleAccountClick}>
+                <div
+                  className="flex items-center cursor-pointer"
+                  onMouseEnter={handleAccountHover}
+                  onMouseLeave={handleAccountLeave}
+                >
                   <span className="text-black px-2 py-2">Account</span>
-                  <div className='text-white bg-orange-400 rounded-full px-2'>
-                    <span className='relative '>S</span>
+                  <div className='text-white bg-orange-400 rounded-full px-2 mr-1'>
+                    <span className='relative'>S</span>
                   </div>
-                  <div className='absolute h-2 w-2 bg-green-500 rounded-full ml-24 mt-3 '></div>
+                  <div className='absolute h-2 w-2 bg-green-500 rounded-full ml-24 mt-3'></div>
                 </div>
 
-                {/* Account Dropdown */}
                 {isAccountDropdownOpen && (
-                  <div className="absolute top-10 right-0 bg-white border border-gray-400 rounded-md p-2 w-36 move-up-animation ">
-                    <Link to="/account/settings" className="block px-2 py-1 text-black hover:bg-gray-200">
+                  <div className="absolute z-50 top-12 bg-white border border-gray-400 rounded-md w-36 right-0 move-up-animation with-pointer">
+                    <Link
+                      to="/account/settings"
+                      className="block px-2 py-1 text-black hover:bg-green-500 hover:text-white"
+                    >
                       Settings
                     </Link>
-                    <Link to="/logout" className="block px-2 py-1 text-black hover:bg-gray-200">
+                    <Link
+                      to="/logout"
+                      className="block px-2 py-1 text-black hover:bg-green-500 hover:text-white"
+                    >
                       Logout
                     </Link>
-                    <Link to="/select-type" className="block px-2 py-1 text-green-500 hover:bg-gray-200">
+                    <Link
+                      to="/select-type"
+                      className="block px-2 py-1 hover:bg-green-500 hover:text-white"
+                    >
                       Create Store
                     </Link>
+                    <div className="with-pointer"></div>
                   </div>
                 )}
               </div>
@@ -139,24 +147,8 @@ const Navbar = () => {
               </div>
             </>
           )}
-
         </div>
       </nav>
-
-      {/* Mobile Menu */}
-      {/* <div className={`lg:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} w-[100%] mb-2 bg-black me-[500px] nav`}>
-        <div className="flex flex-col p-5 text-white">
-          <ul>
-            <li className=' flex hover:text-gray-800'>
-              <p className='text-xl mr-2 font-bold'>Hi</p> <p className='mt-1'>Yuvan</p> ,
-            </li>
-            <hr className="border-t border-gray-100 my-2" />
-            <li className="flex items-center">
-              <img src={New} className='bg-white w-6 mr-2' alt="" /> Post Rental
-            </li>
-          </ul>
-        </div>
-      </div> */}
     </>
   );
 };

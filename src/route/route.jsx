@@ -17,6 +17,7 @@ import UserDetails from "../components/user/userDetails";
 import Security from "../components/user/security";
 import Payment from "../components/user/payment";
 import Profilebox from "../utils/navbar/profilebox";
+import Useraddress from "../components/user/useraddress";
 const UserLayout = () => {
 
   return <Outlet />;
@@ -59,6 +60,11 @@ const UserRoute = {
       path: "profile",
       element: <UserDetails />
     },
+    {
+      path: "useraddress",
+      element: <Useraddress />
+    },
+
     {
       path: "security",
       element: <Security />

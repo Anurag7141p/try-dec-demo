@@ -31,11 +31,25 @@
 ::-webkit-scrollbar {
   display: none;
 }
+
+.with-pointer::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: 6px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-top: 1px solid  rgb(199, 196, 196); 
+  border-left: 1px solid rgb(193, 190, 190);
+  z-index: -1;
+  transform: rotate(45deg);
+}
 .slick-dots li button {
-  color: #fff; /* Set the dot color to white */
-  opacity: 0.5; /* Adjust the opacity as needed */
-  border: 1px solid #fff; /* Set the border color to white */
-  border-radius: 50%; /* Make the dots circular */
+  color: #fff; 
+  opacity: 0.5; 
+  border: 1px solid #fff; 
+  border-radius: 50%; 
   width: .1rem;
   height: .1rem;
 }
