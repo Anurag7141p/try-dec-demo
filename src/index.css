@@ -36,7 +36,7 @@
   content: '';
   position: absolute;
   top: -10px;
-  right: 6px;
+  right: 8px;
   width: 20px;
   height: 20px;
   background: white;
@@ -115,4 +115,35 @@
   background-color:rgb(38, 85, 204);
   color: #ffffff;
   transform: translateY(-1px);
+}
+/* home card scrolling Animation */
+.sliding-container {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.next-animation {
+  animation: slide-next 0.5s ease;
+}
+
+.prev-animation {
+  animation: slide-prev 0.5s ease;
+}
+
+@keyframes slide-prev {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-next {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }

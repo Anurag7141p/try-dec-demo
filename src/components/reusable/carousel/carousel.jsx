@@ -5,12 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import TimePicker from 'react-time-picker';
 import 'react-time-picker/dist/TimePicker.css';
 import 'slick-carousel/slick/slick-theme.css';
-import imageData from '../../data/carouselData/carouselData';
+import imageData from '../../../data/carouselData/carouselData';
 
-const Carousel=() =>{
+const Carousel = () => {
 
   const [selectedPickDate, setSelectedPickDate] = useState(null);
   const [selectedDropDate, setSelectedDropDate] = useState(null);
@@ -55,7 +54,7 @@ const Carousel=() =>{
           </div>
         ))}
       </Slider>
-      <div className="hidden  lg:block absolute bottom-0 left-[2%] w-[98%] h-[120px]  bg-white p-3 ">
+      <div className="hidden  lg:block absolute bottom-0 left-[2%] right-[2%] w-[96%] h-[120px]  bg-white p-3 ">
 
         <div className=" bg-gray-200 pl-4 rounded-lg">
 
@@ -75,35 +74,29 @@ const Carousel=() =>{
 
             <div className="pt-4">
               <label className=" pl-3 pt-2 text-black-900 text-md font-light absolute z-10   ">Pick-up date</label>
-
               <DatePicker
-
                 selected={selectedPickDate}
                 onChange={handlePickUpDateChange}
                 dateFormat="eee d MMM"
                 className="p-4 pt-9 border w-[120px] h-[80px] border-gray-300 rounded-md focus:outline-none text-green-500  relative "
               />
-
-
-
             </div>
 
 
-            <div className="relative pt-4">
-              <label className=" pl-7 pt-2 text-black-900 text-md font-light absolute z-10   ">
+            <div className="relative flex flex-col items-center">
+              <DatePicker
+                selected={selectedTime}
+                onChange={handleTimeChange}
+                showTimeSelect
+                showTimeSelectOnly
+                timeIntervals={15}
+                dateFormat="h:mm aa"
+                timeCaption="Time"
+                className="mt-4 px-7 bg-white w-[80%] sm:w-[130px] h-[80px] rounded-md focus:outline-none text-green-500 relative border border-gray-300"
+              />
+              <label htmlFor="absolute" className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center justify-center text-black-900 text-md font-light">
                 Time
               </label>
-             
-              <TimePicker
-              
-                value={selectedTime}
-                onChange={handleTimeChange}
-                disableClock
-                border={null}
-                clockIcon={null}
-                clearIcon={null}
-                className="p-4 pt-9  bg-white w-[120px] h-[80px] rounded-md focus:outline-none text-green-500 "
-              />
             </div>
 
 
@@ -113,26 +106,28 @@ const Carousel=() =>{
                 selected={selectedDropDate}
                 onChange={handleDropUpDateChange}
                 dateFormat="eee d MMM"
-                className="p-4 pt-9 border w-[120px] h-[80px] border-gray-300 rounded-md focus:outline-none text-green-500  relative "
+                className="p-4 pt-9 border w-[130px] h-[80px] border-gray-300 rounded-md focus:outline-none text-green-500  relative "
               />
 
 
 
             </div>
-            <div className="relative pt-4">
-              <label className=" pl-7 pt-2 text-black-900 text-md font-light absolute z-10   ">
+            <div className="relative flex flex-col items-center">
+              <DatePicker
+                selected={selectedTime}
+                onChange={handleTimeChange}
+                showTimeSelect
+                showTimeSelectOnly
+                timeIntervals={15}
+                dateFormat="h:mm aa"
+                timeCaption="Time"
+                className="mt-4 px-7 bg-white w-[80%] sm:w-[130px] h-[80px] rounded-md focus:outline-none text-green-500 relative border border-gray-300"
+              />
+              <label htmlFor="absolute" className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center justify-center text-black-900 text-md font-light">
                 Time
               </label>
-             
-              <TimePicker
-                value={selectedTime}
-                onChange={handleTimeChange}
-                disableClock
-                clockIcon={null}
-                clearIcon={null}
-                className="p-4 pt-9  bg-white w-[120px] h-[80px] rounded-md focus:outline-none text-green-500 "
-              />
             </div>
+
 
             <div className="flex items-center">
               <input

@@ -16,8 +16,8 @@ import HandleProductMobile from "../components/product/productMobile/handleprodu
 import UserDetails from "../components/user/userDetails";
 import Security from "../components/user/security";
 import Payment from "../components/user/payment";
-import Profilebox from "../utils/navbar/profilebox";
 import Useraddress from "../components/user/useraddress";
+import GetCurrentAddress from "../components/location/current";
 const UserLayout = () => {
 
   return <Outlet />;
@@ -97,6 +97,10 @@ const UserRoute = {
     {
       path: "product-mobile",
       element: <HandleProductMobile />
+    },
+    {
+      path: "current",
+      element: <GetCurrentAddress />
     },
 
   ],

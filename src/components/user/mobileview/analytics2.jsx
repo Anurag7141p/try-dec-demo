@@ -1,7 +1,7 @@
 import React from 'react'
 import { MdCurrencyRupee } from "react-icons/md";
 import ChartComponent from './chart';
-import MobileCard from '../../../utils/card/mobileCard/mobileCard';
+import MobileCard from '../../../components/reusable/card/mobileCard/mobileCard';
 import cameraData from '../../../data/landingpagedata/bestRentalData/cameraData';
 import Topbox from './topbox';
 import { useNavigate } from 'react-router-dom';

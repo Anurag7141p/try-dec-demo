@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { IoSearch } from "react-icons/io5";
 import { BsChevronDown } from 'react-icons/bs';
-import UserNav from '../../utils/navbar/userNav';
+import UserNav from '../../components/reusable/navbar/userNav';
 import cameraData from '../../data/landingpagedata/bestRentalData/cameraData';
-import Userprofilecard from '../../utils/card/userprofilecard';
+import Userprofilecard from '../../components/reusable/card/userprofilecard';
 import { FaPlus } from "react-icons/fa6";
-import Footer from '../../utils/footer/footer/footer';
-import Sidebar from '../../utils/navbar/sidebar';
+import Footer from '../../components/reusable/footer/footer/footer';
+import Sidebar from '../../components/reusable/navbar/sidebar';
 import profileimg from "../../assets/landingPageImages/coustumes.png"
 import level1 from "../../assets/images/level1.png"
 import level2 from "../../assets/images/level2.jpg"

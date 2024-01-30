@@ -82,15 +82,15 @@ const NavOptions = () => {
             </div>
           </Link>
 
-<Link to={'/payment'}>   
-       <div
-            onClick={() => toggleOptions('Payment')}
-            className={`cursor-pointer flex items-center rounded h-8 py-1 p-1 mb-3 transition duration-300 transform hover:-translate-y-0.5 ${activeOption === 'Payment' ? 'active' : ''}`}>
-            <FaRegUser size={24} className='mr-8' />
-            Payment
-            <IoIosArrowDown size={24} className='ml-[49px]' />
-          </div>
-</Link>
+          <Link to={'/payment'}>
+            <div
+              onClick={() => toggleOptions('Payment')}
+              className={`cursor-pointer flex items-center rounded h-8 py-1 p-1 mb-3 transition duration-300 transform hover:-translate-y-0.5 ${activeOption === 'Payment' ? 'active' : ''}`}>
+              <FaRegUser size={24} className='mr-8' />
+              Payment
+              <IoIosArrowDown size={24} className='ml-[49px]' />
+            </div>
+          </Link>
 
           <div
             onClick={() => toggleOptions('Help')}

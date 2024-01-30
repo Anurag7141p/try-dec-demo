@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Sidebar from '../../utils/navbar/sidebar';
-import UserNav from '../../utils/navbar/userNav';
+import Sidebar from '../../components/reusable/navbar/sidebar';
+import UserNav from '../../components/reusable/navbar/userNav';
 import profileimg from "../../assets/landingPageImages/coustumes.png";
 import level1 from "../../assets/images/level1.png";
 import level2 from "../../assets/images/level2.jpg";
@@ -20,9 +20,9 @@ const Security = () => {
                         <h1 className='ml-2 mt-2'>My Profile</h1>
                         <div className='flex flex-col-2'>
                             <div className='w-40 mr-4'>
-                                <button className='px-4 py-3 rounded text-gray-600 hover:bg-indigo-300 hover:text-blue-600 w-40 h-12 text-left md:text-sm mb-2'>Name & Address</button>
-                                <button className='px-4 py-3 rounded text-blue-500 bg-indigo-300    w-full h-12 text-left md:text-sm mb-2'>Verification</button>
-                                <Link to={'/security'}>  <button className='px-4 py-2 rounded text-gray-600 hover:bg-indigo-300 hover:text-blue-600 w-full h-12 text-left md:text-sm'>Security</button></Link>
+                              <Link to={'/useraddress'}> <button className='px-4 py-3 rounded text-gray-600 hover:bg-indigo-300 hover:text-blue-600 w-40 h-12 text-left md:text-sm mb-2'>Name & Address</button></Link> 
+                               <Link to={'/profile'}> <button className='px-4 py-3 rounded text-gray-600 hover:bg-indigo-300 hover:text-blue-600  w-full h-12 text-left md:text-sm mb-2'>Verification</button></Link>
+                                <Link to={'/security'}>  <button className='px-4 py-2 rounded  hover:text-blue-500 hover:bg-indigo-300 bg-indigo-300 text-blue-500 w-full h-12 text-left md:text-sm'>Security</button></Link>
                             </div>
                             <div className='border border-gray-300 w-full h-[130px] p-6 mr-6 rounded relative'>
                                 <div className='flex flex-col-2'>

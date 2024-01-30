@@ -1,6 +1,6 @@
 import { Formik, Form } from "formik";
-import Navbar from "../../utils/navbar/navbar";
-import Footer from "../../utils/footer/footer/footer";
+import Navbar from "../../components/reusable/navbar/homenav/navbar";
+import Footer from "../../components/reusable/footer/footer/footer";
 const StoreLayout = ({
   FirstForm,
   SecondForm,

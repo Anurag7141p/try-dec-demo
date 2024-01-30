@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import UserNav from '../../utils/navbar/userNav';
-import Sidebar from '../../utils/navbar/sidebar';
-import Profilebox from '../../utils/navbar/profilebox';
+import UserNav from '../../components/reusable/navbar/userNav';
+import Sidebar from '../../components/reusable/navbar/sidebar';
+import Profilebox from '../../components/reusable/navbar/profilebox';
 import { CiCalendar } from "react-icons/ci";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';

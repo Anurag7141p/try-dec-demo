@@ -1,9 +1,9 @@
 import React from 'react'
-import UserNav from '../../utils/navbar/userNav';
-import Sidebar from '../../utils/navbar/sidebar';
+import UserNav from '../../components/reusable/navbar/userNav';
+import Sidebar from '../../components/reusable/navbar/sidebar';
 import { Link } from 'react-router-dom';
-import Profilebox from '../../utils/navbar/profilebox';
-import Footer from '../../utils/footer/footer/footer';
+import Profilebox from '../../components/reusable/navbar/profilebox';
+import Footer from '../../components/reusable/footer/footer/footer';
 const Useraddress = () => {
     return (
         <div>
@@ -17,8 +17,8 @@ const Useraddress = () => {
                             <p className='font-semibold'>My Profile</p>
                             <div className='flex flex-col-2'>
                                 <div className='w-40 mr-4'>
-                                    <button className='px-4 py-3 rounded text-gray-600 hover:bg-indigo-300 hover:text-blue-600 w-40 h-12 text-left md:text-sm mb-2'>Name & Address</button>
-                                    <button className='px-4 py-3 rounded text-gray-600 hover:bg-indigo-300 hover:text-blue-600 w-full h-12 text-left md:text-sm'>Verification</button>
+                                    <button className='px-4 py-3 rounded   bg-indigo-300 text-blue-600 w-40 h-12 text-left md:text-sm mb-2'>Name & Address</button>
+                                    <Link to={'/profile'}><button className='px-4 py-3 rounded text-gray-600 hover:bg-indigo-300 hover:text-blue-600 w-full h-12 text-left md:text-sm'>Verification</button></Link>
                                     <Link to={'/security'}>  <button className='px-4 py-2 rounded text-gray-600 hover:bg-indigo-300 hover:text-blue-600 w-full h-12 text-left md:text-sm'>Security</button></Link>
                                 </div>
                                 <div>

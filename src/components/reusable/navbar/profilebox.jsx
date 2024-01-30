@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import profileimg from "../../assets/landingPageImages/coustumes.png";
-import level1 from "../../assets/images/level1.png";
-import level2 from "../../assets/images/level2.jpg";
-import level3 from "../../assets/images/level3.jpg";
+import profileimg from "../../../assets/landingPageImages/coustumes.png";
+import level1 from "../../../assets/images/level1.png";
+import level2 from "../../../assets/images/level2.jpg";
+import level3 from "../../../assets/images/level3.jpg";
 const Profilebox = () => {
     const [notificationCount, setNotificationCount] = useState(1);
 

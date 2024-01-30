@@ -1,5 +1,5 @@
 import React from 'react'
-import FooterImage1 from '../../../assets/footerImages/FooterImage1.jpg';
+import FooterImage1 from '../../../../assets/footerImages/FooterImage1.jpg';
 
 
 export default function Helpline() {

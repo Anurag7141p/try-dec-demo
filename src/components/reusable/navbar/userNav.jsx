@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaBell } from "react-icons/fa";
-import Brandlogo from '../../assets/navabrImages/img_logo.png';
+import Brandlogo from '../../../assets/navabrImages/img_logo.png';
 import { Link } from 'react-router-dom';
 import { IoIosArrowDown } from 'react-icons/io';
 

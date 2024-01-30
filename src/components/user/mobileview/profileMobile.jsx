@@ -1,8 +1,8 @@
 import React from 'react';
-import MobileNav from '../../../utils/navbar/mobileView/mobileNav';
-import Footer from '../../../utils/footer/footer/footer';
+import MobileNav from '../../../components/reusable/navbar/mobileView/mobileNav';
+import Footer from '../../../components/reusable/footer/footer/footer';
 import cameraData from '../../../data/landingpagedata/bestRentalData/cameraData';
-import MobileCard from '../../../utils/card/mobileCard/mobileCard';
+import MobileCard from '../../../components/reusable/card/mobileCard/mobileCard';
 import { GiShoppingBag } from 'react-icons/gi';
 import { MdDateRange } from 'react-icons/md';
 

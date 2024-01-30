@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Brandlogo from '../../../../assets/navabrImages/img_logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import Location from '../../components/location/location';
+import Location from '../../../../components/location/location';
 import { CiHeart } from "react-icons/ci";
 import { IoIosNotificationsOutline } from "react-icons/io";
-import Brandlogo from '../../assets/navabrImages/img_logo.png';
+import HomeNavmobile from './homeNavmobile';
 const Navbar = () => {
   const [selectedLocation, setSelectedLocation] = useState('');
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLoggedIn, setLoggedIn] = useState(true); // Set to true if the user is logged in
+
+  const locations = [
+    { value: 'option1', label: 'location a' },
+    { value: 'option2', label: 'location b' },
+  ];
   const [isAccountDropdownOpen, setAccountDropdownOpen] = useState(false);
 
   const handleAccountHover = () => {
@@ -20,10 +26,9 @@ const Navbar = () => {
     setAccountDropdownOpen(false);
   };
 
-  const locations = [
-    { value: 'option1', label: 'location a' },
-    { value: 'option2', label: 'location b' },
-  ];
+  const handleLocationChange = (e) => {
+    setSelectedLocation(e.target.value);
+  };
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -36,7 +41,8 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="lg:fixed lg:w-[1535px] top-0 z-50 bg-white lg:bg-transparent px-4 flex justify-between items-center lg:bg-white shadow">
+      <nav className="lg:fixed lg:w-[1535px] top-0 z-50 bg-white lg:bg-transparent px-4 flex justify-between items-center lg:bg-white shadow ">
+        {/* Hamburger Icon for mobile */}
         <div className="lg:hidden">
           <button onClick={toggleMobileMenu}>
             {isMobileMenuOpen ? (
@@ -51,6 +57,7 @@ const Navbar = () => {
           <img src={Brandlogo} alt="Logo" className="w-22 h-12" />
         </Link>
 
+        {/* Search Bar */}
         <div className="lg:flex items-center hidden space-x">
           <div className="relative">
             <input
@@ -64,20 +71,24 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Location Selector */}
         <div className="hidden lg:flex ml-10">
           <Location />
-        </div>
 
+        </div>
         <div className="flex justify-end items-center lg:hidden">
+          {/* Icon 1 */}
           <div className="ml-40 mr-4">
             <i className="fa-solid fa-location-dot text-xl"></i>
           </div>
+          {/* Icon 2 */}
           <div>
             <i className="fa-regular fa-bell text-xl"></i>
           </div>
         </div>
 
-        <div className="hidden lg:flex items-center">
+        {/* Navigation Links */}
+        <div className="hidden lg:flex items-center ">
           {isLoggedIn ? (
             <>
               <div className="flex items-center">
@@ -103,39 +114,31 @@ const Navbar = () => {
                   <div className='absolute h-2 w-2 bg-green-500 rounded-full ml-24 mt-3'></div>
                 </div>
 
+                {/* Account Dropdown */}
                 {isAccountDropdownOpen && (
-                  <div className="absolute z-50 top-12 bg-white border border-gray-400 rounded-md w-36 right-0 move-up-animation with-pointer">
-                    <Link
-                      to="/account/settings"
-                      className="block px-2 py-1 text-black hover:bg-green-500 hover:text-white"
-                    >
+                  <div className="absolute z-50 top-12   bg-white border border-gray-400 rounded-md w-36 right-0 move-up-animation with-pointer"                  onMouseEnter={handleAccountHover}
+                  onMouseLeave={handleAccountLeave}>
+                    <Link to="/account/settings" className="block px-2 py-1 text-black hover:bg-green-500 hover:text-white">
                       Settings
                     </Link>
-                    <Link
-                      to="/logout"
-                      className="block px-2 py-1 text-black hover:bg-green-500 hover:text-white"
-                    >
+                    <Link to="/logout" className="block px-2 py-1 text-black hover:bg-green-500 hover:text-white">
                       Logout
                     </Link>
-                    <Link
-                      to="/select-type"
-                      className="block px-2 py-1 hover:bg-green-500 hover:text-white"
-                    >
+                    <Link to="/select-type" className="block px-2 py-1 hover:bg-green-500 hover:text-white">
                       Create Store
                     </Link>
-                    <div className="with-pointer"></div>
                   </div>
                 )}
               </div>
             </>
           ) : (
             <>
-              <div className="flex items-center border border-green rounded-md">
-                <Link to="/login" className="text-black px-4 py-2">
+              <div className="flex items-center border border-green rounded-md mr-2">
+                <Link to="/login" className="text-black px-4 py-2 ">
                   Log in
                 </Link>
               </div>
-              <div className="flex items-center border border-green rounded-md">
+              <div className="flex items-center border border-green rounded-md mr-2">
                 <Link to="/signup" className="text-black px-4 py-2">
                   Sign up
                 </Link>
@@ -149,6 +152,8 @@ const Navbar = () => {
           )}
         </div>
       </nav>
+
+      {isMobileMenuOpen && <HomeNavmobile />}
     </>
   );
 };
