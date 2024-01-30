@@ -54,7 +54,7 @@ const Carousel = () => {
           </div>
         ))}
       </Slider>
-      <div className="hidden  lg:block absolute bottom-0 left-[2%] right-[2%] w-[96%] h-[120px]  bg-white p-3 ">
+      <div className="hidden  lg:block absolute bottom-0 left-[2%] right-[2%] bg-opacity-50 w-[96%] h-[120px] p-3 ">
 
         <div className=" bg-gray-200 pl-4 rounded-lg">
 

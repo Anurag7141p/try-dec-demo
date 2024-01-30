@@ -19,7 +19,7 @@ const HomeImageCard = ({ rental }) => {
   };
 
   return (
-    <div className="justify-center item-center lg:ms-6 p-2 relative">
+    <div className="justify-center item-center lg:ms-6  p-2 relative">
       <div className="relative lg:w-[230px] lg:h-[230px] sm:w-40 sm:h-40">
         <img
           src={Array.isArray(rental.imageUrl) ? rental.imageUrl[currentImageIndex] : rental.imageUrl}

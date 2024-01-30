@@ -33,14 +33,14 @@ const BestInRental = () => {
   return (
     <div className="p-4 overflow-hidden">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold px-4 lg:ms-14 text-lg">Best in Rentals</h2>
+        <h2 className="text-2xl font-bold px-4 lg:ms-14 text-lg sm:ms-4">Best in Rentals</h2>
         <div className="hidden sm:flex items-center space-x-2">
           <Link to={"/"} className="cursor-pointer">See All</Link>
         </div>
       </div>
       <div className={`sm:flex overflow-x-auto col-lg-2 col-md-3 col-sm-4 col-8 sliding-container ${showNextAnimation ? 'next-animation' : showPrevAnimation ? 'prev-animation' : ''}`}>
         {startIndex > 0 && (
-          <button onClick={showPrevCards} className={`mt-32 text-gray-400 hidden md:flex ${showPrevAnimation ? 'prev-animation' : ''}`}>
+          <button onClick={showPrevCards} className={`lg:mt-32 sm:mb-20 text-gray-400  md:flex ${showPrevAnimation ? 'prev-animation' : ''}`}>
             <IoIosArrowDropleftCircle  size={30}/>
           </button>
         )}
@@ -48,7 +48,7 @@ const BestInRental = () => {
           <HomeImageCard key={rentalData.id} rental={rentalData} />
         ))}
         {startIndex + visibleCards < rentalsData.length && (
-          <button onClick={showNextCards} className='mt-32 text-gray-400  hidden md:flex'>
+          <button onClick={showNextCards} className='lg:mt-32 sm:mb-20 text-gray-400  md:flex'>
             <IoIosArrowDroprightCircle size={'30px'}/>
           </button>
         )}
