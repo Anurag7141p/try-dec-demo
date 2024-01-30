@@ -32,6 +32,8 @@
   display: none;
 }
 
+
+
 .with-pointer::before {
   content: '';
   position: absolute;

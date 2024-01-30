@@ -105,7 +105,6 @@ const Location = () => {
       });
     }
   };
-
   const onPlaceChanged = (place) => {
     const formattedAddress = place.formatted_address || place.description;
     setLocationDetails({ address: formattedAddress });
@@ -143,12 +142,13 @@ const Location = () => {
                   type='text'
                   placeholder='Search area, city and neighborhoods'
                   value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  className='p-1 relative absolute outline-none w-[280px] border-b'
+                  className='p-1 relative absolute outline-none w-[280px] border-b user-select-none'
                   onBlur={() => setAutocompleteFocused(false)}
+                  style={{ WebkitTapHighlightColor: 'transparent' }}
                 />
 
-                <div className='absolute left-64 top-1/2 transform -translate-y-1/2'>
+
+                <div className='absolute left-64 top-1/2 transform -translate-y-1/2 'style={{ userSelect: 'none' }}>
                   <div onClick={handleDropdownToggle} className='cursor-pointer'>
                     {isDropdownOpen ? '▲' : '▼'}
                   </div>
@@ -177,9 +177,10 @@ const Location = () => {
             )}
           </div>
           {isDropdownOpen && (
-            <div className='div-dropdown shadow-2xl fixed bg-white rounded mt-1 lg:w-[280px] move-up-animation mt-4'>
-              <div className='flex p-2 border-b border-gray-200 items-center'>
-                <MdMyLocation size={20} className='text-gray-700'/>
+            <div className='div-dropdown shadow-2xl fixed bg-white rounded mt-1 lg:w-[280px] move-up-animation mt-4 user-select: none'
+            >
+              <div className='flex p-2 border-b border-gray-200 items-center'style={{ userSelect: 'none' }}>
+                <MdMyLocation size={20} className='text-gray-700' />
                 <div className='flex flex-col ms-2'>
                   <h1 onClick={onGetCurrentLocationClick} className='font-semibold cursor-pointer text-gray-700'>
                     Use Current location
@@ -187,25 +188,25 @@ const Location = () => {
                 </div>
               </div>
               {locationDetails && (
-                <div className='font-medium hover:bg-gray-200'>
+                <div className='font-medium hover:bg-gray-200' >
                 </div>
               )}
-              <div>
-                <h1 className='text-gray-500 mb-1 px-6  mt-2'>Recent Location</h1>
+              <div style={{ userSelect: 'none' }}>
+                <h1 className='text-gray-500 mb-1 px-6  mt-2 '>Recent Location</h1>
                 {recentSearches.map((search, index) => (
-                 <div
-                 key={index}
-                 className='py-1 px-2 hover:bg-gray-200 cursor-pointer rounded py-2 border-b border-gray-200 '
-                 onClick={() => {
-                   setInputValue(search);
-                   setDropdownOpen(false);
-                 }}
-               >
-                 <h1 className='flex items-center px-2 font-medium'>
-                   <CiTimer style={{strokeWidth: '1'}}/>
-                   <span className='ml-1 '>{search}</span>
-                 </h1>
-               </div>
+                  <div
+                    key={index}
+                    className='py-1 px-2 hover:bg-gray-200 cursor-pointer rounded py-2 border-b border-gray-200 '
+                    onClick={() => {
+                      setInputValue(search);
+                      setDropdownOpen(false);
+                    }}
+                  >
+                    <h1 className='flex items-center px-2 font-medium'>
+                      <CiTimer style={{ strokeWidth: '1' }} />
+                      <span className='ml-1 '>{search}</span>
+                    </h1>
+                  </div>
                 ))}
               </div>
             </div>
