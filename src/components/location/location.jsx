@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Autocomplete, useLoadScript } from '@react-google-maps/api';
 import { IoLocationOutline } from 'react-icons/io5';
 import { MdMyLocation } from 'react-icons/md';
-import { CiTimer } from "react-icons/ci";
+import { TiDelete } from "react-icons/ti";
+import { IoIosTimer } from "react-icons/io";
 const Location = () => {
   const placesLibrary = ['places'];
 
@@ -29,7 +30,6 @@ const Location = () => {
       }
     };
 
-    // Attach the event listener
     window.addEventListener('click', handleClickOutside);
 
     // Clean up the event listener on component unmount
@@ -57,17 +57,24 @@ const Location = () => {
   const handleDropdownToggle = () => {
     setDropdownOpen(!isDropdownOpen);
   };
-
+  const clearInput = () => {
+    setInputValue('');
+    setLocationDetails(null);
+    setDropdownOpen(false);
+  };
   const onGetCurrentLocationClick = () => {
-    const handlePermission = (result) => {
-      if (result.state === 'granted') {
-        // Permission is granted, get the current location
-        navigator.geolocation.getCurrentPosition(pos => {
+    // Show a alert messsage
+    const allowLocation = window.confirm('Allow location access to use this feature?');
+
+    if (allowLocation) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
           const { latitude, longitude } = pos.coords;
           const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
+
           fetch(url)
-            .then(res => res.json())
-            .then(data => {
+            .then((res) => res.json())
+            .then((data) => {
               setLocationDetails({
                 city: data.address.city || '',
                 road: data.address.road || '',
@@ -82,29 +89,19 @@ const Location = () => {
               const updatedSearches = [formattedAddress, ...recentSearches.slice(0, 2)];
               setRecentSearches(updatedSearches);
               localStorage.setItem('recentSearches', JSON.stringify(updatedSearches));
+            })
+            .catch((error) => {
+              console.error('Error fetching location data:', error);
             });
-        });
-      } else if (result.state === 'prompt') {
-        // The user hasn't made a decision yet, so you can ask again
-        alert('Please allow location access to use this feature.');
-      } else {
-        // Permission is denied
-        alert('Location permission denied. Please allow location access to use this feature.');
-      }
-    };
-
-    // Check for geolocation permission
-    if (navigator.permissions) {
-      navigator.permissions.query({ name: 'geolocation' }).then(handlePermission);
-    } else {
-      // Fallback for older browsers
-      navigator.geolocation.getCurrentPosition(() => { }, (error) => {
-        if (error.code === error.PERMISSION_DENIED) {
-          alert('Location permission denied. Please allow location access to use this feature.');
-        }
-      });
+        },
+        (error) => {
+          console.error('Error getting current location:', error);
+        },
+        { enableHighAccuracy: true }
+      );
     }
   };
+
   const onPlaceChanged = (place) => {
     const formattedAddress = place.formatted_address || place.description;
     setLocationDetails({ address: formattedAddress });
@@ -135,23 +132,28 @@ const Location = () => {
             <Autocomplete
               onLoad={onAutocompleteLoad}
               onPlaceChanged={onAutocompletePlaceChanged}
-              className='w-[280px]'
+              className='w-[300px]'
             >
               <div className='relative'>
                 <input
                   type='text'
                   placeholder='Search area, city and neighborhoods'
                   value={inputValue}
-                  className='p-1 relative absolute outline-none w-[280px] border-b user-select-none'
+                  onChange={(e) => setInputValue(e.target.value)}
+                  className='p-1 relative absolute outline-none w-full border-b text-gray-700 font-medium'
                   onBlur={() => setAutocompleteFocused(false)}
-                  style={{ WebkitTapHighlightColor: 'transparent' }}
                 />
 
-
-                <div className='absolute left-64 top-1/2 transform -translate-y-1/2 'style={{ userSelect: 'none' }}>
-                  <div onClick={handleDropdownToggle} className='cursor-pointer'>
-                    {isDropdownOpen ? '▲' : '▼'}
-                  </div>
+                <div className='absolute left-64 top-1/2 transform -translate-y-1/2' style={{ userSelect: 'none' }}>
+                  {inputValue ? (
+                    <div onClick={clearInput} className='cursor-pointer ml-2'>
+                      <TiDelete size={16} />
+                    </div>
+                  ) : (
+                    <div onClick={handleDropdownToggle} className='cursor-pointer ml-2'>
+                      {isDropdownOpen ? '▲' : '▼'}
+                    </div>
+                  )}
                 </div>
               </div>
             </Autocomplete>
@@ -177,34 +179,33 @@ const Location = () => {
             )}
           </div>
           {isDropdownOpen && (
-            <div className='div-dropdown shadow-2xl fixed bg-white rounded mt-1 lg:w-[280px] move-up-animation mt-4 user-select: none'
-            >
-              <div className='flex p-2 border-b border-gray-200 items-center'style={{ userSelect: 'none' }}>
-                <MdMyLocation size={20} className='text-gray-700' />
+            <div className='div-dropdown shadow-2xl fixed bg-white rounded mt-1 lg:w-[300px] move-up-animation mt-4' style={{ userSelect: 'none' }}>
+              <div className='flex p-2 border-b border-gray-200 items-center text-gray-700'>
+                <MdMyLocation size={20} />
                 <div className='flex flex-col ms-2'>
-                  <h1 onClick={onGetCurrentLocationClick} className='font-semibold cursor-pointer text-gray-700'>
+                  <h1 onClick={onGetCurrentLocationClick} className='font-semibold cursor-pointer'>
                     Use Current location
                   </h1>
                 </div>
               </div>
               {locationDetails && (
-                <div className='font-medium hover:bg-gray-200' >
+                <div className='font-medium hover:bg-gray-200'>
                 </div>
               )}
-              <div style={{ userSelect: 'none' }}>
-                <h1 className='text-gray-500 mb-1 px-6  mt-2 '>Recent Location</h1>
+              <div>
+                <h1 className='text-gray-500 mb-1 px-8'>Recently Used</h1>
                 {recentSearches.map((search, index) => (
                   <div
                     key={index}
-                    className='py-1 px-2 hover:bg-gray-200 cursor-pointer rounded py-2 border-b border-gray-200 '
+                    className='py-1 px-2 hover:bg-gray-100 cursor-pointer rounded px-4 border-b border-gray-200 py-2 text-gray-700'
                     onClick={() => {
                       setInputValue(search);
                       setDropdownOpen(false);
                     }}
                   >
-                    <h1 className='flex items-center px-2 font-medium'>
-                      <CiTimer style={{ strokeWidth: '1' }} />
-                      <span className='ml-1 '>{search}</span>
+                    <h1 className='flex items-center text-md font-semibold'>
+                      <IoIosTimer />
+                      <span className='ml-1'>{search}</span>
                     </h1>
                   </div>
                 ))}
