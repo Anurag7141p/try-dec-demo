@@ -73,7 +73,7 @@ const Analytics = () => {
         showHeaderText={false}
         showLogout={false}
         />
-        <div className='mt-[110px] ms-4 h-screen'>
+        <div className='mt-[107px] ms-4'>
             <div className='flex'>
                 <div className='mt-20 w-[180px] rounded-lg px-3 py-2 h-10 mr-4 border border-gray-400'>
                     <input type='text' placeholder='First Name' className='w-full h-full outline-none' />
@@ -152,7 +152,7 @@ const Analytics = () => {
                         <input type='text' placeholder='Pincode' className='w-full h-full outline-none' />
                     </div>
                 </div>
-                <p className='mt-4 mb-4'>Language</p>
+                <p className='mt-2 mb-2'>Language</p>
                 <div className=' w-[380px] rounded-l-lg px-3 py-2 h-10 border border-gray-400 rounded-lg'>
                     <input type='text' placeholder='Language' className='h-full outline-none' />
                 </div>

@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  font-family: 'Poppins', sans-serif;
+}
 
 * {
   margin: 0;
@@ -31,8 +34,6 @@
 ::-webkit-scrollbar {
   display: none;
 }
-
-
 
 .with-pointer::before {
   content: '';
@@ -148,4 +149,35 @@
   to {
     transform: translateX(0);
   }
+}
+/* home arrow button  */
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.4s ease;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.4s ease;
 }

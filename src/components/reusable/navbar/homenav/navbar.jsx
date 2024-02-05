@@ -111,20 +111,20 @@ const Navbar = () => {
                   <div className='text-white bg-orange-400 rounded-full px-2 mr-1'>
                     <span className='relative'>S</span>
                   </div>
-                  <div className='absolute h-2 w-2 bg-green-500 rounded-full ml-24 mt-3'></div>
+                  <div className='absolute h-2 w-2 bg-green-500 rounded-full ml-[104px] mt-3'></div>
                 </div>
 
                 {/* Account Dropdown */}
                 {isAccountDropdownOpen && (
                   <div className="absolute z-50 top-12   bg-white border border-gray-400 rounded-md w-36 right-0 move-up-animation with-pointer"                  onMouseEnter={handleAccountHover}
                   onMouseLeave={handleAccountLeave}>
-                    <Link to="/account/settings" className="block px-2 py-1 text-black hover:bg-green-500 hover:text-white">
+                    <Link to="/account/settings" className="block px-2 py-1 text-black  hover:text-green-500">
                       Settings
                     </Link>
-                    <Link to="/logout" className="block px-2 py-1 text-black hover:bg-green-500 hover:text-white">
+                    <Link to="/logout" className="block px-2 py-1 text-black  hover:text-green-500">
                       Logout
                     </Link>
-                    <Link to="/select-type" className="block px-2 py-1 hover:bg-green-500 hover:text-white">
+                    <Link to="/select-type" className="block px-2 py-1  hover:text-green-500">
                       Create Store
                     </Link>
                   </div>

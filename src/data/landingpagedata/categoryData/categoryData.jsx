@@ -1,22 +1,20 @@
-
-import ornaments from '../../../assets/landingPageImages/Ellipse 140.png';
-import shootingVehicle from '../../../assets/LandingPageImages/car.png';
+// import ornaments from '../../../assets/landingPageImages/Ellipse 140.png';
+// import shootingVehicle from '../../../assets/LandingPageImages/car.png';
 import locationImage from '../../../assets/LandingPageImages/Locations.jpg';
-import soundUnit from '../../../assets/LandingPageImages/sound unit.png';
-import camera from '../../../assets/LandingPageImages/camera and lens.png';
-import workstation from '../../../assets/LandingPageImages/work&location.png';
-import artProperties from '../../../assets/LandingPageImages/Art pop.png';
-import costume from '../../../assets/LandingPageImages/coustumes.png';
+// import soundUnit from '../../../assets/LandingPageImages/sound unit.png';
 
-const imageData = [
-    { image: ornaments, title: "ornaments", linkTo: '/login' },
-    { image: shootingVehicle, title: "shooting vehicle", linkTo: '/' },
-    { image: locationImage, title: "Locations", linkTo: '/login' },
-    { image: soundUnit, title: "sound Unit", linkTo: '/' },
-    { image: camera, title: "camera and lens", linkTo: '/' },
-    { image: workstation, title: "work station", linkTo: '/' },
-    { image: artProperties, title: "art properties", linkTo: '/' },
-    { image: costume, title: "costumes", linkTo: '/' },
+const ImageData = [
+    { image: locationImage, title: "ornaments", linkTo: '/login', backgroundColor: '#FF5733' },
+    { image: locationImage, title: "shooting vehicle", linkTo: '/', backgroundColor: 'green' },
+    { image: locationImage, title: "Locations", linkTo: '/login', backgroundColor: 'brown' },
+    { image: locationImage, title: "sound Unit", linkTo: '/', backgroundColor: '#1C2833' },
+    { image: locationImage, title: "sound Unit", linkTo: '/', backgroundColor: '#581845' },
+    { image: locationImage, title: "sound Unit", linkTo: '/', backgroundColor: '#900C3F' },
+    { image: locationImage, title: "sound Unit", linkTo: '/', backgroundColor: '#1A5276' },
+    { image: locationImage, title: "sound Unit", linkTo: '/', backgroundColor: '#0B5345' },
+    { image: locationImage, title: "sound Unit", linkTo: '/', backgroundColor: '#0B5345' },
+    { image: locationImage, title: "sound Unit", linkTo: '/', backgroundColor: '#0B5345' },
+
 ];
 
-export default imageData;
+export default ImageData;
