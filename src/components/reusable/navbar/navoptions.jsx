@@ -41,19 +41,19 @@ const NavOptions = () => {
           {showDashboardOptions && (
             <div className='dropdown-content'>
               <div className='bg-white text-gray-600 rounded-lg  right-0 move-up-animation ms-8'>
-                <p className=' hover:bg-gray-300 transition-all duration-300'>
+                <p className='mb-2 hover:bg-gray-300 transition-all duration-300'>
                   Store Inventory
                 </p>
-                <p className=' hover:bg-gray-300 transition-all duration-300'>
+                <p className='mb-2 hover:bg-gray-300 transition-all duration-300'>
                   Products
                 </p>
-                <p className=' hover:bg-gray-300 transition-all duration-300'>
+                <p className='mb-2 hover:bg-gray-300 transition-all duration-300'>
                   Order request
                 </p>
-                <p className=' hover:bg-gray-300 transition-all duration-300'>
+                <p className='mb-2 hover:bg-gray-300 transition-all duration-300'>
                   Upcoming
                 </p>
-                <p className=' hover:bg-gray-300 transition-all duration-300'>
+                <p className='mb-2 hover:bg-gray-300 transition-all duration-300'>
                   Upcoming
                 </p>
               </div>
@@ -67,7 +67,7 @@ const NavOptions = () => {
             >
               <IoStorefrontOutline size={24} className='mr-8' />
               Store
-              <IoIosArrowDown size={24} className='ml-[78npx]' />
+              <IoIosArrowDown size={24} className='ml-[78px]' />
             </div>
           </Link>
 
@@ -103,19 +103,19 @@ const NavOptions = () => {
           {showHelpOptions && (
             <div className='dropdown-content'>
               <div className='bg-white text-gray-600 rounded-lg  right-0 move-up-animation ms-8'>
-                <p className=' hover:bg-gray-300 transition-all duration-300'>
+                <p className='mb-2 hover:bg-gray-300 transition-all duration-300'>
                   Store Inventory
                 </p>
-                <p className=' hover:bg-gray-300 transition-all duration-300'>
+                <p className='mb-2 hover:bg-gray-300 transition-all duration-300'>
                   Products
                 </p>
-                <p className=' hover:bg-gray-300 transition-all duration-300'>
+                <p className='mb-2 hover:bg-gray-300 transition-all duration-300'>
                   Order request
                 </p>
-                <p className=' hover:bg-gray-300 transition-all duration-300'>
+                <p className='mb-2 hover:bg-gray-300 transition-all duration-300'>
                   Upcoming
                 </p>
-                <p className=' hover:bg-gray-300 transition-all duration-300'>
+                <p className='mb-2 hover:bg-gray-300 transition-all duration-300'>
                   Upcoming
                 </p>
               </div>
@@ -133,19 +133,19 @@ const NavOptions = () => {
           {showPrivacyOptions && (
             <div className='dropdown-content'>
               <div className='bg-white text-gray-600 rounded-lg  right-0 move-up-animation ms-12 justify-center  '>
-                <p className=' hover:bg-gray-300 transition-all duration-300'>
+                <p className='mb-2 hover:bg-gray-300 transition-all duration-300'>
                   Store Inventory
                 </p>
-                <p className=' hover:bg-gray-300 transition-all duration-300'>
+                <p className='mb-2 hover:bg-gray-300 transition-all duration-300'>
                   Products
                 </p>
-                <p className=' hover:bg-gray-300 transition-all duration-300'>
+                <p className='mb-2 hover:bg-gray-300 transition-all duration-300'>
                   Order request
                 </p>
-                <p className=' hover:bg-gray-300 transition-all duration-300'>
+                <p className='mb-2 hover:bg-gray-300 transition-all duration-300'>
                   Upcoming
                 </p>
-                <p className=' hover:bg-gray-300 transition-all duration-300'>
+                <p className='mb-2 hover:bg-gray-300 transition-all duration-300'>
                   Upcoming
                 </p>
               </div>

@@ -41,7 +41,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="lg:fixed lg:w-[1535px] top-0 z-50 bg-white lg:bg-transparent px-4 flex justify-between items-center lg:bg-white shadow ">
+      <nav className=" lg:w-[1535px]  bg-white lg:bg-transparent px-4 flex justify-between items-center lg:bg-white shadow ">
         {/* Hamburger Icon for mobile */}
         <div className="lg:hidden">
           <button onClick={toggleMobileMenu}>
@@ -53,7 +53,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        <Link to="/home" className="pl-4">
+        <Link to="/" className="pl-4">
           <img src={Brandlogo} alt="Logo" className="w-22 h-12" />
         </Link>
 
@@ -72,7 +72,7 @@ const Navbar = () => {
         </div>
 
         {/* Location Selector */}
-        <div className="hidden lg:flex ml-10">
+        <div className="hidden lg:flex ml-10 z-10">
           <Location />
 
         </div>

@@ -8,11 +8,12 @@ import RentalLocation from '../../components/homePage/rentalLocation';
 import RentalVehicle from '../../components/homePage/rentalVehicle';
 import Helpline from '../../components/reusable/footer/helpline/helpline';
 import Footer from '../../components/reusable/footer/footer/footer';
-
+import Categoryhead from '../../components/homePage/categoryhead';
 export default function HomeView() {
   return (
     <div className='mx-auto justify-center  items-center lg:w-[1536px] '>
       <Navbar />
+      <Categoryhead/>
       <Carousel />
       <Category />
       <BestInRental />

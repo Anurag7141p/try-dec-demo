@@ -3,35 +3,12 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-time-picker/dist/TimePicker.css';
 import 'slick-carousel/slick/slick-theme.css';
 import imageData from '../../../data/carouselData/carouselData';
 
 const Carousel = () => {
-
-  const [selectedPickDate, setSelectedPickDate] = useState(null);
-  const [selectedDropDate, setSelectedDropDate] = useState(null);
-
-
-  const [selectedTime, setSelectedTime] = useState(new Date());
-
-
-  const handlePickUpDateChange = (date) => {
-    setSelectedPickDate(date);
-  };
-  const handleDropUpDateChange = (date) => {
-    setSelectedDropDate(date);
-  };
-
-
-
-
-
-  const handleTimeChange = (time) => {
-    setSelectedTime(time);
-  };
 
   const carouselSettings = {
     dots: true,
@@ -42,112 +19,36 @@ const Carousel = () => {
   };
 
   return (
-    <div className="relative car   overflow-x:hidden justify-center items-center mx-auto">
+    <div className="relative car overflow-x:hidden justify-center items-center mx-auto overflow-hidden">
       <Slider {...carouselSettings}>
         {imageData.map((item) => (
-          <div key={item.id} className="relative sm:h-60 lg:h-[600px] w-full justify-center  ">
-            <img src={item.imageUrl} alt={item.heading} className="w-full h-full object-cover" />
-            <div className="absolute top-1/2  transform px-10 -translate-y-1/2 text-start text-white">
+          <div key={item.id} className="relative sm:h-60 lg:h-[500px] w-full justify-center">
+            <img
+              src={item.imageUrl}
+              alt={item.heading}
+              className="w-full h-full object-cover rounded-xl"
+            />
+            <div className="absolute top-1/2 transform lg:px-20 sm:px-6 -translate-y-1/2 text-start text-white">
               <h1 className="text-4xl font-extrabold w-[300px] ">{item.heading}</h1>
               <p className="text-white-600 w-[350px]">{item.description}</p>
+
+              {/* Search bar inside the slider */}
+              <div className="relative  lg:mt-4 flex items-center">
+                <input
+                  type="text"
+                  placeholder="Find camera, lens and more ..."
+                  className="p-2 text-black border border-light-green rounded-lg focus:outline-none h-8 lg:w-[400px] sm:w-[300px]"
+                />
+                <div className="absolute  right-0 mr-1 flex items-center lg:px-3 lg:py-1 sm:px-2 sm:py-2 pointer-events-none bg-green-500  rounded-r-md ">
+                  <FontAwesomeIcon icon={faSearch} />
+                </div>
+              </div>
             </div>
           </div>
         ))}
       </Slider>
-      <div className="hidden  lg:block absolute bottom-0 left-[2%] right-[2%] bg-opacity-50 w-[96%] h-[120px] p-3 ">
-
-        <div className=" bg-gray-200 pl-4 rounded-lg">
-
-          <div className="  flex flex-row space-x-8">
-
-            <div className="flex items-center ">
-              <input
-                type="text"
-                placeholder="Pick-up Location"
-                className="border p-2 pl-10 rounded-md w-[300px] h-[80px] focus:outline-none border-light-green"
-              />
-              <div className="absolute  left-10 p-2 flex items-center ">
-                <FontAwesomeIcon icon={faSearch} className="text-gray-500" />
-              </div>
-            </div>
-
-
-            <div className="pt-4">
-              <label className=" pl-3 pt-2 text-black-900 text-md font-light absolute z-10   ">Pick-up date</label>
-              <DatePicker
-                selected={selectedPickDate}
-                onChange={handlePickUpDateChange}
-                dateFormat="eee d MMM"
-                className="p-4 pt-9 border w-[120px] h-[80px] border-gray-300 rounded-md focus:outline-none text-green-500  relative "
-              />
-            </div>
-
-
-            <div className="relative flex flex-col items-center">
-              <DatePicker
-                selected={selectedTime}
-                onChange={handleTimeChange}
-                showTimeSelect
-                showTimeSelectOnly
-                timeIntervals={15}
-                dateFormat="h:mm aa"
-                timeCaption="Time"
-                className="mt-4 px-7 bg-white w-[80%] sm:w-[130px] h-[80px] rounded-md focus:outline-none text-green-500 relative border border-gray-300"
-              />
-              <label htmlFor="absolute" className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center justify-center text-black-900 text-md font-light">
-                Time
-              </label>
-            </div>
-
-
-            <div className="pt-4">
-              <label className=" pl-3 pt-2 text-black-900 text-md font-light absolute z-10   ">Drop-off date</label>
-              <DatePicker
-                selected={selectedDropDate}
-                onChange={handleDropUpDateChange}
-                dateFormat="eee d MMM"
-                className="p-4 pt-9 border w-[130px] h-[80px] border-gray-300 rounded-md focus:outline-none text-green-500  relative "
-              />
-
-
-
-            </div>
-            <div className="relative flex flex-col items-center">
-              <DatePicker
-                selected={selectedTime}
-                onChange={handleTimeChange}
-                showTimeSelect
-                showTimeSelectOnly
-                timeIntervals={15}
-                dateFormat="h:mm aa"
-                timeCaption="Time"
-                className="mt-4 px-7 bg-white w-[80%] sm:w-[130px] h-[80px] rounded-md focus:outline-none text-green-500 relative border border-gray-300"
-              />
-              <label htmlFor="absolute" className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center justify-center text-black-900 text-md font-light">
-                Time
-              </label>
-            </div>
-
-
-            <div className="flex items-center">
-              <input
-                type="text"
-                placeholder="Find camera,lens and more ..."
-                className="border p-2 pl-10 rounded-md  w-full lg:w-[300px] h-12 lg:h-[80px] focus:outline-none border-light-green"
-              />
-              <div className="absolute lg:pl-4 flex items-center ">
-                <FontAwesomeIcon icon={faSearch} className="text-gray-500" />
-              </div>
-            </div>
-
-            <div className='p-10 '>
-              <button className=" text-green-500  font-extrabold w-full ">SEARCH</button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
-}
+};
 
 export default Carousel;

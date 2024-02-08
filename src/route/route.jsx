@@ -17,7 +17,7 @@ import UserDetails from "../components/user/userDetails";
 import Security from "../components/user/security";
 import Payment from "../components/user/payment";
 import Useraddress from "../components/user/useraddress";
-import Map from "../components/location/current";
+import CameraEqui from "../components/singlePage/cameraandequi";
 const UserLayout = () => {
 
   return <Outlet />;
@@ -29,7 +29,7 @@ const UserRoute = {
   element: <UserLayout />,
   children: [
     {
-      path: "home",
+      path: "/",
       element: <HomeView />
     },
     {
@@ -99,8 +99,8 @@ const UserRoute = {
       element: <HandleProductMobile />
     },
     {
-      path: "current",
-      element: <Map/>
+      path: "single",
+      element: <CameraEqui/>
     },
 
   ],

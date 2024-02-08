@@ -8,7 +8,7 @@ const CameraUnits = () => {
     <div className="p-4 justify-center items-center ">
       <div className="flex justify-between">
         <h2 className="text-2xl font-bold lg:px-4 lg:ms-8 text-lg">Camera and Lights Units</h2>
-        <Link to={"/"} className="cursor-pointer">See All</Link>
+        <Link to={"/single"} className="cursor-pointer">See All</Link>
       </div>
       <div className="sm:flex overflow-x-auto col-lg-2 col-md-3 col-sm-4 col-8 mb-4 items-center">
         {cameraData &&
