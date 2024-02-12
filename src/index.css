@@ -35,7 +35,6 @@
 ::-webkit-scrollbar {
   display: none;
 }
-
 .with-pointer::before {
   content: '';
   position: absolute;
@@ -184,3 +183,12 @@
 .slide-in-right {
   animation: slideInRight 0.4s ease;
 }
+.slider-container {
+  width: 80%;
+  margin: auto;
+}
+
+.slider-container {
+  position: relative;
+}
+

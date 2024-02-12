@@ -3,7 +3,7 @@ import lens from '../../../assets/RentalImages/camer prod.png'
 import worklocation from '../../../assets/RentalImages/work prod.png'
 import artprod from '../../../assets/RentalImages/Art prod.png'
 import jeep from '../../../assets/RentalImages/jeep prod.png'
-import smallimg1 from '../../../assets/RentalImages/simage1.jpg'
+import smallimg1 from '../../../assets/RentalImages/simage1.jpeg'
 const rentalsData = [
   {
     id: 1,

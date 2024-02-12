@@ -18,6 +18,7 @@ import Security from "../components/user/security";
 import Payment from "../components/user/payment";
 import Useraddress from "../components/user/useraddress";
 import CameraEqui from "../components/singlePage/cameraandequi";
+import CustomArrows from "../components/reusable/slickcarousel";
 const UserLayout = () => {
 
   return <Outlet />;
@@ -101,6 +102,10 @@ const UserRoute = {
     {
       path: "single",
       element: <CameraEqui/>
+    },
+    {
+      path: "slick",
+      element: <CustomArrows/>
     },
 
   ],

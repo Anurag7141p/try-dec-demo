@@ -1,5 +1,5 @@
 import cameraImage from '../../../assets/rentalImages/camer prod.png'
-import smallimg1 from '../../../assets/RentalImages/simage1.jpg'
+import smallimg1 from '../../../assets/RentalImages/simage1.jpeg'
 
 const cameraData = [
   {

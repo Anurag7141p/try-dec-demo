@@ -19,9 +19,9 @@ const HomeImageCard = ({ rental }) => {
   };
 
   return (
-    <div className="justify-center sm:ms-1 p-2 items-center    relative">
+    <div className="justify-center  sm:ms-1 items-center relative">
       <div
-        className="relative lg:w-[260px] lg:h-[157px] sm:w-40 sm:h-40 hover:cursor-pointer"
+        className="relative lg:w-[270px] lg:h-[157px] sm:h-40   hover:cursor-pointer"
         onMouseEnter={() => setShowButtons(true)}
         onMouseLeave={() => setShowButtons(false)}
       >
