@@ -4,14 +4,13 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import rentalsData from '../../data/landingpagedata/bestRentalData/bestRentalData';
 import HomeImageCard from '../../components/reusable/card/homecard';
-
 const BestInRental = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const settings = {
     dots: false,
     infinite: false,
-    speed: 500,
+    speed: 900,
     slidesToShow: 5,
     slidesToScroll: 5,
     initialSlide: 0,
@@ -22,18 +21,18 @@ const BestInRental = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 5,
-          slidesToScroll: 5,
+          slidesToShow: 4,
+          slidesToScroll: 4,
           infinite: true,
           dots: false
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
+          initialSlide: 0
         }
       },
       {
@@ -51,24 +50,23 @@ const BestInRental = () => {
     return (
       currentSlide < rentalsData.length - settings.slidesToScroll && (
         <div
-        className={className}
-        style={{
-          ...style,
-          position: "absolute",
-          top: "50%",
-          transform: "translateY(-50%)",
-          zIndex: 1,
-          width: "40px",
-          height: "40px",
-          backgroundColor: "#E8E8E8",
-          borderRadius: "50%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-        onClick={onClick}
-      >
-        </div>
+          className={className}
+          style={{
+            ...style,
+            position: "absolute",
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 1,
+            width: "40px",
+            height: "40px",
+            backgroundColor: "#E8E8E8",
+            borderRadius: "50%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          onClick={onClick}
+        ></div>
       )
     );
   }
@@ -95,20 +93,19 @@ const BestInRental = () => {
             alignItems: "center",
           }}
           onClick={onClick}
-        >
-        </div>
+        ></div>
       )
     );
   }
 
   return (
-    <div className="lg:w-[1370px] md:p-4 lg:p-1 over-flow-x-none  justify-center items-center mx-auto lg:mt-20"> 
-    <h1 className='ms-2 p-4 font-bold text-lg'>Best In Rentals</h1>
+    <div className="justify-center items-center  lg:mt-8 mx-10 lg:pl-12 lg:pr-10"> 
+      <h1 className='ms-2 p-4 font-bold text-lg'>Best In Rentals</h1>
       <Slider {...settings}>
-       {rentalsData.map((rentalData, index) => (
+        {rentalsData.map((rentalData, index) => (
           <HomeImageCard key={rentalData.id} rental={rentalData} />
         ))}
-    </Slider>
+      </Slider>
     </div>
   );
 }

@@ -17,9 +17,12 @@ export default function HomeView() {
       <Carousel />
       <Category />
       <BestInRental />
+      <BestInRental />
+      <BestInRental />
+
       <CameraUnits />
-      <RentalLocation />
-      <RentalVehicle />
+      {/* <RentalLocation />
+      <RentalVehicle /> */}
       <Helpline />
       <Footer />
       </div>

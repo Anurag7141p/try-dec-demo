@@ -10,7 +10,7 @@ function SlickCarousel({ imageData }) {
   const settings = {
     dots: false,
     infinite: false,
-    speed: 500,
+    speed: 900,
     slidesToShow: 5,
     slidesToScroll: 5,
     initialSlide: 0,
@@ -28,7 +28,7 @@ function SlickCarousel({ imageData }) {
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 400,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -101,7 +101,7 @@ function SlickCarousel({ imageData }) {
   }
 
   return (
-    <div className="slider-container  lg:w-[1200px] ">
+    <div className="slider-container  lg:w-[1100px] ">
       <h1 className="lg:mx-5 sm:ms-16 mt-5 font-bold lg:text-2xl ">Best in Category's</h1>
 
       <Slider {...settings}>

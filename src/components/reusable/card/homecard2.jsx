@@ -8,8 +8,8 @@ const ImageCard = ({ rental }) => {
   };
 
   return (
-    <div className="justify-center item-center mx-6 p-2 relative">
-      <div className="relative lg:w-[244px] lg:h-[170px] sm:w-40 sm:h-40">
+    <div className="justify-center item-center sm:ms-2  lg:mx-6 lg:p-2 md:mx-1   relative">
+      <div className="relative  lg:w-[244px] lg:h-[170px]  sm:h-40">
         <img src={rental.imageUrl} alt={rental.name} className='absolute inset-0 w-full h-full rounded object-cover' />
         <div className="absolute bottom-0 right-0 p-2">
           <button

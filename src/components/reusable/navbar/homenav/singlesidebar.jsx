@@ -33,7 +33,7 @@ const Singlesidebar = () => {
     };
 
     return (
-        <div className="flex h-full md:text-xs ">
+        <div className="hidden md:flex h-full md:text-xs ">
             <div className="p-3 shadow shadow-gray-400">
                 <div className="relative mb-4">
                     <div className="flex text-center lg:ms-4 p-2">

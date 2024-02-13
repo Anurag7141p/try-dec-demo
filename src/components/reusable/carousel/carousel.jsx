@@ -19,8 +19,8 @@ const Carousel = () => {
   };
 
   return (
-    <div className="relative car overflow-x:hidden justify-center items-center mx-auto overflow-hidden p-1">
-      <Slider {...carouselSettings}>
+    <div className="relative car overflow-x:hidden justify-center items-center mx-auto overflow-hidden ml-2 mr-2">
+      <Slider {...carouselSettings}> 
         {imageData.map((item) => (
           <div key={item.id} className="relative sm:h-60 lg:h-[500px] w-full justify-center">
             <img
