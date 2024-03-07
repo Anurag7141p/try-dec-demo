@@ -22,7 +22,7 @@ const Carousel = () => {
         {imageData.map((item) => (
           <div
             key={item.id}
-            className="relative sm:h-60 lg:h-[641px] w-full justify-center"
+            className="relative   xl:h-[601px] lg:h-[401px] md:h-[310px] sm:h-[210px]  w-full justify-center"
           >
             <img
               src={item.imageUrl}
@@ -30,7 +30,7 @@ const Carousel = () => {
               className="w-full h-full object-cover rounded-xl"
             />
             <div className="absolute top-1/2 transform lg:px-20 sm:px-6 -translate-y-1/2 text-start text-white">
-              <h1 className="text-4xl font-extrabold w-[300px] ">
+              <h1 className="text-4xl font-extrabold w-[300px] xl:text-[40px] lg:text-[32px] md:text-[24px] ">
                 {item.heading}
               </h1>
               <p className="text-white-600 w-[350px]">{item.description}</p>
@@ -40,9 +40,9 @@ const Carousel = () => {
                 <input
                   type="text"
                   placeholder="Find camera, lens and more ..."
-                  className="p-2 text-black border border-light-green rounded-lg focus:outline-none h-12 lg:w-[500px] sm:w-[300px]"
+                  className="p-2 text-black border border-light-green rounded-lg focus:outline-none  xl:w-[500px] xl:h-12 lg:w-[450px] lg:h-10  md:w-[350px] md:h-7   sm:w-[300px] sm:h-7"
                 />
-                <div className="absolute  right-0  flex items-center h-12 lg:px-3 lg:py-1 sm:px-2 sm:py-2 pointer-events-none bg-green-500  rounded-r-md ">
+                <div className="absolute  right-0  flex items-center xl:h-12 lg:h-10 md:h-7 lg:px-3 lg:py-1 sm:px-2 sm:py-2 pointer-events-none bg-green-500  rounded-r-md ">
                   <FontAwesomeIcon icon={faSearch} />
                 </div>
               </div>
