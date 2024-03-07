@@ -24,7 +24,7 @@ export default function HomeView() {
   const [isLoggedIn, setLoggedIn] = useState(false);
 
   return (
-    <div className="mx-auto justify-center  items-center lg:w-[1536px]  ">
+    <div className="mx-auto   justify-center  items-center  lg:w-full 2xl:w-[1536px] xl:w-full ">
       <Navbar isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
       <Categoryhead />
       <div
