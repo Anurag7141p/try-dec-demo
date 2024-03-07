@@ -24,6 +24,10 @@ import ProductList from "../components/product/mediaProduction/productList";
 import CategoryDetails from "../components/product/mediaProduction/categoryDetails";
 import ExtraDeatails from "../components/product/mediaProduction/extraDeatails";
 import ProductPricingAndQuantity from "../components/product/mediaProduction/productPricingAndQuantity";
+import StoreDetails from "../components/store/createStore/storeDetails";
+import PersonalizedStore from "../components/store/createStore/personalizedStore";
+import SubscriptionPlan from "../components/store/createStore/subscriptionPlan";
+import AddDocument from "../components/store/createStore/addDocument";
 const UserLayout = () => {
   return <Outlet />;
 };
@@ -136,6 +140,24 @@ const UserRoute = {
     {
       path: "product-pricing-and-quantity",
       element: <ProductPricingAndQuantity />,
+    },
+
+    // store created
+    {
+      path: "store-details",
+      element: <StoreDetails />,
+    },
+    {
+      path: "personalized-store",
+      element: <PersonalizedStore />,
+    },
+    {
+      path: "subscription-plan",
+      element: <SubscriptionPlan />,
+    },
+    {
+      path: "add-documents",
+      element: <AddDocument />,
     },
   ],
 };
