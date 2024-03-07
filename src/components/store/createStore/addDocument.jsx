@@ -1,7 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import { documentInitioalValues } from "./storeCreateInitialValues";
-import { documentSchema } from "../../../utils/documentYup";
+import { documentSchema } from "../../../validation/documentYup";
 
 const AddDocument = () => {
   const options = [
