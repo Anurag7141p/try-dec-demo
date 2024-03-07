@@ -41,7 +41,7 @@ const Navbar = ({ isLoggedIn, setLoggedIn }) => {
 
   return (
     <>
-      <nav className="  h-[80px] bg-white lg:bg-transparent px-4 flex justify-between items-center lg:bg-white shadow-sm ">
+      <nav className="  h-[80px] w-full bg-white lg:bg-transparent px-4 flex justify-between items-center lg:bg-white shadow-sm ">
         {/* Hamburger Icon for mobile */}
         <div className="lg:hidden">
           <button onClick={toggleMobileMenu}>
@@ -63,7 +63,7 @@ const Navbar = ({ isLoggedIn, setLoggedIn }) => {
             <input
               type="text"
               placeholder="Find camera, lens and more ..."
-              className="p-2 border border-light-green rounded-l-md focus:outline-none  w-full md:w-[600px] h-[40px]"
+              className="p-2 border border-light-green rounded-l-md focus:outline-none  w-full md:w-[300px] xl:[600px] h-[40px]"
             />
             <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none bg-green-500 text-white rounded-r-md">
               <FontAwesomeIcon icon={faSearch} />
@@ -144,8 +144,8 @@ const Navbar = ({ isLoggedIn, setLoggedIn }) => {
               </div>
             </>
           ) : (
-            <>
-              <div className="flex items-center border border-green rounded-md mr-2">
+            <div className="flex lg:text-[12px] xl:text-base">
+              <div className="flex items-center border border-green rounded-md mr-2 ">
                 <Link to="/" className="text-black px-4 py-2 ">
                   <button onClick={() => setLoggedIn(!isLoggedIn)}>
                     Log in
@@ -165,7 +165,7 @@ const Navbar = ({ isLoggedIn, setLoggedIn }) => {
                   Create Store
                 </Link>
               </div>
-            </>
+            </div>
           )}
         </div>
       </nav>
