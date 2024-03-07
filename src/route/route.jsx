@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import ErrorPage from "../components/error/error";
 import LogIn from "../pages/auth/login";
-import Otp from '../pages/auth/otp'
+import Otp from "../pages/auth/otp";
 import HomeView from "../pages/homePage/homeView";
 import Register from "../pages/auth/signup";
 import HandleAddProducts from "../components/product/addProductdetails/handleAddProduct";
@@ -19,95 +19,124 @@ import Payment from "../components/user/payment";
 import Useraddress from "../components/user/useraddress";
 import CustomArrows from "../components/reusable/slickcarousel";
 import Singlepage from "../pages/singlepage";
+import MobChatMain from "../components/chat/mobChatMain";
+import ProductList from "../components/product/mediaProduction/productList";
+import CategoryDetails from "../components/product/mediaProduction/categoryDetails";
+import ExtraDeatails from "../components/product/mediaProduction/extraDeatails";
+import ProductPricingAndQuantity from "../components/product/mediaProduction/productPricingAndQuantity";
 const UserLayout = () => {
-
   return <Outlet />;
 };
 
 const UserRoute = {
   path: "",
-  errorElement: <ErrorPage path={'/'} />,
+  errorElement: <ErrorPage path={"/"} />,
   element: <UserLayout />,
   children: [
     {
       path: "/",
-      element: <HomeView />
+      element: <HomeView />,
     },
     {
       path: "login",
-      element: <LogIn />
+      element: <LogIn />,
     },
     {
       path: "signup",
-      element: <Register />
+      element: <Register />,
     },
     {
       path: "otp-auth",
-      element: <Otp />
+      element: <Otp />,
     },
-    {
-      path: "store",
-      element: <CreateStore />
-    },
+    // {
+    //   path: "store",
+    //   element: <CreateStore />
+    // },
     {
       path: "add-product",
-      element: <HandleAddProducts />
+      element: <HandleAddProducts />,
     },
-    {
-      path: "inventory",
-      element: < UserProfile/>
-    },
+    // {
+    //   path: "inventory",
+    //   element: < UserProfile/>
+    // },
+    // {
+    //   path: "inventory/edit-product",
+    //   element: < EditProduct/>
+    // },
     {
       path: "profile",
-      element: <UserDetails />
+      element: <UserDetails />,
     },
     {
       path: "useraddress",
-      element: <Useraddress />
+      element: <Useraddress />,
     },
 
     {
       path: "security",
-      element: <Security />
+      element: <Security />,
     },
     {
       path: "payment",
-      element: <Payment />
+      element: <Payment />,
     },
 
     {
       path: "analytics",
-      element: <Analytics />
+      element: <Analytics />,
     },
     {
       path: "analytics2",
-      element: <Analytics2 />
+      element: <Analytics2 />,
     },
     {
       path: "earnings",
-      element: <Earnings />
+      element: <Earnings />,
     },
     {
       path: "subscription",
-      element: <Subscription />
+      element: <Subscription />,
     },
     {
       path: "preferences",
-      element: <Preferences />
+      element: <Preferences />,
     },
     {
       path: "product-mobile",
-      element: <HandleProductMobile />
+      element: <HandleProductMobile />,
     },
     {
       path: "single",
-      element: <Singlepage/>
+      element: <Singlepage />,
     },
     {
       path: "slick",
-      element: <CustomArrows/>
+      element: <CustomArrows />,
+    },
+    {
+      path: "chat",
+      element: <MobChatMain />,
     },
 
+    //media production
+    {
+      path: "product-list",
+      element: <ProductList />,
+    },
+    {
+      path: "category-details",
+      element: <CategoryDetails />,
+    },
+    {
+      path: "extra-details",
+      element: <ExtraDeatails />,
+    },
+    {
+      path: "product-pricing-and-quantity",
+      element: <ProductPricingAndQuantity />,
+    },
   ],
 };
 

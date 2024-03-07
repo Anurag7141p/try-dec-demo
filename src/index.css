@@ -6,13 +6,22 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* .inter-<uniquifier> {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
+} */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.slick-dots {
+/* .slick-dots {
   position: absolute;
   left: 70px; 
   bottom: 70px;
@@ -35,6 +44,7 @@
 ::-webkit-scrollbar {
   display: none;
 }
+
 .with-pointer::before {
   content: '';
   position: absolute;
@@ -62,7 +72,7 @@
   opacity: 1;
   background-color: #fff;
   border: 1px solid #fff;
-}
+} */
 
 
 .car{
@@ -70,12 +80,12 @@
   overflow-x: hidden ;
 }
 
-.nav{
+/* .nav{
   position: absolute;
   z-index: 10;
-}
+} */
 
-.sort{
+/* .sort{
   position: absolute;
   z-index: 10;
 }
@@ -90,7 +100,9 @@
 .react-time-picker__clock-icon,
 .react-time-picker__clear-icon {
   display: none !important;
-}
+} */
+
+/* 
 @keyframes moveUp {
   0% {
     transform: translateY(-10px);
@@ -120,9 +132,11 @@
   background-color:rgb(38, 85, 204);
   color: #ffffff;
   transform: translateY(-1px);
-}
+} */
+
+
 /* home card scrolling Animation */
-.sliding-container {
+/* .sliding-container {
   display: flex;
   transition: transform 0.5s ease;
 }
@@ -151,10 +165,12 @@
   to {
     transform: translateX(0);
   }
-}
+} */
+
+
 /* home arrow button  */
 
-@keyframes slideInLeft {
+/* @keyframes slideInLeft {
   0% {
     opacity: 0;
     transform: translateX(-10px);
@@ -190,5 +206,6 @@
 
 .slider-container {
   position: relative;
-}
+} */
+ 
 

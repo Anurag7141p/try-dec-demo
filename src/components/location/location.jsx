@@ -64,7 +64,8 @@ const Location = () => {
   };
   const onGetCurrentLocationClick = () => {
     // Show a alert messsage
-    const allowLocation = window.confirm('Allow location access to use this feature?');
+    // const allowLocation = window.confirm('Allow location access to use this feature?');
+    const allowLocation=true
 
     if (allowLocation) {
       navigator.geolocation.getCurrentPosition(
@@ -101,6 +102,8 @@ const Location = () => {
       );
     }
   };
+
+  console.log(locationDetails);
 
   const onPlaceChanged = (place) => {
     const formattedAddress = place.formatted_address || place.description;

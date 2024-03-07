@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import rentalsData from '../../data/landingpagedata/bestRentalData/bestRentalData';
-import HomeImageCard from '../../components/reusable/card/homecard';
+import React, { useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import rentalsData from "../../data/landingpagedata/bestRentalData/bestRentalData";
+import HomeImageCard from "../../components/reusable/card/homecard";
 const BestInRental = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -24,25 +24,25 @@ const BestInRental = () => {
           slidesToShow: 4,
           slidesToScroll: 4,
           infinite: true,
-          dots: false
-        }
+          dots: false,
+        },
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 0
-        }
+          initialSlide: 0,
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   function NextArrow(props) {
@@ -99,15 +99,15 @@ const BestInRental = () => {
   }
 
   return (
-    <div className="justify-center items-center  lg:mt-8 mx-10 lg:pl-12 lg:pr-10"> 
-      <h1 className='ms-2 p-4 font-bold text-lg'>Best In Rentals</h1>
-      <Slider {...settings}>
+    <div className="justify-center items-center  lg:mt-8 mx-10 lg:pl-12 lg:pr-10 ">
+      <h1 className="ms-2 p-4 font-bold text-lg">Best In Rentals</h1>
+      <Slider {...settings} >
         {rentalsData.map((rentalData, index) => (
           <HomeImageCard key={rentalData.id} rental={rentalData} />
         ))}
       </Slider>
     </div>
   );
-}
+};
 
 export default BestInRental;

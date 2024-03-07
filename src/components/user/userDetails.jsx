@@ -25,7 +25,7 @@ const UserDetails = () => {
                                 <button className='px-4 py-3 rounded hover:text-gray-600 bg-indigo-300 text-blue-600 w-full h-12 text-left md:text-sm'>Verification</button>
                                <Link to={'/security'}>  <button className='px-4 py-2 rounded text-gray-600 hover:bg-indigo-300 hover:text-blue-600 w-full h-12 text-left md:text-sm'>Security</button></Link>
                             </div>
-                            <div className='border border-gray-300 w-full h-[130px] p-6 mr-6 rounded relative'>
+                            {/* <div className='border border-gray-300 w-full h-[130px] p-6 mr-6 rounded relative'>
                                 <div className='flex flex-col-2'>
                                     <div className='relative'>
                                         <img src={profileimg} alt="" className='lg:h-16 px-2' />
@@ -41,7 +41,7 @@ const UserDetails = () => {
                                         </div>
                                         <p className='text-xs text-gray-400'>Eranakualm, India</p>
                                     </div>
-                                    {/* Topbutton */}
+                                    
                                     <div className='ml-auto'>
                                         <div className='flex flex-col'>
                                             <button className='bg-gray-400 text-white rounded px-1 lg:py-2 hover:bg-blue-700 mb-2 md:h-10 md:text-sm transition duration-300 transform hover:-translate-y-0.5'>Complete Verification</button>
@@ -49,10 +49,10 @@ const UserDetails = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                         <div className='  border border-gray-300 rounded p-2 ms-[178px] mr-6 px-4'>
-                            <div className=' '>
+                            {/* <div className=' '>
                                 <h1 className='font-medium'>User Verification Details</h1>
                                 <h1 className='text-blue-700 font-medium mt-2'>Verification Level 1</h1>
                                 <div className='flex '>
@@ -132,7 +132,7 @@ const UserDetails = () => {
                                         <img src={profile} alt="" className=' w-20 mt-6' />
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

@@ -31,7 +31,7 @@ const UserNav = () => {
                            <Location/>
                             <div className='lg:mr-8'>Message</div>
                             <div className='mt-1 text-blue-500 mr-8'><FaBell size={20} /></div>
-                            <div className=" border border-black rounded rounded-sm px-4 lg:mr-10">
+                            <div className=" border border-black  rounded-sm px-4 lg:mr-10">
                                 <select value={selectedLocation} onChange={handleLocationChange}>
                                     <option value="">profile</option>
                                 </select>

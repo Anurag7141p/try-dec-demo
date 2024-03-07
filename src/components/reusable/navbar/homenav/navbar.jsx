@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Brandlogo from '../../../../assets/navabrImages/img_logo.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import Location from '../../../../components/location/location';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Brandlogo from "../../../../assets/navabrImages/img_logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import Location from "../../../../components/location/location";
 import { CiHeart } from "react-icons/ci";
 import { IoIosNotificationsOutline } from "react-icons/io";
-import HomeNavmobile from './homeNavmobile';
-const Navbar = () => {
-  const [selectedLocation, setSelectedLocation] = useState('');
+import HomeNavmobile from "./homeNavmobile";
+
+const Navbar = ({ isLoggedIn, setLoggedIn }) => {
+  const [selectedLocation, setSelectedLocation] = useState("");
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isLoggedIn, setLoggedIn] = useState(true); // Set to true if the user is logged in
 
   const locations = [
-    { value: 'option1', label: 'location a' },
-    { value: 'option2', label: 'location b' },
+    { value: "option1", label: "location a" },
+    { value: "option2", label: "location b" },
   ];
   const [isAccountDropdownOpen, setAccountDropdownOpen] = useState(false);
 
@@ -41,7 +41,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className=" lg:w-[1535px]  bg-white lg:bg-transparent px-4 flex justify-between items-center lg:bg-white shadow ">
+      <nav className="  h-[80px] bg-white lg:bg-transparent px-4 flex justify-between items-center lg:bg-white shadow-sm ">
         {/* Hamburger Icon for mobile */}
         <div className="lg:hidden">
           <button onClick={toggleMobileMenu}>
@@ -63,7 +63,7 @@ const Navbar = () => {
             <input
               type="text"
               placeholder="Find camera, lens and more ..."
-              className="p-2 border border-light-green rounded-l-md focus:outline-none h-8 w-full md:w-[600px]"
+              className="p-2 border border-light-green rounded-l-md focus:outline-none  w-full md:w-[600px] h-[40px]"
             />
             <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none bg-green-500 text-white rounded-r-md">
               <FontAwesomeIcon icon={faSearch} />
@@ -74,7 +74,6 @@ const Navbar = () => {
         {/* Location Selector */}
         <div className="hidden lg:flex ml-10 z-10">
           <Location />
-
         </div>
         <div className="flex justify-end items-center lg:hidden">
           {/* Icon 1 */}
@@ -108,23 +107,36 @@ const Navbar = () => {
                   onMouseLeave={handleAccountLeave}
                 >
                   <span className="text-black px-2 py-2">Account</span>
-                  <div className='text-white bg-orange-400 rounded-full px-2 mr-1'>
-                    <span className='relative'>S</span>
+                  <div className="text-white bg-orange-400 rounded-full px-2 mr-1">
+                    <span className="relative">S</span>
                   </div>
-                  <div className='absolute h-2 w-2 bg-green-500 rounded-full ml-[104px] mt-3'></div>
+                  <div className="absolute h-2 w-2 bg-green-500 rounded-full ml-[104px] mt-3"></div>
                 </div>
 
                 {/* Account Dropdown */}
                 {isAccountDropdownOpen && (
-                  <div className="absolute z-50 top-12   bg-white border border-gray-400 rounded-md w-36 right-0 move-up-animation with-pointer"                  onMouseEnter={handleAccountHover}
-                  onMouseLeave={handleAccountLeave}>
-                    <Link to="/account/settings" className="block px-2 py-1 text-black  hover:text-green-500">
+                  <div
+                    className="absolute z-50 top-12   bg-white border border-gray-400 rounded-md w-36 right-0 move-up-animation with-pointer"
+                    onMouseEnter={handleAccountHover}
+                    onMouseLeave={handleAccountLeave}
+                  >
+                    <Link
+                      to="/account/settings"
+                      className="block px-2 py-1 text-black  hover:text-green-500"
+                    >
                       Settings
                     </Link>
-                    <Link to="/logout" className="block px-2 py-1 text-black  hover:text-green-500">
+                    <Link
+                      to="/"
+                      className="block px-2 py-1 text-black  hover:text-green-500"
+                      onClick={() => setLoggedIn(!isLoggedIn)}
+                    >
                       Logout
                     </Link>
-                    <Link to="/select-type" className="block px-2 py-1  hover:text-green-500">
+                    <Link
+                      to="/select-type"
+                      className="block px-2 py-1  hover:text-green-500"
+                    >
                       Create Store
                     </Link>
                   </div>
@@ -134,8 +146,10 @@ const Navbar = () => {
           ) : (
             <>
               <div className="flex items-center border border-green rounded-md mr-2">
-                <Link to="/login" className="text-black px-4 py-2 ">
-                  Log in
+                <Link to="/" className="text-black px-4 py-2 ">
+                  <button onClick={() => setLoggedIn(!isLoggedIn)}>
+                    Log in
+                  </button>
                 </Link>
               </div>
               <div className="flex items-center border border-green rounded-md mr-2">
@@ -144,7 +158,10 @@ const Navbar = () => {
                 </Link>
               </div>
               <div className="flex items-center">
-                <Link to="/select-type" className="bg-green-500 text-white p-2 rounded-md">
+                <Link
+                  to=""
+                  className="bg-green-500 text-white p-2 rounded-md"
+                >
                   Create Store
                 </Link>
               </div>
