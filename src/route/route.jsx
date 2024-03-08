@@ -28,6 +28,7 @@ import StoreDetails from "../components/store/createStore/storeDetails";
 import PersonalizedStore from "../components/store/createStore/personalizedStore";
 import SubscriptionPlan from "../components/store/createStore/subscriptionPlan";
 import AddDocument from "../components/store/createStore/addDocument";
+import HandleCreateStore from "../components/store/createStore/handleCreateStore";
 const UserLayout = () => {
   return <Outlet />;
 };
@@ -158,6 +159,11 @@ const UserRoute = {
     {
       path: "add-documents",
       element: <AddDocument />,
+    },
+
+    {
+      path: "handle-create-store",
+      element: <HandleCreateStore />,
     },
   ],
 };
