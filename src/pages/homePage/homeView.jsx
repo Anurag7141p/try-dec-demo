@@ -30,8 +30,8 @@ export default function HomeView() {
       <div
         className={`${
           isLoggedIn
-            ? "flex flex-col gap-16 pt-5 px-20"
-            : "flex flex-col gap-16 pt-5 px-20 bg-[#F5F5F5]"
+            ? "flex flex-col gap-16 pt-5 "
+            : "flex flex-col gap-16 pt-5  bg-[#F5F5F5]"
         }`}
       >
         {isLoggedIn ? <LoggedInCategory /> : null}
@@ -41,7 +41,13 @@ export default function HomeView() {
 
         <BestInRental />
         <BestInRental />
-        {isLoggedIn ? <BestInRental /> : <SiteAd />}
+        {isLoggedIn ? (
+          <BestInRental />
+        ) : (
+          <div className="px-10">
+            <SiteAd />
+          </div>
+        )}
 
         <RentalVehicle />
         <Helpline />
