@@ -1,5 +1,5 @@
 import { ProductValidation } from "../../../validation/yup";
-import StoreLayout from "../../layout/storelayout";
+import StoreLayout from "../../layout/storelayoutdemo";
 import BlueBox from "../../../components/store/rightSideBox";
 import Profirstpage from "./profirstpage";
 import ProSecondpage from "./proSecondpage";
