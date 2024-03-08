@@ -18,7 +18,7 @@ export const storeFullInitialValues = {
   storeRules: "",
 };
 
-export const documentInitioalValues = {
+export const documentInitialValues = {
   userId:"",
   name: "",
   dob: "",

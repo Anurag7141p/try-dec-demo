@@ -1,14 +1,26 @@
 import React from "react";
 import Footer from "../../reusable/footer/footer/footer";
+import { GoDot } from "react-icons/go";
+import { RxDot } from "react-icons/rx";
 
-const SubscriptionPlan = () => {
+const SubscriptionPlan = ({
+  isValid,
+  pages,
+  currentPage,
+  handlePrevPage,
+  boxTittle,
+  boxDiscription,
+  buttonText,
+  DubbleDiscription,
+}) => {
+  console.log(currentPage);
   return (
     <>
-      <div className="mx-auto  flex  justify-center  items-center  lg:w-full 2xl:w-[1536px] xl:w-full  ">
+      <div className="mx-auto  flex  justify-center  items-center xl:min-h-screen  lg:w-full 2xl:w-[1536px] xl:w-full  ">
         <div className="   flex justify-center  px-10 ">
           <div className="bg-white w-full  rounded-lg  overflow-auto">
             <div className="grid grid-cols-9 gap-3">
-              <div className="col-span-6 md:col-span-9 xs:col-span-9 text-[14px]  lg:col-span-6  grid grid-cols-6 gap-4  xl:place-items-center lg:place-items-center md:place-items-center  md:h-full ">
+              <div className="col-span-6 md:col-span-9 xs:col-span-9 text-[14px]  lg:col-span-6  grid grid-cols-6 gap-4  xl:place-items-center lg:place-items-center md:place-items-center  md:h-full py-10">
                 <div className="col-span-6 lg:col-span-6 md:col-span-6 xs:col-span-6 flex flex-col gap-6 w-full">
                   <div className="flex flex-col gap-4">
                     <div>
@@ -19,10 +31,10 @@ const SubscriptionPlan = () => {
                         Choose the subscription pack that suits your needs and
                         start earning today!
                       </p>
-                    </  div>
+                    </div>
                     <div className="flex flex-col gap-5 md:text-[11px] lg:text-[13px] xl:text-base">
                       <div className="sm:flex   gap-5">
-                        <div className="flex flex-col border-green-400 border-2 p-3 w-[25rem] h-auto   rounded-md gap-2">
+                        <div className="flex flex-col border-green-400 border-2 p-3 w-[25rem] h-auto   rounded-md gap-2 ">
                           <div className="flex justify-between">
                             <div className="flex gap-3">
                               <input
@@ -135,9 +147,32 @@ const SubscriptionPlan = () => {
                       experience.
                     </li>
                   </ul>
-                  <button className="px-8 w-28 flex justify-center py-1 mt-10 bg-white text-black rounded-lg">
-                    Continue
-                  </button>
+                  <div className="flex justify-normal items-center gap-4">
+                    {currentPage == 1 ? (
+                      ""
+                    ) : (
+                      <button
+                        type="button"
+                        className="bg-blue-500  2xl:px-20 xl:px-14 lg:px-14 md:px-10 w-28 flex justify-center py-2 mt-10  rounded-lg"
+                        onClick={handlePrevPage}
+                      >
+                        Back
+                      </button>
+                    )}
+                    <button
+                      type="submit"
+                      className="px-8 2xl:px-20 xl:px-14 lg:px-14 md:px-10 w-28 flex justify-center py-2 mt-10 bg-white text-black rounded-lg"
+                    >
+                      Continue
+                    </button>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    {Array.from({ length: pages }).map((_, index) => (
+                      <div key={index} className="outer-circle mr-8 indot">
+                        {currentPage == index + 1 ? <GoDot /> : <RxDot />}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
