@@ -1,7 +1,7 @@
 import { storeShema } from "../../validation/yup";
 import StoreFirstForm from "./firstForm";
 import StoreSecondForm from "./secondForm";
-import StoreLayout from "../layout/storelayout";
+import StoreLayout from "../layout/storelayoutdemo";
 import BlueBox from "./rightSideBox";
 import { useState } from "react";
 import ServiceType from "./serviceType";
