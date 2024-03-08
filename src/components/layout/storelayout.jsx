@@ -1,10 +1,7 @@
 import { Formik, Form } from "formik";
-import Navbar from "../../components/reusable/navbar/homenav/navbar";
-import Footer from "../../components/reusable/footer/footer/footer";
+
 const StoreLayout = ({
-  FirstForm,
-  SecondForm,
-  BlueBox,
+  FormComponent,
   validationSchema,
   initialValues,
   handleSubmit,
@@ -15,7 +12,10 @@ const StoreLayout = ({
   boxTittle,
   boxDiscription,
   buttonText,
-  CalenderBox
+  DubbleDiscription,
+  error_message,
+  handleSkip,
+  clientId,
 }) => {
   return (
     <Formik
@@ -23,56 +23,25 @@ const StoreLayout = ({
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      {({ isValid, setFieldValue }) => (
+      {({ isValid, setFieldValue, values }) => (
         <Form>
-          <div className="lg:w-[1536px] justify-center mx-auto">
-          <Navbar/>
-
-          <div className="flex flex-col md:flex-row ">
-            {SecondForm ? (
-              <>
-                <div className="w-full md:w-1/3 md:ms-0 md:flex md:flex-col md:justify-end">
-                  <FirstForm setFieldValue={setFieldValue} />
-                </div>
-                <div className="w-full md:w-1/3">
-                  <SecondForm setFieldValue={setFieldValue} />
-                </div>
-                <div className="w-full md:w-1/3  bg-blue-700 p-2 ">
-                  <BlueBox
-                    boxTittle={boxTittle}
-                    boxDiscription={boxDiscription}
-                    currentPage={currentPage}
-                    isValid={isValid}
-                    pages={pages}
-                    handlePrevPage={handlePrevPage}
-                    handleNextPage={handleNextPage}
-                    buttonText={buttonText}
-                  />
-                </div>{" "}
-              </>
-            ) : (
-              <>
-                <div className="w-full md:w-2/3 md:flex md:flex-col md:justify-end">
-                  <FirstForm setFieldValue={setFieldValue} />
-                </div>
-                <div className="w-full md:w-1/3 bg-blue-700 p-2">
-                <BlueBox
-                    boxTittle={boxTittle}
-                    boxDiscription={boxDiscription}
-                    CalenderBox={CalenderBox}
-                    isValid={isValid}
-                    pages={pages}
-                    handlePrevPage={handlePrevPage}
-                    handleNextPage={handleNextPage}
-                    buttonText={buttonText}
-                  >
-                  </BlueBox>
-                </div>
-              </>
-            )}
-          </div>
-          <Footer/>
-          </div>
+          <FormComponent
+            setFieldValue={setFieldValue}
+            error_message={error_message}
+            isValid={isValid}
+            handleSkip={handleSkip}
+            clientId={clientId}
+            formikFieldValues={values}
+            //blue box
+            boxTittle={boxTittle}
+            boxDiscription={boxDiscription}
+            currentPage={currentPage}
+            pages={pages}
+            handlePrevPage={handlePrevPage}
+            handleNextPage={handleNextPage}
+            buttonText={buttonText}
+            DubbleDiscription={DubbleDiscription}
+          />
         </Form>
       )}
     </Formik>
