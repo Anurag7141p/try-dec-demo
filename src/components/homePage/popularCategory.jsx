@@ -56,6 +56,9 @@ const PopularCategory = () => {
           className="relative flex items-center p-10 rounded-3xl"
           style={{
             backgroundImage: `url('https://res.cloudinary.com/dgkg64nql/image/upload/v1709718587/trydec/popularcategorybg.png')`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
           }}
         >
           <div className="w-12 h-12 bg-white shadow-lg rounded-full flex justify-center items-center absolute left-11 z-10">
