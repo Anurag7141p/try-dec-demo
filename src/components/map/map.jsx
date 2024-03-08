@@ -5,7 +5,7 @@ import {
   getUserCountryData,
 } from "../../utils/locationUtils";
 
-const Map = () => {
+const Map = ({setFieldValue}) => {
   const [markerPosition, setMarkerPosition] = useState({
     lat: 10.10764,
     lng: 76.35158,
