@@ -29,6 +29,9 @@ import PersonalizedStore from "../components/store/createStore/personalizedStore
 import SubscriptionPlan from "../components/store/createStore/subscriptionPlan";
 import AddDocument from "../components/store/createStore/addDocument";
 import HandleCreateStore from "../components/store/createStore/handleCreateStore";
+import Checkout from "../components/product/checkout/checkout";
+import CheckoutMain from "../components/product/checkout/checkoutMain";
+import CheckoutDemo from "../components/product/checkout/checkoutMainDemo";
 const UserLayout = () => {
   return <Outlet />;
 };
@@ -144,26 +147,41 @@ const UserRoute = {
     },
 
     // store created
-    {
-      path: "store-details",
-      element: <StoreDetails />,
-    },
-    {
-      path: "personalized-store",
-      element: <PersonalizedStore />,
-    },
-    {
-      path: "subscription-plan",
-      element: <SubscriptionPlan />,
-    },
-    {
-      path: "add-documents",
-      element: <AddDocument />,
-    },
+    // {
+    //   path: "store-details",
+    //   element: <StoreDetails />,
+    // },
+    // {
+    //   path: "personalized-store",
+    //   element: <PersonalizedStore />,
+    // },
+    // {
+    //   path: "subscription-plan",
+    //   element: <SubscriptionPlan />,
+    // },
+    // {
+    //   path: "add-documents",
+    //   element: <AddDocument />,
+    // },
 
+    // main store
     {
       path: "handle-create-store",
       element: <HandleCreateStore />,
+    },
+
+    //checkout
+    {
+      path: "checkout",
+      element: <Checkout />,
+    },
+    {
+      path: "checkout-main",
+      element: <CheckoutMain />,
+    },
+    {
+      path: "checkout-demo",
+      element: <CheckoutDemo />,
     },
   ],
 };
