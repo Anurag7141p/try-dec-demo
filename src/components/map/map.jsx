@@ -5,7 +5,7 @@ import {
   getUserCountryData,
 } from "../../utils/locationUtils";
 
-const Map = ({setFieldValue}) => {
+const Map = ({ setFieldValue, mheight, setAddLocation }) => {
   const [markerPosition, setMarkerPosition] = useState({
     lat: 10.10764,
     lng: 76.35158,
@@ -27,7 +27,7 @@ const Map = ({setFieldValue}) => {
 
   const mapContainerStyle = {
     width: "100%",
-    height: "200px",
+    height: `${mheight ? `${mheight}px` : "200px"}`,
   };
 
   const { isLoaded, loadError } = useLoadScript({
@@ -38,6 +38,10 @@ const Map = ({setFieldValue}) => {
   // useEffect(() => {
   //   getUserCountryData(setFieldValue);
   // }, []);
+
+  useEffect(() => {
+    setAddLocation(clickedLocationAddress);
+  }, [clickedLocationAddress]);
 
   useEffect(() => {
     const getCurrentLocation = async () => {
