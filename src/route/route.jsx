@@ -32,6 +32,11 @@ import HandleCreateStore from "../components/store/createStore/handleCreateStore
 import Checkout from "../components/product/checkout/checkout";
 import CheckoutMain from "../components/product/checkout/checkoutMain";
 import CheckoutDemo from "../components/product/checkout/checkoutMainDemo";
+import MobSelectMainCategory from "../components/product/mobAddStoreProduct/mobSelectMainCategory";
+import MobSelecteCategoryAndData from "../components/product/mobAddStoreProduct/mobSelectedCategoryAndData";
+import MobCustomField from "../components/product/mobAddStoreProduct/mobCustomField";
+import MobProductPricingAndQuantity from "../components/product/mobAddStoreProduct/mobProductPricingAndQuantity";
+import MobHandleAddProduct from "../components/product/mobAddStoreProduct/mobHandleAddProduct";
 const UserLayout = () => {
   return <Outlet />;
 };
@@ -182,6 +187,13 @@ const UserRoute = {
     {
       path: "checkout-demo",
       element: <CheckoutDemo />,
+    },
+
+    // mobaddproduct
+    {
+      path: "mob-add-product",
+
+      element: <MobHandleAddProduct />,
     },
   ],
 };

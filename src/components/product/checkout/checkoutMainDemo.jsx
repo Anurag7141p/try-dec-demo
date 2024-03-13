@@ -18,8 +18,6 @@ const CheckoutDemo = () => {
   const [mapError, SetMapError] = useState("");
   const [addressValues, setAddressValues] = useState({});
 
-  
-
   const handleSubmit = (values) => {
     if (addLocation) {
       setNewLocation(addLocation);
@@ -83,7 +81,7 @@ const CheckoutDemo = () => {
                 </div>
               </div>
               <div>
-                <input type="checkbox" />
+                <input type="radio" class="form-radio" name="location" />
               </div>
             </div>
 
@@ -96,21 +94,15 @@ const CheckoutDemo = () => {
                 </div>
                 {newLocation && addressValues ? (
                   <>
-                    <div className="flex flex-col gap-1">
+                    <div className="flex flex-col gap-1 text-sm">
                       <h1>{newLocation}</h1>
-                      <h1 >
-                        {addressValues?.landmark}
-                      </h1>
-                      <h1 >
-                        {addressValues?.area}
-                      </h1>
-                      <h1 >
-                        {addressValues?.doorNo}
-                      </h1>
+                      <h1>{addressValues?.landmark}</h1>
+                      <h1>{addressValues?.area}</h1>
+                      <h1>{addressValues?.doorNo}</h1>
                     </div>
                     <div>
                       <button
-                        className="px-2 py-1 bg-blue-500 text-white rounded-lg"
+                        className="px-5 text-sm py-2 bg-blue-500 text-white rounded-lg"
                         onClick={() => setLocationClose(!locationClose)}
                       >
                         Change
@@ -120,7 +112,7 @@ const CheckoutDemo = () => {
                 ) : (
                   <div>
                     <button
-                      className="px-2 py-1 bg-blue-500 text-white rounded-lg"
+                      className="px-5 text-sm py-2 bg-blue-500 text-white rounded-lg"
                       onClick={() => setLocationClose(!locationClose)}
                     >
                       Add Location
@@ -130,7 +122,7 @@ const CheckoutDemo = () => {
               </div>
               {newLocation && addressValues ? (
                 <div>
-                  <input type="checkbox" />
+                  <input type="radio" class="form-radio" name="location" />
                 </div>
               ) : null}
             </div>
@@ -266,7 +258,7 @@ const CheckoutDemo = () => {
             <Form>
               <div
                 className={`w-[40%] min-h-screen h-fit bg-white border  flex flex-col gap-10 border-gray-400 px-10 ${
-                  locationClose ? "overflow-x-auto" : ""
+                  locationClose ? "overflow-x-auto " : ""
                 }`}
               >
                 <div className=" flex justify-end py-5">
@@ -275,59 +267,61 @@ const CheckoutDemo = () => {
                     onClick={() => setLocationClose(!locationClose)}
                   />
                 </div>
-                <div className="min-h-full flex flex-col justify-center gap-6 ">
-                  <div className="text-xl font-semibold">
-                    <h1>Select Delivery Address</h1>
+                <div className="px-16 flex flex-col gap-4">
+                  <div className="min-h-full flex flex-col justify-center gap-6 ">
+                    <div className="text-xl font-semibold">
+                      <h1>Select Delivery Address</h1>
+                    </div>
+                    <div className="w-full h-full ">
+                      <Map mheight={300} setAddLocation={setAddLocation} />
+                      {mapError ? (
+                        <div className="text-red-600">{mapError}</div>
+                      ) : null}
+                    </div>
                   </div>
-                  <div className="w-full h-full ">
-                    <Map mheight={300} setAddLocation={setAddLocation} />
-                    {mapError ? (
-                      <div className="text-red-600">{mapError}</div>
-                    ) : null}
+                  <div className="flex flex-col gap-3 ">
+                    <Field
+                      type="text"
+                      placeholder="landmark"
+                      name="landmark"
+                      className="w-full border border-gray-300  focus:outline-blue-200 p-2 py-2 px-4"
+                    />
+                    <ErrorMessage
+                      name="landmark"
+                      component="div"
+                      className="text-red-600"
+                    />
+                    <Field
+                      type="text"
+                      name="area"
+                      placeholder="area"
+                      className="w-full border border-gray-300  focus:outline-blue-200 p-2 py-2 px-4"
+                    />
+                    <ErrorMessage
+                      name="area"
+                      component="div"
+                      className="text-red-600"
+                    />
+                    <Field
+                      type="text"
+                      placeholder="doorNo"
+                      name="doorNo"
+                      className="w-full border border-gray-300  focus:outline-blue-200 p-2 py-2 px-4"
+                    />
+                    <ErrorMessage
+                      name="doorNo"
+                      component="div"
+                      className="text-red-600"
+                    />
                   </div>
-                </div>
-                <div className="flex flex-col gap-3 ">
-                  <Field
-                    type="text"
-                    placeholder="landmark"
-                    name="landmark"
-                    className="w-full border border-gray-300 rounded-md focus:outline-blue-200 p-2 "
-                  />
-                  <ErrorMessage
-                    name="landmark"
-                    component="div"
-                    className="text-red-600"
-                  />
-                  <Field
-                    type="text"
-                    name="area"
-                    placeholder="area"
-                    className="w-full border border-gray-300 rounded-md focus:outline-blue-200 p-2 "
-                  />
-                  <ErrorMessage
-                    name="area"
-                    component="div"
-                    className="text-red-600"
-                  />
-                  <Field
-                    type="text"
-                    placeholder="doorNo"
-                    name="doorNo"
-                    className="w-full border border-gray-300 rounded-md focus:outline-blue-200 p-2 "
-                  />
-                  <ErrorMessage
-                    name="doorNo"
-                    component="div"
-                    className="text-red-600"
-                  />
-                </div>
-                <div className="w-full  ">
-                  <button
-                    className="w-full p-2 bg-green-600 text-white rounded-sm"
-                    type="submit"
-                  >
-                    Save & Proceed
-                  </button>
+                  <div className="w-full  ">
+                    <button
+                      className="w-full p-2 bg-green-600 text-white rounded-md py-3 font-semibold "
+                      type="submit"
+                    >
+                      Save & Proceed
+                    </button>
+                  </div>
                 </div>
               </div>
             </Form>
