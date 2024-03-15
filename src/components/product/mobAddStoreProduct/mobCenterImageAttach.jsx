@@ -1,55 +1,31 @@
 import React, { useState, useRef } from "react";
 
-function MobCenterImageAttach({ setImages, images }) {
+function MobCenterImageAttach() {
   const [selectedImages, setSelectedImages] = useState([null, null, null]);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const replaceInputRef = useRef(null);
 
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    if (images && images?.length == 3) {
-      setSelectedImages(images);
-    }
-  }, [images]);
-
   const handleFileChange = (event, replaceIndex) => {
-    const reader = new FileReader();
     const file = event.target.files[0];
+    const reader = new FileReader();
 
-    const fileName = file.name.toLowerCase();
-    const extension = fileName.split(".").pop();
+    reader.onloadend = () => {
+      const newSelectedImages = [...selectedImages];
 
-    if (file.type.startsWith("image/")) {
-      if (supportedImageExtensions.includes(extension)) {
-        if (file.size <= 5 * 1024 * 1024) {
-          reader.onloadend = () => {
-            const newSelectedImages = [...selectedImages];
-
-            if (replaceIndex !== null) {
-              newSelectedImages[replaceIndex] = reader.result;
-              setSelectedImages(newSelectedImages);
-            } else {
-              const emptyIndex = newSelectedImages.indexOf(null);
-              if (emptyIndex !== -1) {
-                newSelectedImages[emptyIndex] = reader.result;
-                setSelectedImages(newSelectedImages);
-              }
-            }
-          };
-
-          if (file) {
-            reader.readAsDataURL(file);
-          }
-          setError("");
-        } else {
-          setError("Image size should be less than 5MB");
-        }
+      if (replaceIndex !== null) {
+        newSelectedImages[replaceIndex] = reader.result;
+        setSelectedImages(newSelectedImages);
       } else {
-        setError("Invalid image file extension");
+        const emptyIndex = newSelectedImages.indexOf(null);
+        if (emptyIndex !== -1) {
+          newSelectedImages[emptyIndex] = reader.result;
+          setSelectedImages(newSelectedImages);
+        }
       }
-    } else {
-      setError("File is not an image");
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
     }
   };
 
@@ -60,19 +36,10 @@ function MobCenterImageAttach({ setImages, images }) {
   };
 
   const handleReplace = (index) => {
+    // Trigger the file input when "Replace" is clicked
     replaceInputRef.current.click();
     setHoveredIndex(index);
   };
-
-  useEffect(() => {
-    const allImagesSelected = selectedImages.every((img) => img !== null);
-
-    if (allImagesSelected) {
-      setImages(selectedImages);
-    } else {
-      setImages([]);
-    }
-  }, [selectedImages]);
 
   return (
     <div>
@@ -82,21 +49,19 @@ function MobCenterImageAttach({ setImages, images }) {
           Attach jpg.png with size less than 4mb.
         </h5>
         <div className="flex flex-wrap w-2/2">
-          {selectedImages.some((item) => item == null) && (
-            <label
-              htmlFor="fileInput"
-              className="text-sm text-blue-400 border border-dashed border-blue-400 w-40 h-[110px] px-7 py-8 rounded-lg mt-4 mr-4 bg-blue-50 cursor-pointer"
-            >
-              <input
-                type="file"
-                id="fileInput"
-                className="hidden"
-                onChange={(e) => handleFileChange(e, null)}
-              />
-              <span className="inline-block w-4 h-4"></span>
-              Click here to attach your files
-            </label>
-          )}
+          <label
+            htmlFor="fileInput"
+            className="text-sm text-blue-400 border border-dashed border-blue-400 w-40 h-[110px] px-7 py-8 rounded-lg mt-4 mr-4 bg-blue-50 cursor-pointer"
+          >
+            <input
+              type="file"
+              id="fileInput"
+              className="hidden"
+              onChange={(e) => handleFileChange(e, null)}
+            />
+            <span className="inline-block w-4 h-4"></span>
+            Click here to attach your files
+          </label>
 
           {selectedImages.map(
             (image, index) =>
@@ -131,8 +96,6 @@ function MobCenterImageAttach({ setImages, images }) {
                 </div>
               )
           )}
-
-          <p className="text-red-500">{error}</p>
 
           {/* Additional boxes */}
           {Array.from({ length: Math.max(0, 3 - selectedImages.length) }).map(

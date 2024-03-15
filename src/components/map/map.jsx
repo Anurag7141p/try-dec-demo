@@ -35,9 +35,9 @@ const Map = ({ setFieldValue, mheight, setAddLocation }) => {
     libraries,
   });
 
-  // useEffect(() => {
-  //   getUserCountryData(setFieldValue);
-  // }, []);
+  useEffect(() => {
+    getUserCountryData(setFieldValue);
+  }, []);
 
   useEffect(() => {
     setAddLocation(clickedLocationAddress);
@@ -93,13 +93,13 @@ const Map = ({ setFieldValue, mheight, setAddLocation }) => {
       markerPosition.lng,
       setClickedLocationAddress
     );
-    // setFieldValue("lat", markerPosition.lat);
-    // setFieldValue("lng", markerPosition.lng);
+    setFieldValue("lat", markerPosition.lat);
+    setFieldValue("lng", markerPosition.lng);
   }, [markerPosition]);
 
-  // useEffect(() => {
-  //   setFieldValue("locationAddress", clickedLocationAddress);
-  // }, [clickedLocationAddress]);
+  useEffect(() => {
+    setFieldValue("locationAddress", clickedLocationAddress);
+  }, [clickedLocationAddress]);
 
   if (loadError) {
     return <div>Error loading maps</div>;

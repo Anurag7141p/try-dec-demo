@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import MobSelectMainCategory from "./mobSelectMainCategory";
-import MobSelecteCategoryAndData from "./mobSelectedCategoryAndData";
+import MobSelecteCategoryAndData from "./mobSelecteCategoryAndData";
 import MobCustomField from "./mobCustomField";
 import MobProductPricingAndQuantity from "./mobProductPricingAndQuantity";
 
