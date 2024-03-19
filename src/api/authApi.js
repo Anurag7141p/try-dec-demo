@@ -7,8 +7,25 @@ export const loginApi = async (data) => {
   axios.defaults.headers.common[
     "Authorization"
   ] = `Bearer ${response?.data?.token}`;
-  return { message: response?.data?.message , data:response?.data?.user};
+  return { message: response?.data?.message, data: response?.data?.user };
 };
+
+export const loginEmailOtpVerification = async (data) => {
+  const response = await userAxios.post("/verify_email_otp", data);
+  console.log(response);
+  if (response?.data?.token) {
+    localStorage.setItem("userToken", response?.data?.token);
+    axios.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${response?.data?.token}`;
+  }
+  return { message: response?.data?.message, data: response?.data?.user };
+};
+
+export const resentEmailOtpApi = async (email)=>{
+  const response = await userAxios.get(`/resend_email_otp/${email}`);
+  return response.data?.message;
+}
 
 export const userRegisterApi = async (data) => {
   const response = await userAxios.post("/register_verification", data);

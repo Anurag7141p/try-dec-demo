@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import ErrorPage from "../components/error/error";
 import LogIn from "../pages/auth/login";
-import Otp from "../pages/auth/otp";
+import Otp from "../pages/auth/mobileOtp";
 import HomeView from "../pages/homePage/homeView";
 import Register from "../pages/auth/signup";
 import HandleAddProducts from "../components/product/addProductdetails/handleAddProduct";
@@ -36,6 +36,9 @@ import ProductMoreDetails from "../components/product/moredetails/productMoreDet
 import Test from "../components/product/checkout/test";
 import MobHandleAddProduct from "../components/product/mobAddStoreProduct/mobHandleAddProduct";
 import MobHandleCreateStore from "../components/store/mobCreateStore/mobHandleCreateStore";
+import AuthHome from "../components/auth/mobAuth/authHome";
+import MobLogin from "../components/auth/mobAuth/mobLogin";
+import MobSignup from "../components/auth/mobAuth/mobSignup";
 const UserLayout = () => {
   return <Outlet />;
 };
@@ -202,9 +205,22 @@ const UserRoute = {
 
     // mob add store
     {
-      path:"mob-add-store",
-      element:<MobHandleCreateStore/>
-    }
+      path: "mob-add-store",
+      element: <MobHandleCreateStore />,
+    },
+    // mobile auth
+    {
+      path: "mob-auth-home",
+      element:<AuthHome/>
+    },
+    {
+      path: "mob-auth-login",
+      element: <MobLogin />,
+    },
+    {
+      path: "mob-auth-signup",
+      element: <MobSignup />,
+    },
   ],
 };
 

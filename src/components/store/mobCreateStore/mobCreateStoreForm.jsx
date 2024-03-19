@@ -12,10 +12,10 @@ const MobCreateStoreForm = ({
   const [AddLocation, setAddLocation] = useState("");
   const [selectedStoreType, setSelectedStoreType] = useState("");
 
-  const handleSelectChange = (e) => {
-    setSelectedStoreType(e.target.value);
-    setFieldValue("storeMode", e.target.value);
-  };
+  // const handleSelectChange = (e) => {
+  //   setSelectedStoreType(e.target.value);
+  //   setFieldValue("storeMode", e.target.value);
+  // };
 
   const selectstoretype = [
     { value: "Registered rental store", label: "Registered rental store" },
@@ -193,7 +193,10 @@ const MobCreateStoreForm = ({
                   name="storeMode"
                   className="block font-sm appearance-none w-full p-3 mb-1 bg-white border border-r-gray-300 rounded-lg border-gray-400 outline-none focus:border-blue-300 text-gray-700     leading-tight focus:outline-none"
                   value={selectedStoreType}
-                  onChange={handleSelectChange}
+                  onChange={(e) => {
+                    setSelectedStoreType(e.target.value);
+                    setFieldValue("storeMode", e.target.value);
+                  }}
                 >
                   <option value="" disabled hidden>
                     Select your store type

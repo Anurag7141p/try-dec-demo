@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const WorkingDays = () => {
+const WorkingDaysMob = ({ setFieldValue }) => {
   const [week, setWeek] = useState([
     { name: "SUN", working: true },
     { name: "MON", working: true },
@@ -25,9 +25,10 @@ const WorkingDays = () => {
     setWeek(updatedWeek);
   };
 
-  // useEffect(() => {
-  //   setFieldValue("workingDays", week);
-  // }, [week]);
+  useEffect(() => {
+    setFieldValue("workingDays", week);
+    console.log('this is week',week);
+  }, [week]);
 
   return (
     <div className="ml-2 grid min-w-64 max-w-64  grid-cols-3 gap-4 mt-4">
@@ -46,4 +47,4 @@ const WorkingDays = () => {
   );
 };
 
-export default WorkingDays;
+export default WorkingDaysMob;

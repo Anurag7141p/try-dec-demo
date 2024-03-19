@@ -10,7 +10,7 @@ import MobCreateStorePersonalize from "./mobCreateStorePersonalize";
 import MobSubscriptionPlan from "./mobSubscriptionPlan";
 
 const MobHandleCreateStore = () => {
-  const [currentPage, setCurrentPage] = useState(3);
+  const [currentPage, setCurrentPage] = useState(2);
   const [pages] = useState(3);
 
   const handleNextPage = () => {
@@ -27,7 +27,6 @@ const MobHandleCreateStore = () => {
     console.log(values);
     if (values) {
       handleNextPage();
-      alert("error");
     }
   };
 
@@ -60,6 +59,12 @@ const MobHandleCreateStore = () => {
     //   setError_message("Store creation failed. Please try again late");
     // }
     console.log(values);
+    alert("success");
+    handleNextPage();
+  };
+
+  const handleSubscriptionSubmit = () => {
+    alert("submitted succesfull");
   };
 
   if (currentPage == 1) {
@@ -88,29 +93,21 @@ const MobHandleCreateStore = () => {
           handleSubmit={handleSubmit}
           pages={pages}
           currentPage={currentPage}
-        //   handlePrevPage={handlePrevPage}
-        //   error_message={error_message}
+          handlePrevPage={handlePrevPage}
+          //   error_message={error_message}
         />
       </>
     );
   }
-    if (currentPage == 3) {
-      
-      return (
-        <>
-          {/* {load ? <Loading /> : ""} */}
+  if (currentPage == 3) {
+    return (
+      <>
+        {/* {load ? <Loading /> : ""} */}
 
-          <MobSubscriptionPlan
-            // validationSchema={subscriptionPlanSchema}
-            // initialValues={subscriptionPlanInitialValues}
-            // handleSubmit={handleSubscriptionSubmit}
-            // currentPage={2}
-            // handlePrevPage={handleSubscriptionSubmit}
-            // error_message={error_message}
-          />
-        </>
-      );
-    }
+        <MobSubscriptionPlan handleSubmit={handleSubscriptionSubmit} />
+      </>
+    );
+  }
   //   if (currentPage == 4) {
   //     const boxTittle = "Add Document Verification";
   //     const boxDiscription =

@@ -109,7 +109,7 @@ const MobSubscriptionPlan = () => {
         <div>
           <button
             className="text-gray-500 px-10 py-3 hover:text-[#1281B8]  rounded-lg bg-white   shadow-t-xl xs:hover:bg-gray-50 border-b-4 border-r-4  border-blue-600"
-            type="submit"
+            type="button"
           >
             Finish
           </button>

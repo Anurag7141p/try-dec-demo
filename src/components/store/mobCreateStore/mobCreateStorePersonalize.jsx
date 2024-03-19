@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import WorkingDays from "../createStore/workingDays";
 import { TiDelete } from "react-icons/ti";
 import { FaCamera } from "react-icons/fa";
+import WorkingDaysMob from "./workingDaysMob";
+import WorkingHoursMob from "./workingHoursMob";
 
 const supportedImageExtensions = ["jpg", "jpeg", "png", "gif"];
 
@@ -10,14 +12,8 @@ const MobCreateStorePersonalize = ({
   validationSchema,
   handleSubmit,
   initialValues,
+  handlePrevPage,
 }) => {
-  const [fromHours, setFromHours] = useState(9);
-  const [fromMinutes, setFromMinutes] = useState(0);
-  const [fromAmPm, setFromAmPm] = useState("am");
-  const [toHours, setToHours] = useState(5);
-  const [toMinutes, setToMinutes] = useState(0);
-  const [toAmPm, setToAmPm] = useState("pm");
-
   const [image, setImage] = useState(null);
   const [error, setError] = useState("");
 
@@ -26,53 +22,14 @@ const MobCreateStorePersonalize = ({
   ]);
   const [rulesCount, setRulesCount] = useState(1);
 
-  const hours = Array.from({ length: 12 }, (_, i) => i + 1);
-  const minutes = Array.from({ length: 60 }, (_, i) => i);
+  // const updateRule = (index, value) => {
+  //   const updatedRules = [...rules];
+  //   updatedRules[index] = value;
+  //   setRules(updatedRules);
 
-  const handleFromHoursChange = (event) => {
-    setFromHours(parseInt(event.target.value, 10));
-  };
-
-  const handleFromMinutesChange = (event) => {
-    setFromMinutes(parseInt(event.target.value, 10));
-  };
-
-  const handleFromAmPmChange = (event) => {
-    setFromAmPm(event.target.value);
-  };
-
-  const handleToHoursChange = (event) => {
-    setToHours(parseInt(event.target.value, 10));
-  };
-
-  const handleToMinutesChange = (event) => {
-    setToMinutes(parseInt(event.target.value, 10));
-  };
-
-  const handleToAmPmChange = (event) => {
-    setToAmPm(event.target.value);
-  };
-
-  useEffect(() => {
-    const startTimeString = `${fromHours}:${fromMinutes
-      .toString()
-      .padStart(2, "0")} ${fromAmPm}`;
-    // setFieldValue("openingTime", startTimeString);
-  }, [fromHours, fromMinutes, fromAmPm]);
-
-  useEffect(() => {
-    const closingTimeString = `${toHours}:${toMinutes
-      .toString()
-      .padStart(2, "0")} ${toAmPm}`;
-    // setFieldValue("closingTime", closingTimeString);
-  }, [toHours, toMinutes, toAmPm]);
-
-  const updateRule = (index, value) => {
-    const updatedRules = [...rules];
-    updatedRules[index] = value;
-    setRules(updatedRules);
-    // setFieldValue("storeRules", updatedRules);
-  };
+  //   console.log(rules, "this is rules");
+  //   setFieldValue("storeRules", updatedRules);
+  // };
 
   const handleRulesCount = () => {
     if (rulesCount < 4) {
@@ -80,14 +37,15 @@ const MobCreateStorePersonalize = ({
     }
   };
 
-  const handleDelete = (position) => {
-    const updatedRules = [...rules];
-    updatedRules.splice(position, 1);
-    setRules(updatedRules);
-    setRulesCount(rulesCount - 1);
-  };
+  // const handleDelete = (position) => {
+  //   const updatedRules = [...rules];
+  //   updatedRules.splice(position, 1);
+  //   setRules(updatedRules);
+  //   setRulesCount(rulesCount - 1);
+  //   console.log(rules, "updated rules");
+  // };
 
-  const uploadImage = (files) => {
+  const uploadImage = (files, setFieldValue) => {
     const file = files[0];
     const fileName = file.name.toLowerCase();
     const extension = fileName.split(".").pop();
@@ -108,6 +66,8 @@ const MobCreateStorePersonalize = ({
       setError("File is not an image");
     }
   };
+
+  console.log(error);
 
   return (
     <>
@@ -148,87 +108,10 @@ const MobCreateStorePersonalize = ({
                   user-friendly store working hour setup
                 </p>
                 <div>
-                  <div className=" flex flex-row  pt-4  justify-center">
-                    <div className="flex">
-                      <select
-                        value={fromHours}
-                        onChange={handleFromHoursChange}
-                        className="bg-blue-500  rounded-l-lg text-white py-1 px-2 appearance-none focus:outline-none"
-                      >
-                        {hours.map((hour) => (
-                          <option key={hour} value={hour}>
-                            {hour}
-                          </option>
-                        ))}
-                      </select>
-
-                      <div className="bg-blue-500 flex justify-center items-center gap-2 text-white">
-                        <span>:</span>
-                        <select
-                          value={fromMinutes}
-                          onChange={handleFromMinutesChange}
-                          className="bg-blue-500   text-white py-1 px-1   appearance-none focus:outline-none"
-                        >
-                          {minutes.map((minute) => (
-                            <option key={minute} value={minute}>
-                              {minute < 10 ? `0${minute}` : minute}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                    </div>
-
-                    <select
-                      value={fromAmPm}
-                      onChange={handleFromAmPmChange}
-                      className="bg-blue-500 rounded-r-lg  px-3 text-white py-1 pr-1 appearance-none "
-                    >
-                      <option value="am">AM</option>
-                      <option value="pm">PM</option>
-                    </select>
-
-                    <p className="mt-1 px-3  ">-</p>
-
-                    <div className=" flex">
-                      <select
-                        value={toHours}
-                        onChange={handleToHoursChange}
-                        className="bg-blue-500  rounded-l-lg text-white py-1 px-2 appearance-none focus:outline-none"
-                      >
-                        {hours.map((hour) => (
-                          <option key={hour} value={hour}>
-                            {hour}
-                          </option>
-                        ))}
-                      </select>
-
-                      <div className="bg-blue-500 flex justify-center items-center gap-2 text-white">
-                        <span>:</span>
-                        <select
-                          value={toMinutes}
-                          onChange={handleToMinutesChange}
-                          className="bg-blue-500   text-white py-1 px-1   appearance-none focus:outline-none"
-                        >
-                          {minutes.map((minute) => (
-                            <option key={minute} value={minute}>
-                              {minute < 10 ? `0${minute}` : minute}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                    </div>
-                    <select
-                      value={toAmPm}
-                      onChange={handleToAmPmChange}
-                      className="bg-blue-500 rounded-r-lg  px-3 text-white py-1 pr-1 appearance-none "
-                    >
-                      <option value="am">AM</option>
-                      <option value="pm">PM</option>
-                    </select>
-                  </div>
+                  <WorkingHoursMob setFieldValue={setFieldValue} />
                 </div>
                 <div className=" h-fit w-full flex justify-center">
-                  <WorkingDays setFieldValue={setFieldValue} />
+                  <WorkingDaysMob setFieldValue={setFieldValue} />
                 </div>
 
                 {/* rules */}
@@ -236,7 +119,9 @@ const MobCreateStorePersonalize = ({
                   <div className="mt-5 w-full">
                     {/* <p className="text-red-500">{error_message}</p> */}
                     <div className="flex ">
-                      <h1 className="mb-2 font-semibold text-lg">Store Rules</h1>
+                      <h1 className="mb-2 font-semibold text-lg">
+                        Store Rules
+                      </h1>
                     </div>
                     {Array.from({ length: rulesCount }).map((_, index) => (
                       <div key={index} className="flex justify-center">
@@ -250,23 +135,36 @@ const MobCreateStorePersonalize = ({
                             value={rules[index]}
                             maxLength={80}
                             rows="3"
-                            onChange={(e) => updateRule(index, e.target.value)}
+                            onChange={(e) => {
+                              const updatedRules = [...rules];
+                              updatedRules[index] = e.target.value;
+                              setRules(updatedRules);
+
+                              console.log(rules, "this is rules");
+                              setFieldValue("storeRules", updatedRules);
+                            }}
                           />
 
                           <span
                             className="absolute top-1/2 transform -translate-y-1/2 right-2 cursor-pointer"
-                            onClick={() => handleDelete(index)}
+                            onClick={() => {
+                              const updatedRules = [...rules];
+                              updatedRules.splice(index, 1);
+                              setRules(updatedRules);
+                              setRulesCount(rulesCount - 1);
+                              console.log(rules, "updated rules");
+                            }}
                           >
                             <TiDelete size={30} />
                           </span>
                         </div>
                       </div>
                     ))}
-                    {/* <ErrorMessage
+                    <ErrorMessage
                       name="storeRules"
                       component="div"
                       className="text-red-600"
-                    /> */}
+                    />
                     {rulesCount < 4 ? (
                       <div className="flex justify-center">
                         <label
@@ -312,17 +210,20 @@ const MobCreateStorePersonalize = ({
                             className="hidden"
                             accept="image/*"
                             onChange={(event) => {
-                              uploadImage(event.target.files);
+                              uploadImage(event.target.files, setFieldValue);
                             }}
                           />
                         </label>
                       </div>
                     </div>
+                    <p className="text-red-500">{error}</p>
                   </>
                 ) : (
                   <div className="h-fit w-full  ">
                     <div className="mt-8 ">
-                      <p className="font-semibold text-lg">Attach store image</p>
+                      <p className="font-semibold text-lg">
+                        Attach store image
+                      </p>
                       <label
                         htmlFor="imageUpload"
                         className="  rounded-lg mt-2 w-1/2 cursor-pointer flex  border border-gray-400 p-3 "
@@ -333,12 +234,12 @@ const MobCreateStorePersonalize = ({
                           className="hidden "
                           accept="image/*"
                           onChange={(event) => {
-                            uploadImage(event.target.files);
+                            uploadImage(event.target.files, setFieldValue);
                           }}
                         />
 
                         <span className="flex justify-center items-center gap-3">
-                          <FaCamera className="w-5 h-5"/>
+                          <FaCamera className="w-5 h-5" />
                           Add image
                         </span>
                       </label>
@@ -358,7 +259,7 @@ const MobCreateStorePersonalize = ({
               <div>
                 <button
                   className="text-gray-500 px-10 py-3 hover:text-[#1281B8]  rounded-lg bg-white   shadow-t-xl xs:hover:bg-gray-50 border-b-4 border-r-4  border-blue-600"
-                  // onClick={prev}
+                  onClick={handlePrevPage}
                 >
                   Back
                 </button>

@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 
 export const loginSchema = Yup.object({
-  email: Yup.string().email("Invalid email").required("Email is required"),
+  phoneOrEmail: Yup.string().email("Invalid email").required("Email is required"),
   password: Yup.string()
     .required("Password is required")
     .min(6, "Password must be at least 6 characters")
@@ -71,13 +71,13 @@ export const storeShema = Yup.object({
       "Please enter a valid closing time in 12-hour format (e.g., 5:00 PM)"
     )
     .required("Please select a closing time"),
-    storeRules: Yup.array()
+  storeRules: Yup.array()
     .of(Yup.string().required("Please enter store rule"))
     .min(1, "Please add at least one store rule"),
   image: Yup.mixed().required("Please upload an image file"),
   userId: Yup.string().required(""),
 
-    pancard: Yup.string()
+  pancard: Yup.string()
     .trim()
     .min(7, "Pancard must be at least 7 characters")
     .required("Please enter Pancard Number")
@@ -87,11 +87,10 @@ export const storeShema = Yup.object({
       }
       return true;
     }),
-
 });
 
 export const ProductValidation = Yup.object({
-    productBrand: Yup.string()
+  productBrand: Yup.string()
     .min(2, "Brand Name must be at least 3 characters")
     .required("Please enter product Brand"),
   productModel: Yup.string()
@@ -100,4 +99,4 @@ export const ProductValidation = Yup.object({
   ProductN: Yup.string()
     .min(3, "Product name must be at least 3 numbers")
     .required("Please enter Product Name"),
-})
+});

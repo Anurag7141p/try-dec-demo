@@ -7,7 +7,7 @@ import { VscAccount } from "react-icons/vsc";
 
 const MobFooter = () => {
   return (
-    <div className="xs:h-28 xs:w-full flex text-xl font-lato  border-2 rounded-2xl items-center justify-around fixed bottom-0 drop-shadow-2xl bg-gray-100">
+    <div className="xs:h-28 xs:w-full flex text-xl font-lato  border-2 rounded-2xl items-center justify-around fixed bottom-0  bg-white ">
       <div className="hover:bg-[#1281B8] px-3 h-full  flex justify-center items-center  rounded-tr-lg rounded-br-lg rounded-bl-lg">
         <TiHomeOutline className=" w-9 h-9 text-[#1281B8] hover:text-white" />
       </div>
