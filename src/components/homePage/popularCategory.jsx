@@ -53,9 +53,9 @@ const PopularCategory = () => {
           <h1>Explore Popular Category</h1>
         </div>
         <div
-          className="relative flex items-center p-10 rounded-3xl"
+          className="relative flex items-center p-10 "
           style={{
-            backgroundImage: `url('https://res.cloudinary.com/dgkg64nql/image/upload/v1709718587/trydec/popularcategorybg.png')`,
+            backgroundImage: `url('https://res.cloudinary.com/dgkg64nql/image/upload/v1710847666/trydec/popularcategorynewbg.png')`,
             backgroundPosition: "center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",

@@ -1,10 +1,9 @@
 import React from "react";
-import FooterImage1 from "../../../../assets/footerImages/FooterImage1.jpg";
 
 export default function Helpline() {
   return (
     <div
-      className="mb-10 xl:h-[308px] lg:h-[308px] md:h-[200px] w-full rounded-2xl text-black outline outline-white"
+      className="mb-10 xl:h-[308px] lg:h-[308px] md:h-[220px] w-full rounded-2xl text-black outline outline-white py-10"
       style={{
         backgroundImage: `url("https://res.cloudinary.com/dgkg64nql/image/upload/v1709729380/trydec/helpline.png")`,
         backgroundRepeat: "no-repeat",

@@ -39,6 +39,11 @@ import MobHandleCreateStore from "../components/store/mobCreateStore/mobHandleCr
 import AuthHome from "../components/auth/mobAuth/authHome";
 import MobLogin from "../components/auth/mobAuth/mobLogin";
 import MobSignup from "../components/auth/mobAuth/mobSignup";
+import MobHome from "../components/homePage/mobile/mobHome";
+import CategoryMob from "../components/homePage/mobile/category/categoryMob";
+import Location from "../components/homePage/mobile/location/location";
+import SubCatProduct from "../components/homePage/mobile/subcategory/subCatProduct";
+import MobSearch from "../components/homePage/mobile/search/mobSearch";
 const UserLayout = () => {
   return <Outlet />;
 };
@@ -211,7 +216,7 @@ const UserRoute = {
     // mobile auth
     {
       path: "mob-auth-home",
-      element:<AuthHome/>
+      element: <AuthHome />,
     },
     {
       path: "mob-auth-login",
@@ -220,6 +225,27 @@ const UserRoute = {
     {
       path: "mob-auth-signup",
       element: <MobSignup />,
+    },
+    // mobile home page
+    {
+      path: "mobile-home",
+      element: <MobHome />,
+    },
+    {
+      path: "mobile-home/category",
+      element: <CategoryMob />,
+    },
+    {
+      path: "mobile-home/location",
+      element: <Location />,
+    },
+    {
+      path: "mobile-home/sub-category-product",
+      element: <SubCatProduct />,
+    },
+    {
+      path: "mobile-home/search",
+      element: <MobSearch />,
     },
   ],
 };

@@ -2,8 +2,14 @@ import MobileOtpForm from "../../components/auth/mobileOtpForm";
 import { resentOtpApi } from "../../api/authApi";
 import { errorMessage } from "../../utils/utils";
 import { useEffect, useState } from "react";
+import { useMediaQuery } from "@react-hook/media-query";
+import MobOtp from "../../components/auth/mobAuth/mobEmailOtp";
+import MobEmailOtp from "../../components/auth/mobAuth/mobEmailOtp";
+import MobMobileOtp from "../../components/auth/mobAuth/mobMobileOtp";
 
 const MobileOtp = ({ phone, countryCode, handleOtpSubmit }) => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   const [seconds, setSeconds] = useState(60);
   const [isActive, setIsActive] = useState(true);
   const [otp, setOtp] = useState(["", "", "", ""]);
@@ -60,7 +66,22 @@ const MobileOtp = ({ phone, countryCode, handleOtpSubmit }) => {
 
     setOtpLength(otpFilled && otpLengthValid);
   }, [otp]);
-  return (
+
+  return isMobile ? (
+    <MobMobileOtp
+      otp={otp}
+      seconds={seconds}
+      countryCode={countryCode}
+      lastThreeDigits={lastThreeDigits}
+      handleChange={handleChange}
+      handleResend={handleResend}
+      handleSubmit={handleSubmit}
+      phone={phone}
+      error_message={error_message}
+      otpLength={otpLength}
+    />
+
+  ) : (
     <div className=" w-full h-screen py-5 font-serif">
       <div className="flex flex-col w-full h-full  md:px-20">
         <div className="flex justify-between items-center w-full py-3">

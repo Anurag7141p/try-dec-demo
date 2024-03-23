@@ -2,7 +2,7 @@ import { useState } from "react";
 import SignupForm from "../../components/auth/signupForm";
 import MobileOtp from "./mobileOtp";
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "react-phone-input-2/lib/style.css";
 // import { errorMessage, inputStyle, successMessage } from "../../utils/utils";
 import { getCountryApi } from "../../api/countryApi";
@@ -10,7 +10,7 @@ import { registerOtpVerificationApi, userRegisterApi } from "../../api/authApi";
 import { registerSchema } from "../../validation/yup";
 
 const Signup = () => {
-  const [otpForm, setOtpForm] = useState(false);
+  const [otpForm, setOtpForm] = useState(true);
 
   const [registerData, setRegisterData] = useState({});
 
@@ -111,18 +111,22 @@ const Signup = () => {
       <div className="flex flex-col w-full h-full">
         <div className="flex justify-between items-center w-full py-3">
           <div>
-            <img
-              src="https://res.cloudinary.com/dgkg64nql/image/upload/v1710590778/trydec/login_olapool_logo.png"
-              alt=""
-            />
+            <Link to="/">
+              <img
+                src="https://res.cloudinary.com/dgkg64nql/image/upload/v1710590778/trydec/login_olapool_logo.png"
+                alt=""
+              />
+            </Link>
           </div>
           <div>
-            <button
-              type="button"
-              className="bg-blue-500 text-white px-4 py-1  rounded-md   mt-4 mr-4"
-            >
-              Login
-            </button>
+            <Link to="/login">
+              <button
+                type="button"
+                className="bg-blue-500 text-white px-4 py-1  rounded-md   mt-4 mr-4"
+              >
+                Login
+              </button>
+            </Link>
             <button
               type="button"
               className="bg-blue-500 text-white px-4 py-1  rounded-md   mt-4 mr-4"

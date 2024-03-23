@@ -54,11 +54,11 @@ const LoggedInBanner = () => {
               alt={item.heading}
               className="w-full h-full object-cover rounded-xl"
             />
-            <div className="absolute top-1/2 transform lg:px-20 sm:px-6 -translate-y-1/2 text-start text-white">
-              <h1 className="text-4xl font-extrabold text-[45px] w-[1101px]">
+            <div className="absolute w-[90%] top-1/2  transform lg:px-20 sm:px-6 -translate-y-1/2 text-start text-white">
+              <h1 className="2xl:text-4xl xl:text-4xl lg:text-4xl md:text-4xl font-extrabold  ">
                 {item.heading}
               </h1>
-              <p className="text-white-600 w-[350px]">{item.description}</p>
+              <p className="text-white-600 ">{item.description}</p>
             </div>
           </div>
         ))}
