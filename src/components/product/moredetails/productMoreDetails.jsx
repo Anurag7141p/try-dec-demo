@@ -4,6 +4,8 @@ import RelatedRentals from "./relatedRentals";
 import ProductDetails from "./productDetails";
 import AddProduct from "./addProductSameStore";
 import AddProductSameStore from "./addProductSameStore";
+import MobProductMoreDetails from "./mobile/mobProductMoreDetails";
+import { useMediaQuery } from "@react-hook/media-query";
 
 const ProductMoreDetails = () => {
   const product_details = {
@@ -169,7 +171,11 @@ const ProductMoreDetails = () => {
     },
   };
 
-  return (
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  
+  return isMobile ? (
+    <MobProductMoreDetails  data={product_details.productData}/>
+  ) : (
     <div className="bg-gray-50">
       <div className="grid grid-cols-1 md:grid-cols-6 gap-4 px-4 md:px-10 lg:px-10 xl:px-10">
         <div className="md:col-span-4">

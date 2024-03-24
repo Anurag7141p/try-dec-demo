@@ -29,8 +29,8 @@ export const registerSchema = Yup.object({
   phone: Yup.string()
     .required("Phone Number is required")
     .matches(/^[0-9]+$/, "Phone Number should contain only digits")
-    .min(6, "Phone Number must be at least 6 digits")
-    .max(15, "Phone Number must not exceed 15 digits"),
+    .min(10, "Phone Number must be at least 10 digits")
+    .max(10, "Phone Number must not exceed 10 digits"),
 });
 
 export const otpValidationSchema = Yup.object().shape({

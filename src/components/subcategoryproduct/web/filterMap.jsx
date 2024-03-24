@@ -3,9 +3,9 @@ import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 import {
   getLocationAddress,
   getUserCountryData,
-} from "../../utils/locationUtils";
+} from "../../../utils/locationUtils";
 
-const Map = ({ setFieldValue, mheight, setAddLocation }) => {
+const Map = ({ setFilterLocation,mheight }) => {
   const [markerPosition, setMarkerPosition] = useState({
     lat: 10.10764,
     lng: 76.35158,
@@ -39,9 +39,9 @@ const Map = ({ setFieldValue, mheight, setAddLocation }) => {
   //   getUserCountryData(setFieldValue);
   // }, []);
 
-  // useEffect(() => {
-  //   setAddLocation(clickedLocationAddress);
-  // }, [clickedLocationAddress]);
+  useEffect(() => {
+    setFilterLocation(clickedLocationAddress);
+  }, [clickedLocationAddress]);
 
   useEffect(() => {
     const getCurrentLocation = async () => {
@@ -124,9 +124,9 @@ const Map = ({ setFieldValue, mheight, setAddLocation }) => {
           icon={"http://maps.google.com/mapfiles/ms/icons/green-dot.png"}
         />
       </GoogleMap>
-      <p className="border-collapse mt-2 border-solid border-gray-900 border-2 p-2 ">
+      {/* <p className="border-collapse mt-2 border-solid border-gray-900 border-2 p-2 ">
         Address: {clickedLocationAddress}
-      </p>
+      </p> */}
     </div>
   );
 };

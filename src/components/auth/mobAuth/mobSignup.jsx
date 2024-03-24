@@ -164,7 +164,7 @@ const MobSignup = () => {
                     />
                   </div>
                   <div>
-                    <PhoneInput
+                    {/* <PhoneInput
                       country={country}
                       value={number}
                       placeholder="Phone Number "
@@ -182,7 +182,13 @@ const MobSignup = () => {
                         borderRadius: "4px",
                         paddingLeft: "40px",
                       }}
-                    />
+                    /> */}
+                    <Field
+                      type="tel"
+                      name="phone"
+                      placeholder="Phone number "
+                      className="border rounded-lg border-blue-500  w-full p-4   outline-none focus:border-blue-500"
+                    ></Field>
                     <ErrorMessage
                       name="phone"
                       component="div"

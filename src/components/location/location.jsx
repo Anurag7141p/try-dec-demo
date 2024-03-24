@@ -76,6 +76,7 @@ const Location = () => {
           fetch(url)
             .then((res) => res.json())
             .then((data) => {
+              console.log(data);
               setLocationDetails({
                 city: data.address.city || '',
                 road: data.address.road || '',
@@ -84,6 +85,7 @@ const Location = () => {
 
               // Autofill the input box with city, road, and country
               const formattedAddress = `${data.address.city || ''}, ${data.address.road || ''}, ${data.address.country || ''}`;
+              console.log(formattedAddress);
               setInputValue(formattedAddress);
 
               // Add the recent search to the list

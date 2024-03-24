@@ -10,7 +10,7 @@ import { registerOtpVerificationApi, userRegisterApi } from "../../api/authApi";
 import { registerSchema } from "../../validation/yup";
 
 const Signup = () => {
-  const [otpForm, setOtpForm] = useState(true);
+  const [otpForm, setOtpForm] = useState(false);
 
   const [registerData, setRegisterData] = useState({});
 

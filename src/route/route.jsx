@@ -24,16 +24,11 @@ import ProductList from "../components/product/mediaProduction/productList";
 import CategoryDetails from "../components/product/mediaProduction/categoryDetails";
 import ExtraDeatails from "../components/product/mediaProduction/extraDeatails";
 import ProductPricingAndQuantity from "../components/product/mediaProduction/productPricingAndQuantity";
-import StoreDetails from "../components/store/createStore/storeDetails";
-import PersonalizedStore from "../components/store/createStore/personalizedStore";
-import SubscriptionPlan from "../components/store/createStore/subscriptionPlan";
-import AddDocument from "../components/store/createStore/addDocument";
 import HandleCreateStore from "../components/store/createStore/handleCreateStore";
 import Checkout from "../components/product/checkout/checkout";
 import CheckoutMain from "../components/product/checkout/checkoutMain";
 import CheckoutDemo from "../components/product/checkout/checkoutMainDemo";
 import ProductMoreDetails from "../components/product/moredetails/productMoreDetails";
-import Test from "../components/product/checkout/test";
 import MobHandleAddProduct from "../components/product/mobAddStoreProduct/mobHandleAddProduct";
 import MobHandleCreateStore from "../components/store/mobCreateStore/mobHandleCreateStore";
 import AuthHome from "../components/auth/mobAuth/authHome";
@@ -44,6 +39,7 @@ import CategoryMob from "../components/homePage/mobile/category/categoryMob";
 import Location from "../components/homePage/mobile/location/location";
 import SubCatProduct from "../components/homePage/mobile/subcategory/subCatProduct";
 import MobSearch from "../components/homePage/mobile/search/mobSearch";
+import SelectSubCategory from "../components/subcategoryproduct/web/selectSubCategory";
 const UserLayout = () => {
   return <Outlet />;
 };
@@ -202,12 +198,6 @@ const UserRoute = {
       element: <MobHandleAddProduct />,
     },
 
-    // product more details
-    {
-      path: "product-more-details",
-      element: <ProductMoreDetails />,
-    },
-
     // mob add store
     {
       path: "mob-add-store",
@@ -246,6 +236,18 @@ const UserRoute = {
     {
       path: "mobile-home/search",
       element: <MobSearch />,
+    },
+    // list category
+
+    {
+      path: "category",
+      element: <SelectSubCategory />,
+    },
+
+    // product more details web and mobile view
+    {
+      path: "product-more-details",
+      element: <ProductMoreDetails />,
     },
   ],
 };

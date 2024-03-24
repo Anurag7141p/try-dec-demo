@@ -39,6 +39,8 @@ const LoggedInBanner = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true, // Enable autoplay
+    autoplaySpeed: 3000, // Set the delay between transitions to 5 seconds
   };
 
   return (

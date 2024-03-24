@@ -54,7 +54,7 @@ const SignupForm = ({
               />
             </div>
             <div>
-              <PhoneInput
+              {/* <PhoneInput
                 country={country}
                 value={number}
                 placeholder="Phone Number "
@@ -72,7 +72,15 @@ const SignupForm = ({
                   borderRadius: "4px",
                   paddingLeft: "40px",
                 }}
-              />
+              /> */}
+              <Field
+                type="tel"
+                name="phone"
+                placeholder="phone number "
+                maxLength={10}
+                minLength={10}
+                className="border-b border-gray-400 w-full pb-4   outline-none focus:border-blue-500"
+              ></Field>
               <ErrorMessage
                 name="phone"
                 component="div"
